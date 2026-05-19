@@ -1,6 +1,11 @@
 import React from 'react';
-import { X, ShoppingCart, Check, Star, Package, Leaf } from 'lucide-react';
+import { X, ShoppingCart, Check, Star, Package, Leaf, MessageCircle } from 'lucide-react';
 import { useCart, type Product } from '@/context/CartContext';
+
+const WHATSAPP_QUOTE_URL = (name: string) =>
+  `https://wa.me/message/73CP3FMULQTAA1?text=${encodeURIComponent(
+    `Olá! Gostaria de saber valores e tamanhos disponíveis de: ${name}.`
+  )}`;
 
 interface ProductModalProps {
   product: Product | null;
@@ -69,12 +74,20 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, isOpen, onClose })
 
           {/* Price */}
           <div className="flex items-end gap-3 mt-3">
-            <span className="font-bold text-2xl sm:text-3xl text-brand-green">
-              {formatPrice(product.price)}
-            </span>
-            {product.originalPrice && (
-              <span className="text-sm text-gray-400 line-through mb-1">
-                {formatPrice(product.originalPrice)}
+            {product.price != null ? (
+              <>
+                <span className="font-bold text-2xl sm:text-3xl text-brand-green">
+                  {formatPrice(product.price)}
+                </span>
+                {product.originalPrice && (
+                  <span className="text-sm text-gray-400 line-through mb-1">
+                    {formatPrice(product.originalPrice)}
+                  </span>
+                )}
+              </>
+            ) : (
+              <span className="font-bold text-base sm:text-lg text-brand-green leading-tight">
+                Todos os tamanhos disponíveis. Consulte os valores no WhatsApp.
               </span>
             )}
           </div>
@@ -111,29 +124,40 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, isOpen, onClose })
             </div>
           )}
 
-          {/* Add to cart button */}
-          <button
-            onClick={() => {
-              addToCart(product);
-              onClose();
-            }}
-            className={`w-full mt-6 flex items-center justify-center gap-2 py-3.5 rounded-full font-semibold text-sm transition-all ${
-              inCart
-                ? 'bg-brand-green text-white hover:bg-brand-green-dark'
-                : 'bg-gray-100 text-gray-700 hover:bg-brand-green hover:text-white'
-            }`}
-          >
-            {inCart ? (
-              <>
-                <Check size={18} />
-                {inCart.quantity}x no carrinho: Adicionar mais
-              </>
-            ) : (
-              <>
-                <ShoppingCart size={18} /> Adicionar ao Carrinho
-              </>
-            )}
-          </button>
+          {/* Add to cart or quote button */}
+          {product.quoteOnWhatsapp || product.price == null ? (
+            <a
+              href={WHATSAPP_QUOTE_URL(product.name)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full mt-6 flex items-center justify-center gap-2 py-3.5 rounded-full font-semibold text-sm bg-brand-green text-white hover:bg-brand-green-dark transition-colors"
+            >
+              <MessageCircle size={18} /> Consultar valores no WhatsApp
+            </a>
+          ) : (
+            <button
+              onClick={() => {
+                addToCart(product);
+                onClose();
+              }}
+              className={`w-full mt-6 flex items-center justify-center gap-2 py-3.5 rounded-full font-semibold text-sm transition-all ${
+                inCart
+                  ? 'bg-brand-green text-white hover:bg-brand-green-dark'
+                  : 'bg-gray-100 text-gray-700 hover:bg-brand-green hover:text-white'
+              }`}
+            >
+              {inCart ? (
+                <>
+                  <Check size={18} />
+                  {inCart.quantity}x no carrinho: Adicionar mais
+                </>
+              ) : (
+                <>
+                  <ShoppingCart size={18} /> Adicionar ao Carrinho
+                </>
+              )}
+            </button>
+          )}
         </div>
       </div>
     </div>

@@ -24,9 +24,10 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose }) => {
     msg += `*ITENS DO PEDIDO:*\n`;
     msg += `━━━━━━━━━━━━━━━━━━\n`;
     items.forEach((item) => {
-      const subtotal = formatPrice(item.price * item.quantity);
+      const unitPrice = item.price ?? 0;
+      const subtotal = formatPrice(unitPrice * item.quantity);
       msg += `\n${item.quantity}x ${item.name}\n`;
-      msg += `   ${item.weight || ''} - ${formatPrice(item.price)} = *${subtotal}*\n`;
+      msg += `   ${item.weight || ''} - ${formatPrice(unitPrice)} = *${subtotal}*\n`;
     });
     msg += `\n━━━━━━━━━━━━━━━━━━\n`;
     msg += `*TOTAL: ${formatPrice(totalPrice)}*\n\n`;
@@ -125,7 +126,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose }) => {
                     </p>
                   </div>
                   <p className="text-sm font-semibold text-brand-green">
-                    {formatPrice(item.price * item.quantity)}
+                    {formatPrice((item.price ?? 0) * item.quantity)}
                   </p>
                 </div>
               ))}

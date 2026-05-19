@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState, useCallback } from 'react';
 export interface Product {
   id: number;
   name: string;
-  price: number;
+  price?: number;
   originalPrice?: number;
   image: string;
   category: string;
@@ -11,6 +11,7 @@ export interface Product {
   badge?: string;
   description?: string;
   benefits?: string[];
+  quoteOnWhatsapp?: boolean;
 }
 
 export interface CartItem extends Product {
@@ -36,6 +37,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const addToCart = useCallback((product: Product) => {
+    if (product.quoteOnWhatsapp || product.price == null) return;
     setItems((prev) => {
       const existing = prev.find((item) => item.id === product.id);
       if (existing) {
@@ -67,7 +69,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const clearCart = useCallback(() => setItems([]), []);
 
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
-  const totalPrice = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const totalPrice = items.reduce((sum, item) => sum + (item.price ?? 0) * item.quantity, 0);
 
   return (
     <CartContext.Provider

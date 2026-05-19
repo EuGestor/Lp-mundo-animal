@@ -1,6 +1,11 @@
 import React from 'react';
-import { ShoppingCart, Check, Eye } from 'lucide-react';
+import { ShoppingCart, Check, Eye, MessageCircle } from 'lucide-react';
 import { useCart, type Product } from '@/context/CartContext';
+
+const WHATSAPP_QUOTE_URL = (name: string) =>
+  `https://wa.me/message/73CP3FMULQTAA1?text=${encodeURIComponent(
+    `Olá! Gostaria de saber valores e tamanhos disponíveis de: ${name}.`
+  )}`;
 
 interface ProductCardProps {
   product: Product;
@@ -36,7 +41,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onViewDetails
             {product.badge}
           </span>
         )}
-        {product.originalPrice && (
+        {product.originalPrice && product.price != null && (
           <span className="absolute top-3 right-3 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-full">
             -{Math.round((1 - product.price / product.originalPrice) * 100)}%
           </span>
@@ -61,12 +66,20 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onViewDetails
 
         {/* Price */}
         <div className="mt-auto pt-3 flex items-end gap-2">
-          <span className="font-bold text-lg text-brand-green">
-            {formatPrice(product.price)}
-          </span>
-          {product.originalPrice && (
-            <span className="text-sm text-gray-400 line-through mb-0.5">
-              {formatPrice(product.originalPrice)}
+          {product.price != null ? (
+            <>
+              <span className="font-bold text-lg text-brand-green">
+                {formatPrice(product.price)}
+              </span>
+              {product.originalPrice && (
+                <span className="text-sm text-gray-400 line-through mb-0.5">
+                  {formatPrice(product.originalPrice)}
+                </span>
+              )}
+            </>
+          ) : (
+            <span className="font-semibold text-sm text-brand-green leading-tight">
+              Consulte valores no WhatsApp
             </span>
           )}
         </div>
@@ -79,16 +92,28 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onViewDetails
           >
             <Eye size={14} /> Ver detalhes
           </button>
-          <button
-            onClick={() => addToCart(product)}
-            className={`flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full font-medium text-xs transition-all ${
-              inCart
-                ? 'bg-brand-green text-white'
-                : 'bg-gray-100 text-gray-700 hover:bg-brand-green hover:text-white'
-            }`}
-          >
-            {inCart ? <Check size={14} /> : <ShoppingCart size={14} />}
-          </button>
+          {product.quoteOnWhatsapp || product.price == null ? (
+            <a
+              href={WHATSAPP_QUOTE_URL(product.name)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full font-medium text-xs bg-brand-green text-white hover:bg-brand-green-dark transition-colors"
+              aria-label="Falar no WhatsApp"
+            >
+              <MessageCircle size={14} />
+            </a>
+          ) : (
+            <button
+              onClick={() => addToCart(product)}
+              className={`flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full font-medium text-xs transition-all ${
+                inCart
+                  ? 'bg-brand-green text-white'
+                  : 'bg-gray-100 text-gray-700 hover:bg-brand-green hover:text-white'
+              }`}
+            >
+              {inCart ? <Check size={14} /> : <ShoppingCart size={14} />}
+            </button>
+          )}
         </div>
       </div>
     </div>

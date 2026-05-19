@@ -77,7 +77,7 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose, onCheckout }) 
                         {item.name}
                       </h3>
                       <p className="text-brand-green font-semibold text-sm mt-1">
-                        {formatPrice(item.price)}
+                        {formatPrice(item.price ?? 0)}
                       </p>
                       <div className="flex items-center justify-between mt-2">
                         <div className="flex items-center gap-2 bg-white rounded-full border px-2 py-0.5">
