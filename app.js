@@ -399,3 +399,15 @@ if (brandBanho) brandBanho.href = waLink(CONFIG.promoMsgPadrao.banhoTosa);
 
 // Re-inject CONFIG for the newly-added loja section elements
 injectConfig();
+
+// --- CTA final + footer WhatsApp ---
+const ctaFinalWa = document.getElementById('cta-final-wa');
+const footerWa = document.getElementById('footer-wa');
+if (ctaFinalWa) ctaFinalWa.href = waLink(CONFIG.promoMsgPadrao.duvida);
+if (footerWa) footerWa.href = waLink(CONFIG.promoMsgPadrao.duvida);
+
+const yearEl = document.getElementById('footer-year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+// Re-inject CONFIG for the newly added footer/cta elements
+injectConfig();
