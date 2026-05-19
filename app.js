@@ -358,3 +358,30 @@ document.querySelectorAll('.filtros .chip').forEach(chip => {
 
 // Render inicial
 renderCatalogo();
+
+// --- Inject CONFIG into [data-config] and [data-config-href] elements ---
+function injectConfig() {
+  document.querySelectorAll('[data-config]').forEach(el => {
+    if (el.dataset.configInjected) return;
+    const path = el.dataset.config.split('.');
+    let v = CONFIG.loja;
+    for (const p of path) v = v?.[p];
+    if (v != null) {
+      el.textContent = v;
+      el.dataset.configInjected = '1';
+    }
+  });
+  document.querySelectorAll('[data-config-href]').forEach(el => {
+    const path = el.dataset.configHref.split('.');
+    let v = CONFIG.loja;
+    for (const p of path) v = v?.[p];
+    if (v != null) el.setAttribute('href', v);
+  });
+}
+injectConfig();
+
+// --- Brand CTAs ---
+const brandVinicius = document.getElementById('brand-cta-vinicius');
+const brandBanho = document.getElementById('brand-cta-banho');
+if (brandVinicius) brandVinicius.href = waLink('Olá Vinícius! Tudo bem? Quero conversar sobre o atendimento.');
+if (brandBanho) brandBanho.href = waLink(CONFIG.promoMsgPadrao.banhoTosa);

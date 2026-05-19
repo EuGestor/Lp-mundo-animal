@@ -388,3 +388,44 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; color: var
 }
 .produto__add:hover { background: var(--green-dark); }
 .produto__add.is-added { background: var(--green); }
+
+/* Brand */
+.brand { background: var(--paper-soft); }
+.brand__inner {
+  display: grid;
+  grid-template-columns: 5fr 6fr;
+  gap: 48px;
+  align-items: center;
+}
+.brand__photo img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+.brand__content h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  margin-bottom: 20px;
+}
+.brand__content p { margin-bottom: 16px; }
+.brand__lead { font-size: 1.15rem; color: var(--ink); }
+.brand__quote {
+  background: white;
+  border-left: 4px solid var(--green);
+  padding: 20px 24px;
+  border-radius: var(--radius);
+  margin: 24px 0;
+  box-shadow: var(--shadow-sm);
+}
+.brand__quote p { font-style: italic; margin-bottom: 8px; }
+.brand__quote cite {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-style: normal;
+}
+.brand__ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+
+@media (max-width: 860px) {
+  .brand__inner { grid-template-columns: 1fr; }
+}
