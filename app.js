@@ -722,3 +722,30 @@ if (copyBtn) {
 // --- Sticky WhatsApp FAB ---
 const fab = document.getElementById('wa-fab');
 if (fab) fab.href = waLink(CONFIG.promoMsgPadrao.duvida);
+
+// --- Mobile menu overlay ---
+const mobileNav = document.getElementById('mobile-nav');
+const openMenuBtn = document.getElementById('open-menu');
+const closeMenuBtn = document.getElementById('close-menu');
+function openMobileMenu() {
+  if (!mobileNav) return;
+  mobileNav.hidden = false;
+  document.body.style.overflow = 'hidden';
+  if (openMenuBtn) openMenuBtn.setAttribute('aria-expanded', 'true');
+}
+function closeMobileMenu() {
+  if (!mobileNav) return;
+  mobileNav.hidden = true;
+  document.body.style.overflow = '';
+  if (openMenuBtn) openMenuBtn.setAttribute('aria-expanded', 'false');
+}
+if (openMenuBtn) openMenuBtn.addEventListener('click', openMobileMenu);
+if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMobileMenu);
+if (mobileNav) {
+  mobileNav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', closeMobileMenu);
+  });
+}
+
+const mobileWa = document.getElementById('mobile-wa');
+if (mobileWa) mobileWa.href = waLink(CONFIG.promoMsgPadrao.duvida);
