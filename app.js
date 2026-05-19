@@ -257,3 +257,18 @@ const PRODUTOS = [
     descricao: "Ração premium para equinos, formulada com mel e ingredientes selecionados para nutrição completa e energia duradoura."
   },
 ];
+
+// --- Header scroll state ---
+(function initHeaderScroll() {
+  const header = document.getElementById('site-header');
+  if (!header) return;
+  const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 80);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+// --- Header WhatsApp link ---
+const headerWa = document.getElementById('header-wa');
+if (headerWa) {
+  headerWa.href = `${CONFIG.whatsapp}?text=${encodeURIComponent(CONFIG.promoMsgPadrao.duvida)}`;
+}

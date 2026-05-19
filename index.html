@@ -11,8 +11,41 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- (1) Top bar -->
+  <div class="topbar" role="region" aria-label="Informações rápidas">
+    <div class="container topbar__inner">
+      <span class="topbar__item">🚚 Frete grátis em toda Itabira</span>
+      <span class="topbar__item">⭐ 4,5 no Google · 48 avaliações</span>
+      <span class="topbar__item">📱 (31) 3831-1702</span>
+    </div>
+  </div>
+
+  <!-- (2) Header sticky -->
+  <header class="header" id="site-header">
+    <div class="container header__inner">
+      <a href="#" class="header__logo" aria-label="Mundo Animal — início">
+        <img src="assets/logo-mundo-animal.png" alt="Mundo Animal Pet Shop" height="40">
+      </a>
+      <nav class="header__nav" aria-label="Navegação principal">
+        <a href="#produtos">Produtos</a>
+        <a href="#banho-tosa">Banho &amp; Tosa</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#onde-estamos">Onde estamos</a>
+      </nav>
+      <div class="header__actions">
+        <button class="header__cart" id="open-cart" aria-label="Abrir carrinho">
+          🛒 <span class="cart-badge" id="cart-badge" hidden>0</span>
+        </button>
+        <a class="btn btn-primary header__wa" id="header-wa" href="#" data-event="header-whatsapp">
+          WhatsApp
+        </a>
+        <button class="header__menu" id="open-menu" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
   <main>
-    <!-- Seções serão preenchidas nas tasks 6-15 -->
+    <!-- Demais seções nas tasks 6-15 -->
   </main>
   <script src="app.js" defer></script>
 </body>
