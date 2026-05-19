@@ -429,3 +429,39 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; color: var
 @media (max-width: 860px) {
   .brand__inner { grid-template-columns: 1fr; }
 }
+
+/* Serviços */
+.servicos__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 24px;
+}
+.servico {
+  background: white;
+  padding: 32px 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+.servico__icon { font-size: 2.5rem; }
+.servico h3 { font-size: 1.25rem; }
+.servico p { color: var(--muted); flex: 1; }
+.servico .btn { align-self: stretch; text-align: center; }
+
+.servico--banho {
+  background: linear-gradient(135deg, rgba(20,102,32,0.92), rgba(27,138,45,0.92)),
+              url('assets/banners/banho-tosa.png') center/cover;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.servico--banho .servico__body { display: flex; flex-direction: column; gap: 12px; }
+.servico--banho h3, .servico--banho p { color: white; }
+.servico--banho p { color: rgba(255,255,255,0.92); }
+
+@media (max-width: 860px) {
+  .servicos__grid { grid-template-columns: 1fr; }
+}

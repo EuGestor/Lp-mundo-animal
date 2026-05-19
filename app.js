@@ -380,6 +380,17 @@ function injectConfig() {
 }
 injectConfig();
 
+// --- Serviços CTAs ---
+const servCtas = {
+  'serv-cta-banho': CONFIG.promoMsgPadrao.banhoTosa,
+  'serv-cta-vacinas': CONFIG.promoMsgPadrao.vacinas,
+  'serv-cta-brahma': CONFIG.promoMsgPadrao.galinhas,
+};
+Object.entries(servCtas).forEach(([id, msg]) => {
+  const el = document.getElementById(id);
+  if (el) el.href = waLink(msg);
+});
+
 // --- Brand CTAs ---
 const brandVinicius = document.getElementById('brand-cta-vinicius');
 const brandBanho = document.getElementById('brand-cta-banho');
