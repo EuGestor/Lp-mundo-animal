@@ -718,3 +718,7 @@ if (copyBtn) {
     }
   });
 }
+
+// --- Sticky WhatsApp FAB ---
+const fab = document.getElementById('wa-fab');
+if (fab) fab.href = waLink(CONFIG.promoMsgPadrao.duvida);

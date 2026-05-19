@@ -738,3 +738,35 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; color: var
   padding: 8px;
 }
 .cart-copy:hover { color: var(--green); }
+
+/* WhatsApp FAB */
+.wa-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(37,211,102,0.4);
+  z-index: 50;
+  transition: transform 0.15s, box-shadow 0.15s;
+  animation: wa-pulse 2.5s ease-in-out infinite;
+}
+.wa-fab:hover {
+  transform: scale(1.06);
+  box-shadow: 0 12px 28px rgba(37,211,102,0.5);
+}
+@keyframes wa-pulse {
+  0%, 100% { box-shadow: 0 8px 20px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.5); }
+  50% { box-shadow: 0 8px 20px rgba(37,211,102,0.4), 0 0 0 14px rgba(37,211,102,0); }
+}
+@media (max-width: 720px) {
+  .wa-fab { bottom: 16px; right: 16px; width: 56px; height: 56px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wa-fab { animation: none; }
+}
