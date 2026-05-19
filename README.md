@@ -1,71 +1,73 @@
-# Mundo Animal Pet Shop — Landing Page
+# React + TypeScript + Vite
 
-LP de alta conversão para Mundo Animal Pet Shop / Clínica Veterinária Mundo Animal de Itabira/MG.
-Stack: HTML + CSS + JS vanilla, sem build step, deploy na Vercel via GitHub.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Editar conteúdo
+Currently, two official plugins are available:
 
-### Trocar número do WhatsApp
-Abra `app.js`, linha do `CONFIG.whatsapp` (topo do arquivo):
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-```js
-const CONFIG = {
-  whatsapp: 'https://wa.me/5531999999999', // ← trocar aqui
-  ...
-};
-```
+## React Compiler
 
-Comite e push — Vercel faz deploy em ~30 segundos.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-### Adicionar/editar produto
-Em `app.js`, array `PRODUTOS`. Cada item tem o formato:
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
 ```js
-{
-  id: 'kebab-case-unico',
-  nome: 'Nome do Produto',
-  categoria: 'Cães', // Cães | Gatos | Petiscos | Acessorios | Equinos
-  peso: '15kg',
-  preco: 145.90,
-  precoOriginal: 169.90, // null se não tem desconto
-  imagem: 'assets/produtos/arquivo.jpg',
-  descricao: '...',
-  destaque: 'MAIS_PEDIDO', // opcional
-}
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
 
-Coloque a imagem em `assets/produtos/`.
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-### Editar dados da loja
-Em `app.js`, dentro de `CONFIG.loja`: endereço, telefone, horário, CNPJ, anos no mercado.
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-### Editar copy das seções
-Direto em `index.html`. Estrutura comentada com `<!-- (N) Nome da seção -->`.
-
-## Rodar localmente
-
-```bash
-cd /root/lp-mundo-animal
-python3 -m http.server 8080
-# Abrir http://localhost:8080
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
-
-## Deploy
-
-Push para `main` no GitHub. Vercel faz deploy automático.
-
-## Estrutura de arquivos
-
-- `index.html` — 13 seções + carrinho drawer + FAB
-- `styles.css` — tokens (`:root`) + componentes + responsivo
-- `app.js` — CONFIG + PRODUTOS + Cart state + render + WhatsApp builder
-- `assets/` — imagens (logo, banners, 22 produtos, instagram, og-image)
-- `robots.txt`, `sitemap.xml` — SEO
-
-## Placeholders pendentes (a substituir quando cliente fornecer)
-
-- `CONFIG.whatsapp` — atualmente shortlink SalesRoute provisório
-- `CONFIG.loja.anosNoMercado` — atual: `'X'`
-- `CONFIG.loja.cnpj`
-- `CONFIG.loja.horario` — verificar com cliente
-- Fotos do Vinícius/equipe em `assets/instagram/` — atualmente placeholders verdes (IG bloqueia raspagem; cliente deve enviar fotos)
