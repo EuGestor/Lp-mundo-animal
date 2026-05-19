@@ -3,7 +3,7 @@ import { Star, Quote } from 'lucide-react';
 
 const reviews = [
   {
-    name: 'Alexandre Ackel',
+    name: 'Alexandre A.',
     badge: 'Local Guide',
     rating: 5,
     time: '6 meses',
@@ -12,7 +12,7 @@ const reviews = [
     color: 'bg-amber-500',
   },
   {
-    name: 'Débora dos Santos Dutra',
+    name: 'Débora D.',
     badge: '',
     rating: 5,
     time: '3 anos',
@@ -21,7 +21,7 @@ const reviews = [
     color: 'bg-purple-500',
   },
   {
-    name: 'Ramiro Ricarbene',
+    name: 'Ramiro R.',
     badge: 'Local Guide',
     rating: 5,
     time: '3 anos',
@@ -30,7 +30,7 @@ const reviews = [
     color: 'bg-red-500',
   },
   {
-    name: 'Bruno Pimenta',
+    name: 'Bruno P.',
     badge: 'Local Guide',
     rating: 5,
     time: '3 anos',
@@ -39,7 +39,7 @@ const reviews = [
     color: 'bg-blue-500',
   },
   {
-    name: 'RODRIGO FERNANDO',
+    name: 'Rodrigo F.',
     badge: 'Local Guide',
     rating: 5,
     time: '4 anos',
@@ -48,7 +48,7 @@ const reviews = [
     color: 'bg-green-600',
   },
   {
-    name: 'Davi M Silva',
+    name: 'Davi S.',
     badge: 'Local Guide',
     rating: 4,
     time: '6 anos',
@@ -57,7 +57,7 @@ const reviews = [
     color: 'bg-indigo-500',
   },
   {
-    name: 'Guilherme Augusto',
+    name: 'Guilherme A.',
     badge: 'Local Guide',
     rating: 5,
     time: '6 anos',
@@ -66,7 +66,7 @@ const reviews = [
     color: 'bg-teal-500',
   },
   {
-    name: 'Luciana Citty',
+    name: 'Luciana C.',
     badge: 'Local Guide',
     rating: 5,
     time: '6 anos',
@@ -75,7 +75,7 @@ const reviews = [
     color: 'bg-pink-500',
   },
   {
-    name: 'Márcio Sabino',
+    name: 'Márcio S.',
     badge: 'Local Guide',
     rating: 5,
     time: '7 anos',
@@ -84,7 +84,7 @@ const reviews = [
     color: 'bg-orange-500',
   },
   {
-    name: 'Dario Oliveira',
+    name: 'Dario O.',
     badge: 'Local Guide',
     rating: 5,
     time: '6 anos',
@@ -93,7 +93,7 @@ const reviews = [
     color: 'bg-cyan-600',
   },
   {
-    name: 'Nilson Edvs',
+    name: 'Nilson E.',
     badge: '',
     rating: 5,
     time: '5 anos',
@@ -102,7 +102,7 @@ const reviews = [
     color: 'bg-rose-500',
   },
   {
-    name: 'Dalylla Mayrya',
+    name: 'Dalylla M.',
     badge: '',
     rating: 5,
     time: '4 anos',

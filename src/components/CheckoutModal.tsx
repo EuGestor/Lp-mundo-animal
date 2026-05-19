@@ -14,6 +14,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose }) => {
   const [observacoes, setObservações] = useState('');
   const [retirarLoja, setRetirarLoja] = useState(false);
   const [enviado, setEnviado] = useState(false);
+  const [aceitouPrivacidade, setAceitouPrivacidade] = useState(false);
 
   const formatPrice = (price: number) =>
     new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(price);
@@ -207,17 +208,50 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose }) => {
           </div>
 
           {/* Footer */}
-          <div className="p-5 border-t bg-white">
-            <a
-              href={buildWhatsAppLink()}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={handleEnviar}
-              className="flex items-center justify-center gap-2 w-full bg-brand-green text-white font-bold py-4 rounded-full hover:bg-brand-green-dark transition-all hover:shadow-lg hover:shadow-brand-green/20"
-            >
-              <Send size={18} />
-              Enviar Pedido pelo WhatsApp
-            </a>
+          <div className="p-5 border-t bg-white space-y-3">
+            <label className="flex items-start gap-2 text-xs text-gray-600 cursor-pointer leading-snug">
+              <input
+                type="checkbox"
+                checked={aceitouPrivacidade}
+                onChange={(e) => setAceitouPrivacidade(e.target.checked)}
+                className="mt-0.5 accent-brand-green w-4 h-4 shrink-0"
+              />
+              <span>
+                Li e concordo com a{' '}
+                <a
+                  href="/privacidade.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-brand-green underline hover:text-brand-green-dark"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  Política de Privacidade
+                </a>
+                . Meus dados serão usados pra processar este pedido pelo
+                WhatsApp da loja.
+              </span>
+            </label>
+            {aceitouPrivacidade ? (
+              <a
+                href={buildWhatsAppLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleEnviar}
+                className="flex items-center justify-center gap-2 w-full bg-brand-green text-white font-bold py-4 rounded-full hover:bg-brand-green-dark transition-all hover:shadow-lg hover:shadow-brand-green/20"
+              >
+                <Send size={18} />
+                Enviar Pedido pelo WhatsApp
+              </a>
+            ) : (
+              <button
+                type="button"
+                disabled
+                className="flex items-center justify-center gap-2 w-full bg-gray-200 text-gray-400 font-bold py-4 rounded-full cursor-not-allowed"
+              >
+                <Send size={18} />
+                Enviar Pedido pelo WhatsApp
+              </button>
+            )}
           </div>
         </div>
       </div>

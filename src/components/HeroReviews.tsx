@@ -3,52 +3,52 @@ import { Star, Quote } from 'lucide-react';
 
 const heroReviews = [
   {
-    name: 'Alexandre Ackel',
+    name: 'Alexandre A.',
     text: 'Experiência incrível toda vez que levo meus Dogs lá. São muito bem tratados, e o melhor, a qualidade no serviço do Vinícius, é de emocionar o coração da gente.',
     rating: 5,
   },
   {
-    name: 'Débora dos Santos',
+    name: 'Débora D.',
     text: 'Perfeito. Muito atenciosos, tiraram minhas dúvidas e estão à disposição. Gostei muito.',
     rating: 5,
   },
   {
-    name: 'Ramiro Ricarbene',
+    name: 'Ramiro R.',
     text: 'Excelente atendimento! Veterinária, muito atenciosa e dedicada!! Recomendo 100%',
     rating: 5,
   },
   {
-    name: 'Bruno Pimenta',
+    name: 'Bruno P.',
     text: 'Excelente atendimento estão de parabéns',
     rating: 5,
   },
   {
-    name: 'RODRIGO FERNANDO',
+    name: 'Rodrigo F.',
     text: 'Ótimo lugar pessoas honestas e de bom coração',
     rating: 5,
   },
   {
-    name: 'Davi M Silva',
+    name: 'Davi S.',
     text: 'Banho e tosa é um dos melhores da cidade.',
     rating: 5,
   },
   {
-    name: 'Guilherme Augusto',
+    name: 'Guilherme A.',
     text: 'Ótimo atendimento e cuidado com o pet',
     rating: 5,
   },
   {
-    name: 'Luciana Citty',
+    name: 'Luciana C.',
     text: 'Amei estar aqui!',
     rating: 5,
   },
   {
-    name: 'Dario Oliveira',
+    name: 'Dario O.',
     text: 'ÓTIMO ATENDIMENTO',
     rating: 5,
   },
   {
-    name: 'Nilson Edvs',
+    name: 'Nilson E.',
     text: 'Muito boa a comida. Tudo limpinho. Atendimento ótimo',
     rating: 5,
   },
