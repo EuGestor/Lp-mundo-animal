@@ -247,6 +247,40 @@
         </div>
       </div>
     </section>
+
+    <!-- (10) Loja física + mapa -->
+    <section class="section loja" id="onde-estamos" aria-labelledby="loja-title">
+      <div class="container loja__inner">
+        <div class="loja__mapa">
+          <iframe
+            src="https://www.google.com/maps?q=Av.+João+Pinheiro,+194,+Itabira,+MG&output=embed"
+            width="100%"
+            height="380"
+            style="border:0;border-radius: var(--radius);"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localização Mundo Animal Pet Shop"
+          ></iframe>
+        </div>
+        <div class="loja__info">
+          <h2 id="loja-title">Visite nossa loja</h2>
+          <p class="loja__endereco" data-config="enderecoCompleto">Av. João Pinheiro, 194 — Centro, Itabira/MG</p>
+          <ul class="loja__contato">
+            <li>📱 <a data-config-href="telCall" data-config="tel">(31) 3831-1702</a></li>
+            <li>📷 <a href="https://instagram.com/mundoanimalitabira" target="_blank" rel="noopener">@mundoanimalitabira</a></li>
+            <li>🕐 <span data-config="horario">Seg-Sex 8h-18h · Sáb 8h-13h</span></li>
+          </ul>
+          <div class="loja__ctas">
+            <a class="btn btn-primary" href="https://maps.app.goo.gl/?q=Av.+João+Pinheiro,+194,+Itabira" target="_blank" rel="noopener">
+              Ver no Maps
+            </a>
+            <a class="btn btn-outline" data-config-href="telCall" href="tel:+553138311702">
+              Ligar agora
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
   <script src="app.js" defer></script>
 </body>

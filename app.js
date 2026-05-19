@@ -396,3 +396,6 @@ const brandVinicius = document.getElementById('brand-cta-vinicius');
 const brandBanho = document.getElementById('brand-cta-banho');
 if (brandVinicius) brandVinicius.href = waLink('Olá Vinícius! Tudo bem? Quero conversar sobre o atendimento.');
 if (brandBanho) brandBanho.href = waLink(CONFIG.promoMsgPadrao.banhoTosa);
+
+// Re-inject CONFIG for the newly-added loja section elements
+injectConfig();

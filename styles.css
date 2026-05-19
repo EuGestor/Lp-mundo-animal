@@ -526,3 +526,21 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; color: var
 @media (max-width: 860px) {
   .social__inner { grid-template-columns: 1fr; }
 }
+
+/* Loja */
+.loja__inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.loja__info h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); margin-bottom: 16px; }
+.loja__endereco { font-size: 1.1rem; margin-bottom: 24px; }
+.loja__contato { display: grid; gap: 12px; margin-bottom: 24px; }
+.loja__contato a { color: var(--green-dark); font-weight: 500; }
+.loja__contato a:hover { text-decoration: underline; }
+.loja__ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+
+@media (max-width: 860px) {
+  .loja__inner { grid-template-columns: 1fr; }
+}
