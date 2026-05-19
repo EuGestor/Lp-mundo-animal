@@ -127,6 +127,27 @@
         </div>
       </div>
     </section>
+
+    <!-- (6) Catálogo -->
+    <section class="section catalogo" id="produtos" aria-labelledby="cat-title">
+      <div class="container">
+        <header class="catalogo__header">
+          <h2 class="section__title" id="cat-title">Nosso catálogo</h2>
+          <p class="catalogo__sub">Frete grátis pra toda Itabira em todos os pedidos.</p>
+        </header>
+        <div class="filtros" role="tablist" aria-label="Filtrar produtos por categoria">
+          <button class="chip is-active" data-categoria="todos" role="tab" aria-selected="true">Todos</button>
+          <button class="chip" data-categoria="Cães" role="tab">Cães</button>
+          <button class="chip" data-categoria="Gatos" role="tab">Gatos</button>
+          <button class="chip" data-categoria="Petiscos" role="tab">Petiscos</button>
+          <button class="chip" data-categoria="Acessorios" role="tab">Acessórios</button>
+          <button class="chip" data-categoria="Equinos" role="tab">Equinos</button>
+        </div>
+        <div class="produtos-grid" id="produtos-grid" role="region" aria-live="polite">
+          <!-- JS renderiza aqui -->
+        </div>
+      </div>
+    </section>
   </main>
   <script src="app.js" defer></script>
 </body>

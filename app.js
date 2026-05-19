@@ -281,3 +281,80 @@ function waLink(msg) {
 // --- Hero CTA: Agendar Banho ---
 const heroBanho = document.getElementById('hero-cta-banho');
 if (heroBanho) heroBanho.href = waLink(CONFIG.promoMsgPadrao.banhoTosa);
+
+// --- Catálogo: render + filtros ---
+function brl(n) {
+  return n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+}
+function calcDesconto(preco, precoOriginal) {
+  if (!precoOriginal || precoOriginal <= preco) return null;
+  return Math.round((1 - preco / precoOriginal) * 100);
+}
+
+function renderProduto(p) {
+  const desc = calcDesconto(p.preco, p.precoOriginal);
+  const badge = desc ? `<span class="produto__badge desc">-${desc}%</span>` : '';
+  const topBadge = p.destaque === 'MAIS_PEDIDO' ? `<span class="produto__badge top">MAIS PEDIDO</span>` : '';
+  const precoOriginal = p.precoOriginal
+    ? `<span class="produto__preco-original">${brl(p.precoOriginal)}</span>`
+    : '';
+
+  return `
+    <article class="produto" data-categoria="${p.categoria}" data-id="${p.id}">
+      <div class="produto__imagem-wrap">
+        ${badge}${topBadge}
+        <img class="produto__imagem" src="${p.imagem}" alt="${p.nome}" loading="lazy">
+      </div>
+      <div class="produto__body">
+        <div class="produto__meta">
+          <span>${p.categoria}</span>
+          <span>${p.peso || ''}</span>
+        </div>
+        <h3 class="produto__nome">${p.nome}</h3>
+        <div class="produto__precos">
+          <span class="produto__preco">${brl(p.preco)}</span>
+          ${precoOriginal}
+        </div>
+        <button class="produto__add" data-event="add-to-cart" data-product-id="${p.id}">
+          + Adicionar
+        </button>
+      </div>
+    </article>
+  `;
+}
+
+function ordenarProdutos(arr) {
+  // Ânforas primeiro, depois com desconto, depois por categoria
+  return [...arr].sort((a, b) => {
+    if (a.destaque === 'MAIS_PEDIDO' && b.destaque !== 'MAIS_PEDIDO') return -1;
+    if (b.destaque === 'MAIS_PEDIDO' && a.destaque !== 'MAIS_PEDIDO') return 1;
+    if (a.precoOriginal && !b.precoOriginal) return -1;
+    if (b.precoOriginal && !a.precoOriginal) return 1;
+    return a.categoria.localeCompare(b.categoria);
+  });
+}
+
+function renderCatalogo(categoriaFiltro = 'todos') {
+  const grid = document.getElementById('produtos-grid');
+  if (!grid) return;
+  const lista = categoriaFiltro === 'todos'
+    ? PRODUTOS
+    : PRODUTOS.filter(p => p.categoria === categoriaFiltro);
+  grid.innerHTML = ordenarProdutos(lista).map(renderProduto).join('');
+}
+
+// --- Wire filtros ---
+document.querySelectorAll('.filtros .chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.filtros .chip').forEach(c => {
+      c.classList.remove('is-active');
+      c.setAttribute('aria-selected', 'false');
+    });
+    chip.classList.add('is-active');
+    chip.setAttribute('aria-selected', 'true');
+    renderCatalogo(chip.dataset.categoria);
+  });
+});
+
+// Render inicial
+renderCatalogo();
