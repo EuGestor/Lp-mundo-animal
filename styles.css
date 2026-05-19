@@ -465,3 +465,64 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; color: var
 @media (max-width: 860px) {
   .servicos__grid { grid-template-columns: 1fr; }
 }
+
+/* Social proof */
+.social { background: var(--green-light); }
+.social__inner {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 32px;
+  align-items: stretch;
+  margin-bottom: 32px;
+}
+.social__google {
+  background: white;
+  border-radius: var(--radius);
+  padding: 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow-sm);
+}
+.social__google img { width: 120px; }
+.social__google strong {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: var(--green-dark);
+}
+.social__google span { color: var(--muted); }
+.social__google a { color: var(--green); font-weight: 600; margin-top: 8px; }
+
+.social__depos {
+  display: grid;
+  gap: 16px;
+}
+.depo {
+  background: white;
+  padding: 20px 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--green);
+}
+.depo p { font-style: italic; margin-bottom: 8px; }
+.depo cite { font-size: 0.9rem; color: var(--muted); font-style: normal; }
+
+.social__fornecedores-label {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+.social__fornecedores {
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--green-dark);
+  font-size: 1.1rem;
+}
+
+@media (max-width: 860px) {
+  .social__inner { grid-template-columns: 1fr; }
+}
