@@ -601,3 +601,120 @@ document.querySelectorAll('input[name="entrega"]').forEach(r => {
 
 // Render inicial (badge, summary, button states)
 Cart.render();
+
+// =====================================================
+// CHECKOUT — validação + WhatsApp message + copy fallback
+// =====================================================
+function maskPhone(v) {
+  v = v.replace(/\D/g, '').slice(0, 11);
+  if (v.length === 0) return '';
+  if (v.length <= 2) return `(${v}`;
+  if (v.length <= 7) return `(${v.slice(0,2)}) ${v.slice(2)}`;
+  return `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
+}
+
+const telInput = document.getElementById('cart-tel');
+if (telInput) {
+  telInput.addEventListener('input', e => {
+    e.target.value = maskPhone(e.target.value);
+  });
+}
+
+function validarPedido(form) {
+  const errors = {};
+  const nome = form.nome.value.trim();
+  const tel = form.telefone.value.replace(/\D/g, '');
+
+  if (!nome) errors.nome = 'Por favor, informe seu nome.';
+  if (!tel || tel.length < 10) errors.tel = 'Informe um telefone válido com DDD.';
+  if (Cart.totalQty() === 0) errors.geral = 'Adicione produtos antes de enviar.';
+
+  return errors;
+}
+
+function buildWhatsAppMessage(form) {
+  const items = Cart.getItems();
+  const nome = form.nome.value.trim();
+  const tel = form.telefone.value.trim();
+  const entrega = form.entrega.value;
+  const endereco = form.endereco.value.trim();
+  const obs = form.observacao.value.trim();
+
+  const linhas = [
+    '*🛒 NOVO PEDIDO — MUNDO ANIMAL PET SHOP*',
+    '',
+    `*Cliente:* ${nome}`,
+    `*Telefone:* ${tel}`,
+    '',
+  ];
+
+  if (entrega === 'entrega') {
+    linhas.push(`*Entrega:* ${endereco || '(sem endereço informado — confirmar)'}`);
+  } else {
+    linhas.push('*Retira na loja*');
+  }
+
+  linhas.push('', '*PRODUTOS:*');
+  items.forEach(i => {
+    linhas.push(`• ${i.qty}x ${i.nome} — ${brl(i.preco * i.qty)}`);
+  });
+
+  const subt = Cart.subtotal();
+  linhas.push(
+    '',
+    `*Subtotal:* ${brl(subt)}`,
+    entrega === 'entrega' ? '*Frete:* GRÁTIS (Itabira)' : '*Retira na loja*',
+    `*TOTAL: ${brl(subt)}*`,
+  );
+
+  if (obs) linhas.push('', `*Observação:* ${obs}`);
+  linhas.push('', '_Pedido feito pela landing page Mundo Animal._');
+
+  return linhas.join('\n');
+}
+
+function showErrors(errors) {
+  ['nome', 'tel'].forEach(k => {
+    const el = document.getElementById(`err-${k}`);
+    if (!el) return;
+    if (errors[k]) { el.hidden = false; el.textContent = errors[k]; }
+    else el.hidden = true;
+  });
+  if (errors.geral) alert(errors.geral);
+}
+
+const cartForm = document.getElementById('cart-form');
+if (cartForm) {
+  cartForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const form = e.target;
+    const errors = validarPedido(form);
+    if (Object.keys(errors).length > 0) {
+      showErrors(errors);
+      return;
+    }
+    showErrors({});
+    const msg = buildWhatsAppMessage(form);
+    const url = `${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank', 'noopener');
+  });
+}
+
+// Copy fallback
+const copyBtn = document.getElementById('cart-copy');
+if (copyBtn) {
+  copyBtn.addEventListener('click', async () => {
+    const form = document.getElementById('cart-form');
+    const errors = validarPedido(form);
+    if (Object.keys(errors).length > 0) { showErrors(errors); return; }
+    const msg = buildWhatsAppMessage(form);
+    try {
+      await navigator.clipboard.writeText(msg);
+      const original = copyBtn.textContent;
+      copyBtn.textContent = '✓ Copiado! Cole no WhatsApp.';
+      setTimeout(() => { copyBtn.textContent = original; }, 2500);
+    } catch (e) {
+      alert('Não foi possível copiar automaticamente. Selecione e copie manualmente.');
+    }
+  });
+}
