@@ -272,3 +272,12 @@ const headerWa = document.getElementById('header-wa');
 if (headerWa) {
   headerWa.href = `${CONFIG.whatsapp}?text=${encodeURIComponent(CONFIG.promoMsgPadrao.duvida)}`;
 }
+
+// --- Helper: build WhatsApp link with pre-filled text ---
+function waLink(msg) {
+  return `${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
+}
+
+// --- Hero CTA: Agendar Banho ---
+const heroBanho = document.getElementById('hero-cta-banho');
+if (heroBanho) heroBanho.href = waLink(CONFIG.promoMsgPadrao.banhoTosa);
