@@ -1,7 +1,87 @@
 /* Mundo Animal Pet Shop — styles.css */
-/* Estrutura:
-   1. Tokens (Task 2)
-   2. Reset + base
-   3. Componentes (Tasks 6-15)
-   4. Responsivo (Task 20)
-*/
+
+:root {
+  /* Cores */
+  --green-dark:   #146620;
+  --green:        #1B8A2D;
+  --green-light:  #E8F5EA;
+  --orange:       #FF7A1A;
+  --orange-dark:  #E66A0F;
+  --yellow:       #FFC72C;
+  --ink:          #1A1F1A;
+  --muted:        #5C6B5E;
+  --paper:        #FFFFFF;
+  --paper-soft:   #FAF8F4;
+  --border:       #E5E7E5;
+  --shadow-sm:    0 2px 6px rgba(0,0,0,0.04);
+  --shadow:       0 4px 12px rgba(0,0,0,0.06);
+  --shadow-lg:    0 10px 30px rgba(0,0,0,0.10);
+
+  /* Radius */
+  --radius-sm:    8px;
+  --radius:       12px;
+  --radius-lg:    20px;
+
+  /* Fontes */
+  --font-display: 'Poppins', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  /* Containers */
+  --container:    1200px;
+  --gutter:       24px;
+}
+
+/* Reset + base */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+ul { list-style: none; }
+h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; color: var(--ink); }
+
+/* Container utility */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Section utility */
+.section { padding-block: clamp(48px, 8vw, 96px); }
+
+/* Botões base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.15s, transform 0.05s, box-shadow 0.15s;
+  min-height: 48px;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary   { background: var(--green); color: white; }
+.btn-primary:hover { background: var(--green-dark); }
+.btn-secondary { background: var(--orange); color: white; }
+.btn-secondary:hover { background: var(--orange-dark); }
+.btn-outline   { background: transparent; color: var(--green); border: 2px solid var(--green); }
+.btn-outline:hover { background: var(--green); color: white; }
+.btn-outline-white { background: transparent; color: white; border: 2px solid white; }
+.btn-outline-white:hover { background: white; color: var(--green-dark); }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
