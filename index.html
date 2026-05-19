@@ -368,6 +368,60 @@
     </div>
   </footer>
 
+  <!-- Carrinho drawer -->
+  <div class="cart-overlay" id="cart-overlay" hidden></div>
+  <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" hidden>
+    <header class="cart-drawer__head">
+      <h3 id="cart-title">Seu pedido</h3>
+      <button class="cart-drawer__close" id="close-cart" aria-label="Fechar carrinho">✕</button>
+    </header>
+
+    <div class="cart-drawer__body" id="cart-body">
+      <p class="cart-empty" id="cart-empty">Seu carrinho está vazio.<br>Adicione produtos do catálogo.</p>
+      <ul class="cart-items" id="cart-items"></ul>
+    </div>
+
+    <form class="cart-form" id="cart-form" novalidate>
+      <div class="cart-form__field">
+        <label for="cart-nome">Seu nome <span class="req">*</span></label>
+        <input type="text" id="cart-nome" name="nome" required autocomplete="name">
+        <small class="error" id="err-nome" hidden>Por favor, informe seu nome.</small>
+      </div>
+      <div class="cart-form__field">
+        <label for="cart-tel">Telefone (WhatsApp) <span class="req">*</span></label>
+        <input type="tel" id="cart-tel" name="telefone" required autocomplete="tel" placeholder="(31) 99999-9999">
+        <small class="error" id="err-tel" hidden>Informe um telefone válido com DDD.</small>
+      </div>
+
+      <fieldset class="cart-form__toggle">
+        <legend>Como prefere receber?</legend>
+        <label><input type="radio" name="entrega" value="entrega" checked> Entregar em Itabira (grátis)</label>
+        <label><input type="radio" name="entrega" value="retira"> Retiro na loja</label>
+      </fieldset>
+
+      <div class="cart-form__field" id="endereco-wrap">
+        <label for="cart-endereco">Endereço de entrega</label>
+        <input type="text" id="cart-endereco" name="endereco" placeholder="Rua, número, bairro, ponto de referência">
+      </div>
+
+      <div class="cart-form__field">
+        <label for="cart-obs">Observação (opcional)</label>
+        <textarea id="cart-obs" name="observacao" rows="2" placeholder="Ex.: troco para R$ 200, marca preferida..."></textarea>
+      </div>
+
+      <div class="cart-summary">
+        <div class="cart-summary__line"><span>Subtotal</span><strong id="cart-subtotal">R$ 0,00</strong></div>
+        <div class="cart-summary__line"><span>Frete</span><strong id="cart-frete">GRÁTIS (Itabira)</strong></div>
+        <div class="cart-summary__line cart-summary__total"><span>TOTAL</span><strong id="cart-total">R$ 0,00</strong></div>
+      </div>
+
+      <button type="submit" class="btn btn-secondary btn-lg cart-checkout" id="cart-checkout" data-event="whatsapp-cart-checkout">
+        Enviar Pedido pelo WhatsApp
+      </button>
+      <button type="button" class="cart-copy" id="cart-copy">Copiar pedido (caso o WhatsApp não preencha)</button>
+    </form>
+  </aside>
+
   <script src="app.js" defer></script>
 </body>
 </html>
