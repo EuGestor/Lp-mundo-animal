@@ -411,3 +411,193 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 // Re-inject CONFIG for the newly added footer/cta elements
 injectConfig();
+
+// =====================================================
+// CART STATE
+// =====================================================
+const Cart = (() => {
+  const STORAGE_KEY = 'mundoanimal-cart-v1';
+  let items = [];
+
+  function load() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      items = raw ? JSON.parse(raw) : [];
+    } catch (e) {
+      items = [];
+    }
+  }
+  function save() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+  }
+  function add(productId) {
+    const p = PRODUTOS.find(x => x.id === productId);
+    if (!p) return;
+    const existing = items.find(i => i.id === productId);
+    if (existing) existing.qty += 1;
+    else items.push({ id: productId, qty: 1 });
+    save();
+    render();
+  }
+  function setQty(productId, qty) {
+    const it = items.find(i => i.id === productId);
+    if (!it) return;
+    if (qty <= 0) remove(productId);
+    else { it.qty = qty; save(); render(); }
+  }
+  function remove(productId) {
+    items = items.filter(i => i.id !== productId);
+    save();
+    render();
+  }
+  function clear() {
+    items = [];
+    save();
+    render();
+  }
+  function getItems() {
+    return items.map(i => {
+      const p = PRODUTOS.find(x => x.id === i.id);
+      return p ? { ...p, qty: i.qty } : null;
+    }).filter(Boolean);
+  }
+  function totalQty() {
+    return items.reduce((s, i) => s + i.qty, 0);
+  }
+  function subtotal() {
+    return getItems().reduce((s, i) => s + i.preco * i.qty, 0);
+  }
+
+  function render() {
+    const itemsList = getItems();
+    const badge = document.getElementById('cart-badge');
+    const empty = document.getElementById('cart-empty');
+    const list = document.getElementById('cart-items');
+    const sub = document.getElementById('cart-subtotal');
+    const tot = document.getElementById('cart-total');
+
+    const qty = totalQty();
+    if (badge) {
+      badge.textContent = qty;
+      badge.hidden = qty === 0;
+    }
+
+    if (itemsList.length === 0) {
+      if (empty) empty.hidden = false;
+      if (list) list.innerHTML = '';
+    } else {
+      if (empty) empty.hidden = true;
+      if (list) {
+        list.innerHTML = itemsList.map(i => `
+          <li class="cart-item" data-id="${i.id}">
+            <img class="cart-item__img" src="${i.imagem}" alt="">
+            <div>
+              <div class="cart-item__nome">${i.nome}</div>
+              <div class="cart-item__preco">${brl(i.preco)} × ${i.qty} = <strong>${brl(i.preco * i.qty)}</strong></div>
+            </div>
+            <div class="cart-item__controls">
+              <div class="cart-item__qty">
+                <button type="button" data-act="dec" aria-label="Diminuir">−</button>
+                <span>${i.qty}</span>
+                <button type="button" data-act="inc" aria-label="Aumentar">+</button>
+              </div>
+              <button type="button" class="cart-item__del" data-act="del" aria-label="Remover">🗑</button>
+            </div>
+          </li>
+        `).join('');
+      }
+    }
+
+    const s = subtotal();
+    if (sub) sub.textContent = brl(s);
+    if (tot) tot.textContent = brl(s); // frete grátis em Itabira
+
+    // Atualiza estado dos botões "Adicionar" no catálogo
+    document.querySelectorAll('.produto__add').forEach(btn => {
+      const inCart = itemsList.find(i => i.id === btn.dataset.productId);
+      btn.classList.toggle('is-added', !!inCart);
+      btn.textContent = inCart ? `✓ Adicionado (${inCart.qty})` : '+ Adicionar';
+    });
+  }
+
+  load();
+  return { add, setQty, remove, clear, getItems, totalQty, subtotal, render };
+})();
+
+// =====================================================
+// CART UI WIRING
+// =====================================================
+function openCart() {
+  const drawer = document.getElementById('cart-drawer');
+  const overlay = document.getElementById('cart-overlay');
+  if (!drawer || !overlay) return;
+  drawer.hidden = false;
+  overlay.hidden = false;
+  // force reflow to enable the transition
+  void drawer.offsetWidth;
+  drawer.classList.add('is-open');
+  overlay.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
+function closeCart() {
+  const drawer = document.getElementById('cart-drawer');
+  const overlay = document.getElementById('cart-overlay');
+  if (!drawer || !overlay) return;
+  drawer.classList.remove('is-open');
+  overlay.classList.remove('is-open');
+  setTimeout(() => { drawer.hidden = true; overlay.hidden = true; }, 250);
+  document.body.style.overflow = '';
+}
+
+const openCartBtn = document.getElementById('open-cart');
+const closeCartBtn = document.getElementById('close-cart');
+const cartOverlay = document.getElementById('cart-overlay');
+if (openCartBtn) openCartBtn.addEventListener('click', openCart);
+if (closeCartBtn) closeCartBtn.addEventListener('click', closeCart);
+if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
+document.addEventListener('keydown', e => {
+  const drawer = document.getElementById('cart-drawer');
+  if (e.key === 'Escape' && drawer && !drawer.hidden) closeCart();
+});
+
+// Delegação: botão "+ Adicionar" nos cards do catálogo
+const produtosGrid = document.getElementById('produtos-grid');
+if (produtosGrid) {
+  produtosGrid.addEventListener('click', e => {
+    const btn = e.target.closest('.produto__add');
+    if (!btn) return;
+    Cart.add(btn.dataset.productId);
+  });
+}
+
+// Delegação: controles dentro do drawer
+const cartItemsEl = document.getElementById('cart-items');
+if (cartItemsEl) {
+  cartItemsEl.addEventListener('click', e => {
+    const btn = e.target.closest('button[data-act]');
+    if (!btn) return;
+    const li = btn.closest('.cart-item');
+    if (!li) return;
+    const id = li.dataset.id;
+    const it = Cart.getItems().find(x => x.id === id);
+    if (!it) return;
+    if (btn.dataset.act === 'inc') Cart.setQty(id, it.qty + 1);
+    else if (btn.dataset.act === 'dec') Cart.setQty(id, it.qty - 1);
+    else if (btn.dataset.act === 'del') Cart.remove(id);
+  });
+}
+
+// Toggle entrega/retira no formulário
+document.querySelectorAll('input[name="entrega"]').forEach(r => {
+  r.addEventListener('change', () => {
+    const checked = document.querySelector('input[name="entrega"]:checked');
+    const isEntrega = checked && checked.value === 'entrega';
+    const wrap = document.getElementById('endereco-wrap');
+    const frete = document.getElementById('cart-frete');
+    if (wrap) wrap.style.display = isEntrega ? '' : 'none';
+    if (frete) frete.textContent = isEntrega ? 'GRÁTIS (Itabira)' : 'Retira na loja';
+  });
+});
+
+// Render inicial (badge, summary, button states)
+Cart.render();
