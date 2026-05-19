@@ -544,3 +544,33 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; color: var
 @media (max-width: 860px) {
   .loja__inner { grid-template-columns: 1fr; }
 }
+
+/* FAQ */
+.faq__list { max-width: 800px; margin: 0 auto; display: grid; gap: 12px; }
+.faq__item {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.faq__item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 24px;
+  font-weight: 600;
+  font-family: var(--font-display);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary::after {
+  content: '+';
+  font-size: 1.5rem;
+  color: var(--green);
+  transition: transform 0.2s;
+}
+.faq__item[open] summary::after { transform: rotate(45deg); }
+.faq__body { padding: 0 24px 18px; color: var(--muted); }
