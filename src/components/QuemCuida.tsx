@@ -65,7 +65,7 @@ const QuemCuida: React.FC = () => {
 
             <div className="flex flex-wrap gap-3 mt-8">
               <a
-                href="https://wa.me/message/DVEYNOWZKFLAK1?text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20o%20Vin%C3%ADcius."
+                href="https://wa.me/553138311702?text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20o%20Vin%C3%ADcius."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-brand-green text-white font-bold px-6 py-3 rounded-full hover:bg-brand-green-dark transition-colors text-sm"
@@ -73,7 +73,7 @@ const QuemCuida: React.FC = () => {
                 <PawPrint size={18} /> Falar com o Vinícius
               </a>
               <a
-                href="https://wa.me/message/DVEYNOWZKFLAK1?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20Banho%20%26%20Tosa%20para%20meu%20pet."
+                href="https://wa.me/553138311702?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20Banho%20%26%20Tosa%20para%20meu%20pet."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-white border-2 border-brand-green text-brand-green font-bold px-6 py-3 rounded-full hover:bg-brand-green hover:text-white transition-colors text-sm"

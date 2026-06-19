@@ -895,7 +895,7 @@ function AppContent() {
             Marca um horário pelo WhatsApp. A gente busca seu pet, dá banho, faz a tosa e devolve cheiroso na sua porta.
           </p>
           <a
-            href="https://wa.me/message/DVEYNOWZKFLAK1?text=Ola! Gostaria de agendar Banho e Tosa para meu pet."
+            href="https://wa.me/553138311702?text=Ola! Gostaria de agendar Banho e Tosa para meu pet."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-brand-orange text-white font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full mt-6 sm:mt-8 hover:brightness-110 transition-all hover:shadow-xl hover:shadow-brand-orange/30 text-sm sm:text-base"

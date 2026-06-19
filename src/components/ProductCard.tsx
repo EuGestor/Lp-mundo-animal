@@ -3,7 +3,7 @@ import { ShoppingCart, Check, Eye, MessageCircle } from 'lucide-react';
 import { useCart, type Product } from '@/context/CartContext';
 
 const WHATSAPP_QUOTE_URL = (name: string) =>
-  `https://wa.me/message/DVEYNOWZKFLAK1?text=${encodeURIComponent(
+  `https://wa.me/553138311702?text=${encodeURIComponent(
     `Olá! Gostaria de saber valores e tamanhos disponíveis de: ${name}.`
   )}`;
 
