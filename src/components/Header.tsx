@@ -71,7 +71,7 @@ const Header: React.FC<HeaderProps> = ({ onCartClick }) => {
           <div className="flex items-center gap-3">
             {/* WhatsApp CTA */}
             <a
-              href="https://wa.me/message/73CP3FMULQTAA1"
+              href="https://wa.me/message/DVEYNOWZKFLAK1"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:flex items-center gap-2 bg-brand-green text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-brand-green-dark transition-colors"
@@ -120,7 +120,7 @@ const Header: React.FC<HeaderProps> = ({ onCartClick }) => {
                 </button>
               ))}
               <a
-                href="https://wa.me/message/73CP3FMULQTAA1"
+                href="https://wa.me/message/DVEYNOWZKFLAK1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 bg-brand-green text-white font-medium py-3 rounded-full mt-3"

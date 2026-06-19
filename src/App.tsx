@@ -596,7 +596,7 @@ function AppContent() {
                 Ver Produtos <ChevronRight size={16} className="sm:hidden" /><ChevronRight size={18} className="hidden sm:block" />
               </button>
               <a
-                href="https://wa.me/message/73CP3FMULQTAA1"
+                href="https://wa.me/message/DVEYNOWZKFLAK1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white/15 backdrop-blur-sm border border-white/30 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-white/25 transition-all flex items-center gap-2 text-sm sm:text-base"
@@ -729,7 +729,7 @@ function AppContent() {
                     <h3 className="font-bold text-gray-800">{service.title}</h3>
                     <p className="text-sm text-gray-500 mt-2 leading-relaxed">{service.desc}</p>
                     <a
-                      href="https://wa.me/message/73CP3FMULQTAA1"
+                      href="https://wa.me/message/DVEYNOWZKFLAK1"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-brand-green font-medium text-sm mt-4 hover:underline"
@@ -895,7 +895,7 @@ function AppContent() {
             Marca um horário pelo WhatsApp. A gente busca seu pet, dá banho, faz a tosa e devolve cheiroso na sua porta.
           </p>
           <a
-            href="https://wa.me/message/73CP3FMULQTAA1?text=Ola! Gostaria de agendar Banho e Tosa para meu pet."
+            href="https://wa.me/message/DVEYNOWZKFLAK1?text=Ola! Gostaria de agendar Banho e Tosa para meu pet."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-brand-orange text-white font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full mt-6 sm:mt-8 hover:brightness-110 transition-all hover:shadow-xl hover:shadow-brand-orange/30 text-sm sm:text-base"
@@ -1014,7 +1014,7 @@ function AppContent() {
 
       {/* Floating WhatsApp */}
       <a
-        href="https://wa.me/message/73CP3FMULQTAA1"
+        href="https://wa.me/message/DVEYNOWZKFLAK1"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-40 bg-green-500 text-white w-12 h-12 sm:w-14 sm:h-14 rounded-full shadow-lg shadow-green-500/30 flex items-center justify-center hover:scale-110 transition-transform animate-pulse-glow"

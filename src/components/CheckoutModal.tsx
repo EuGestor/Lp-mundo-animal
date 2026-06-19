@@ -42,7 +42,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose }) => {
     }
     msg += `_Pedido enviado pelo site_`;
 
-    return `https://wa.me/message/73CP3FMULQTAA1?text=${encodeURIComponent(msg)}`;
+    return `https://wa.me/message/DVEYNOWZKFLAK1?text=${encodeURIComponent(msg)}`;
   };
 
   const handleEnviar = () => {
