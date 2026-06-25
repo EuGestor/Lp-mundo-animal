@@ -4,7 +4,7 @@ import { ChevronDown } from 'lucide-react';
 const faqs = [
   {
     q: 'O frete grátis tem mínimo de pedido?',
-    a: 'Não. A gente entrega de graça em Itabira pra qualquer pedido. Da lata de ração avulsa ao pedido grande do mês.',
+    a: 'Tem sim: pedidos a partir de R$ 100 a gente entrega de graça em qualquer bairro de Itabira. Abaixo disso, manda mensagem no WhatsApp que a gente combina uma taxa de entrega baratinha.',
   },
   {
     q: 'Em quanto tempo vocês entregam?',
@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: 'Atendem fora de Itabira?',
-    a: 'O frete grátis vale só pra Itabira. Pra cidades vizinhas, manda mensagem no WhatsApp que a gente combina a taxa de entrega.',
+    a: 'O frete grátis vale só pra Itabira, nas compras acima de R$ 100. Pra cidades vizinhas, manda mensagem no WhatsApp que a gente combina a taxa de entrega.',
   },
 ];
 

@@ -569,6 +569,25 @@ function AppContent() {
               amigo
             </h1>
 
+            {/* Faixa Frete Grátis — destaque próximo da headline */}
+            <div
+              className="flex items-center gap-3 bg-white/95 text-brand-green-dark rounded-xl sm:rounded-2xl pl-2 pr-4 py-2 mt-5 sm:mt-6 max-w-md shadow-lg shadow-black/15 ring-1 ring-brand-orange/40"
+              style={{
+                opacity: heroLoaded ? 1 : 0,
+                transform: heroLoaded ? 'translateY(0)' : 'translateY(20px)',
+                transition: 'all 0.8s ease-out 0.3s',
+              }}
+            >
+              <span className="flex-shrink-0 grid place-items-center w-9 h-9 sm:w-11 sm:h-11 rounded-lg bg-brand-orange text-white shadow-sm">
+                <Truck size={18} className="sm:hidden" />
+                <Truck size={22} className="hidden sm:block" />
+              </span>
+              <span className="text-xs sm:text-sm font-semibold leading-snug">
+                <span className="font-extrabold text-brand-orange">Frete grátis</span> em toda Itabira nas compras acima de{' '}
+                <span className="whitespace-nowrap font-extrabold">R$ 100,00</span>
+              </span>
+            </div>
+
             <p
               className="text-white/80 text-base sm:text-lg mt-4 sm:mt-6 max-w-md leading-relaxed"
               style={{
@@ -578,7 +597,7 @@ function AppContent() {
               }}
             >
               Ração que o seu pet adora, petisco pra recompensar, banho com busca em casa e vacina
-              sem complicação. A gente entrega de graça em qualquer canto de Itabira.
+              sem complicação. A gente entrega de graça em qualquer canto de Itabira nas compras acima de R$ 100.
             </p>
 
             <div
@@ -640,7 +659,7 @@ function AppContent() {
             Promoção
           </span>
           <p className="text-white font-medium text-xs sm:text-base text-center leading-snug">
-            A gente entrega de graça em qualquer canto de Itabira. Faz o pedido pelo WhatsApp que a gente leva.
+            Frete grátis em toda Itabira nas compras acima de R$ 100. Faz o pedido pelo WhatsApp que a gente leva.
           </p>
           <button
             onClick={scrollToCatalog}
@@ -689,7 +708,7 @@ function AppContent() {
               {
                 icon: Truck,
                 title: 'Entrega',
-                desc: 'Pediu pelo WhatsApp? A gente leva até a sua porta sem cobrar frete. Em qualquer bairro de Itabira.',
+                desc: 'Pediu pelo WhatsApp acima de R$ 100? A gente leva até a sua porta sem cobrar frete. Em qualquer bairro de Itabira.',
                 color: 'bg-rose-50 text-rose-600',
                 image: '/assets/localidade.webp',
               },
@@ -820,7 +839,7 @@ function AppContent() {
               {
                 icon: Truck,
                 title: 'Frete grátis em qualquer bairro',
-                desc: 'Você não paga nada pela entrega aqui em Itabira. Combina pelo WhatsApp e a gente vai.',
+                desc: 'Nas compras acima de R$ 100, você não paga nada pela entrega aqui em Itabira. Combina pelo WhatsApp e a gente vai.',
               },
               {
                 icon: Heart,
