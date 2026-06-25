@@ -7,6 +7,7 @@ import ImageModal from '@/components/ImageModal';
 import ProductModal from '@/components/ProductModal';
 import GoogleReviews from '@/components/GoogleReviews';
 import HeroSlideshow from '@/components/HeroSlideshow';
+import HeroReviews from '@/components/HeroReviews';
 import ProductCard from '@/components/ProductCard';
 import FAQ from '@/components/FAQ';
 import LocationMap from '@/components/LocationMap';
@@ -643,6 +644,25 @@ function AppContent() {
                 </div>
                 <div className="text-white/60 text-[10px] sm:text-sm mt-1">Nota no Google</div>
               </div>
+            </div>
+
+            {/* Comentários do Google — só no mobile (no desktop ficam no slideshow ao lado) */}
+            <div
+              className="lg:hidden"
+              style={{
+                opacity: heroLoaded ? 1 : 0,
+                transform: heroLoaded ? 'translateY(0)' : 'translateY(20px)',
+                transition: 'all 0.8s ease-out 0.7s',
+              }}
+            >
+              <div className="flex items-center gap-2 mt-8">
+                <span className="h-px flex-1 bg-white/20" />
+                <span className="text-white/70 text-[11px] font-semibold uppercase tracking-wider">
+                  Quem é cliente recomenda
+                </span>
+                <span className="h-px flex-1 bg-white/20" />
+              </div>
+              <HeroReviews />
             </div>
           </div>
 
