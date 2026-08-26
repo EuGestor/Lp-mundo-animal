@@ -416,7 +416,7 @@ const products: Product[] = [
     originalPrice: 115.0,
     name: 'Cocheira Mel: Ração para Equinos',
     price: 99.9,
-    image: '/assets/cocheira.png',
+    image: '/assets/cocheira.webp',
     category: 'Equinos',
     weight: '30kg',
     description: 'Ração premium para equinos, formulada com mel e ingredientes selecionados para nutrição completa e energia duradoura.',
@@ -525,8 +525,9 @@ function AppContent() {
         {/* Background */}
         <div className="absolute inset-0">
           <img
-            src="/assets/produtos-loja.png"
-            alt="Produtos Mundo Animal"
+            src="/assets/produtos-loja.webp"
+            alt="Produtos Mundo Animal Pet Shop em Itabira"
+            fetchPriority="high"
             className={`w-full h-full object-cover transition-all duration-1000 ${
               heroLoaded ? 'scale-100 opacity-100' : 'scale-110 opacity-0'
             }`}
@@ -709,14 +710,14 @@ function AppContent() {
                 title: 'Banho & Tosa',
                 desc: 'Você fala o horário, a gente busca seu pet em casa, dá banho, faz a tosa e devolve cheiroso na sua porta.',
                 color: 'bg-sky-50 text-sky-600',
-                image: '/assets/servico-banho.png',
+                image: '/assets/servico-banho.webp',
               },
               {
                 icon: Syringe,
                 title: 'Vacinas',
                 desc: 'Veterinária aplicando vacina aqui na nossa clínica. Pode trazer seu pet, a gente atende com calma.',
                 color: 'bg-amber-50 text-amber-600',
-                image: '/assets/servico-vacinas.png',
+                image: '/assets/servico-vacinas.webp',
               },
               {
                 icon: Egg,
@@ -918,7 +919,7 @@ function AppContent() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/assets/banho-tosa.png"
+            src="/assets/banho-tosa.webp"
             alt="Banho e Tosa"
             className="w-full h-full object-cover"
           />

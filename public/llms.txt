@@ -1,0 +1,37 @@
+# Mundo Animal Pet Shop
+
+> Pet shop e clínica veterinária em Itabira, Minas Gerais (Brasil), atendendo a mesma família de
+> clientes desde 1998. Vende ração e petiscos para cães, gatos e equinos, acessórios e produtos de
+> higiene, e presta serviços de banho & tosa com busca em casa, vacinação e criação de galinhas
+> Brahma. Faz entrega grátis em qualquer bairro de Itabira em compras acima de R$ 100,00, com
+> pedido fechado pelo WhatsApp.
+
+## Loja
+
+- [Página inicial](https://lp-mundo-animal.vercel.app/): catálogo completo de produtos (ração,
+  petiscos, acessórios, areia higiênica), serviços (banho & tosa, vacinas, criação de galinhas),
+  avaliações de clientes no Google e localização da loja.
+- [Política de Privacidade](https://lp-mundo-animal.vercel.app/privacidade.html): como os dados
+  enviados no checkout são usados (LGPD).
+
+## Produtos
+
+- Ração premium e super premium para cães e gatos (marcas como Purina, Colosso, PowerDog, Guabi,
+  CanisMax), em diferentes tamanhos de embalagem, para filhotes, adultos e castrados.
+- Ração para equinos.
+- Petiscos e biscoitos naturais para cães.
+- Areia higiênica e acessórios (roupinhas, kit adestrador sanitário).
+
+## Serviços
+
+- Banho e tosa com busca e entrega do pet em casa.
+- Aplicação de vacinas na clínica veterinária própria.
+- Criação de galinhas da raça Brahma, com venda de ovos.
+- Entrega grátis em Itabira/MG para pedidos acima de R$ 100,00.
+
+## Contato
+
+- Endereço: Avenida João Pinheiro, nº 194, Centro, Itabira - MG, Brasil.
+- Telefone/WhatsApp: (31) 3831-1702.
+- Horário: Segunda a Sexta, 8h às 18h; Sábado, 8h às 13h.
+- Instagram: https://www.instagram.com/mundoanimalitabira/

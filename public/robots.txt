@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mundo-animal-lp.vercel.app/sitemap.xml
+Sitemap: https://lp-mundo-animal.vercel.app/sitemap.xml
