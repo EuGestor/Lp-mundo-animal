@@ -47,7 +47,7 @@ const Header: React.FC<HeaderProps> = ({ onCartClick }) => {
           {/* Logo */}
           <button onClick={() => scrollTo('#hero')} className="flex items-center gap-2">
             <img
-              src="/assets/logo-mundo-animal.png"
+              src="/assets/logo-mundo-animal.webp"
               alt="Mundo Animal Pet Shop"
               className="h-12 w-auto"
             />
