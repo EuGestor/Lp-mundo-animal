@@ -40,7 +40,7 @@
     "id": 3,
     "originalPrice": 145,
     "name": "Colosso Premium Filhotes Frango & Arroz",
-    "price": 110.99,
+    "price": 130,
     "image": "/assets/colosso-filhotes-frango.webp",
     "category": "Cães",
     "weight": "10,1kg",
@@ -273,7 +273,7 @@
     "image": "/assets/purina-friskies.webp",
     "category": "Gatos",
     "weight": "85g",
-    "badge": "3 por R$10",
+    "badge": "5 por R$10",
     "description": "Alimento Úmido Premium Especial: 100% completo e balanceado. Pedaços macios e suculentos ao molho. Sabores: Carne, Frango, Atum, Salmão, Peixe Branco, Cordeiro e Peru. Promoção: 3 por R$ 10,00.",
     "benefits": [
       "+25% de proteína: musculos fortes",
