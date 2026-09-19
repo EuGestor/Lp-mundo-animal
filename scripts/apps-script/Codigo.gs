@@ -9,8 +9,17 @@
  *                      Lp-mundo-animal, com DOIS escopos:
  *                        Contents: Read and write   (para commitar os precos)
  *                        Actions:  Read             (para confirmar que rodou)>
- * 3. Recarregue a planilha: o menu "Site" aparece na barra superior.
- * 4. Menu Site > "Ligar atualização automática" (pede autorizacao na 1a vez).
+ * 3. Recarregue a planilha: o menu "⚡ Site" aparece na barra superior.
+ * 4. Menu ⚡ Site > "Ligar atualização automática" (pede autorizacao na 1a vez).
+ *
+ * NAO use o botao "Implantar" do editor. Ele serve para app web, API e
+ * complemento. Este script e vinculado a planilha e ja roda assim que e
+ * salvo: o menu aparecendo e a prova disso.
+ *
+ * BOTAO COLORIDO NA PLANILHA (opcional, melhor para o cliente):
+ *   Inserir > Desenho > faca um retangulo, pinte, escreva "ATUALIZAR SITE",
+ *   Salvar e fechar. Clique nos 3 pontinhos do desenho > "Atribuir script"
+ *   e digite:  atualizarSiteAgora
  *
  * Rodar funcoes pelo editor do Apps Script: use apenas as que nao abrem
  * dialogo (instalarGatilhoHorario, verificarGatilhos). Um alert() disparado
@@ -26,8 +35,10 @@ var ABA_PRODUTOS = 'PRODUTOS';
 var ABA_PROMOCOES = 'PROMOCOES';
 
 function onOpen() {
+  // Menus do Sheets nao aceitam cor: o Google nao expoe estilo para eles.
+  // Emoji no titulo e a unica forma de destaque que a plataforma permite.
   SpreadsheetApp.getUi()
-    .createMenu('Site')
+    .createMenu('⚡ Site')
     .addItem('Atualizar site agora', 'atualizarSiteAgora')
     .addSeparator()
     .addItem('Puxar catálogo do site', 'puxarCatalogo')
