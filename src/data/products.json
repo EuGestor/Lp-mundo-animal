@@ -40,7 +40,7 @@
     "id": 3,
     "originalPrice": 145,
     "name": "Colosso Premium Filhotes Frango & Arroz",
-    "price": 130,
+    "price": 110.99,
     "image": "/assets/colosso-filhotes-frango.webp",
     "category": "Cães",
     "weight": "10,1kg",
@@ -422,7 +422,7 @@
     "weight": "3 sacos de 15kg",
     "description": "Leve três sacos de PowerDog Premium Carne 15kg e economize.",
     "promoSlot": true,
-    "active": true,
+    "active": false,
     "price": 360,
     "originalPrice": 390,
     "badge": "Só esta semana"
