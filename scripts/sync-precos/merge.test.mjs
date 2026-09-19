@@ -88,6 +88,22 @@ describe('validacao de precos', () => {
     expect(produtos.find((p) => p.id === 21).price).toBeUndefined();
   });
 
+  it('dar preco a um "sob consulta" libera o carrinho', () => {
+    const { produtos, erros } = merge(catalogo(), {
+      produtos: [linha({ id: 21, preco: 89, preco_de: '' })],
+    });
+    expect(erros).toEqual([]);
+    const p = produtos.find((x) => x.id === 21);
+    expect(p.price).toBe(89);
+    // o card testa `quoteOnWhatsapp || price == null` para escolher o botao
+    expect(p.quoteOnWhatsapp).toBeUndefined();
+  });
+
+  it('tirar o preco devolve o produto para "sob consulta"', () => {
+    const { produtos } = merge(catalogo(), { produtos: [linha({ preco: '', preco_de: '' })] });
+    expect(produtos.find((x) => x.id === 1).price).toBeUndefined();
+  });
+
   it('preco zero e rejeitado (celula vazia e o caminho certo)', () => {
     const { erros } = merge(catalogo(), { produtos: [linha({ preco: 0, preco_de: '' })] });
     expect(erros.join()).toMatch(/zero/);

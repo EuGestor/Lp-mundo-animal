@@ -89,8 +89,14 @@ function checaSelo(selo, ref, avisos) {
 
 /** Aplica os campos comerciais de uma linha sobre um produto do catalogo. */
 function aplicaComercial(produto, precos, selo, ativo) {
-  if (precos.preco === null) delete produto.price;
-  else produto.price = precos.preco;
+  if (precos.preco === null) {
+    delete produto.price;
+  } else {
+    produto.price = precos.preco;
+    // Sem isto, um produto que era "sob consulta" e ganhou preco continuaria
+    // mostrando o botao de WhatsApp: o card testa `quoteOnWhatsapp || price == null`.
+    delete produto.quoteOnWhatsapp;
+  }
 
   if (precos.precoDe === null) delete produto.originalPrice;
   else produto.originalPrice = precos.precoDe;

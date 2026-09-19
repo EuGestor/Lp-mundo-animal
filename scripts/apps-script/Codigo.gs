@@ -5,8 +5,10 @@
  * COMO INSTALAR
  * 1. Na planilha: Extensoes > Apps Script. Cole este arquivo inteiro.
  * 2. Configuracoes do projeto > Propriedades do script, adicione:
- *      GITHUB_TOKEN = <PAT de granularidade fina, escopo "Contents: Read and write",
- *                      restrito apenas ao repositorio Lp-mundo-animal>
+ *      GITHUB_TOKEN = <PAT de granularidade fina, restrito ao repositorio
+ *                      Lp-mundo-animal, com DOIS escopos:
+ *                        Contents: Read and write   (para commitar os precos)
+ *                        Actions:  Read             (para confirmar que rodou)>
  * 3. Rode `instalarGatilhoHorario()` uma vez (vai pedir autorizacao).
  * 4. Recarregue a planilha: o menu "Site" aparece na barra superior.
  *
@@ -33,8 +35,9 @@ function atualizarSiteAgora() {
   var r = sincronizar();
   var ui = SpreadsheetApp.getUi();
   if (r.ok) {
-    ui.alert('Enviado!\n\nO site atualiza em 1 a 3 minutos. ' +
-             'Pode fechar a planilha, o processo continua sozinho.');
+    ui.alert('Confirmado!\n\nA validação aceitou a planilha e o site atualiza em ' +
+             '1 a 3 minutos. Pode fechar, o processo continua sozinho.' +
+             (r.url ? '\n\nAcompanhe em:\n' + r.url : ''));
   } else {
     ui.alert('Não enviei nada\n\n' + r.erro);
   }
@@ -78,7 +81,43 @@ function sincronizar() {
   if (codigo !== 204) {
     return { ok: false, erro: 'GitHub respondeu ' + codigo + ': ' + resp.getContentText() };
   }
-  return { ok: true };
+
+  // O 204 so diz que o GitHub aceitou o aviso, nao que algo rodou. Se o
+  // workflow nao estiver na branch padrao, o dispatch e aceito e ignorado em
+  // silencio. Sem esta confirmacao, a planilha mentiria "Enviado!".
+  return confirmarExecucao(token);
+}
+
+function confirmarExecucao(token) {
+  var url = 'https://api.github.com/repos/' + REPO +
+            '/actions/runs?event=repository_dispatch&per_page=1';
+  for (var tentativa = 0; tentativa < 6; tentativa++) {
+    Utilities.sleep(5000);
+    var r = UrlFetchApp.fetch(url, {
+      headers: { Authorization: 'Bearer ' + token, Accept: 'application/vnd.github+json' },
+      muteHttpExceptions: true
+    });
+    if (r.getResponseCode() !== 200) continue;
+    var runs = JSON.parse(r.getContentText()).workflow_runs || [];
+    if (!runs.length) continue;
+    var run = runs[0];
+    var idade = (new Date() - new Date(run.created_at)) / 1000;
+    if (idade > 180) continue; // execucao velha, ainda nao e a nossa
+
+    if (run.status !== 'completed') return { ok: true, url: run.html_url };
+    if (run.conclusion === 'success') return { ok: true, url: run.html_url };
+    return {
+      ok: false,
+      erro: 'A validação recusou a planilha. Veja o motivo em:\n' + run.html_url
+    };
+  }
+  return {
+    ok: false,
+    erro: 'O GitHub aceitou o pedido mas nenhuma execução apareceu em 30s.\n\n' +
+          'Causa mais comum: o arquivo .github/workflows/sync-precos.yml ainda não ' +
+          'está na branch principal (main) do repositório. O repository_dispatch só ' +
+          'executa workflows que estão na branch padrão.'
+  };
 }
 
 /**

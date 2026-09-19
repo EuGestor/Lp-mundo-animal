@@ -292,3 +292,32 @@ coisa.
 
 A LP de um cliente pagante roda em plano Hobby da Vercel, o que é tecnicamente fora dos
 termos de uso. Não bloqueia este projeto.
+
+## Restricao do GitHub que define a ordem do deploy
+
+`repository_dispatch` **so executa workflows que estao na branch padrao**. Enquanto
+`sync-precos.yml` existir apenas na branch de trabalho, o GitHub aceita o dispatch,
+responde `204` e nao roda nada.
+
+Isso torna o merge para `main` **pre-requisito de qualquer teste ponta a ponta**, nao
+etapa final. O mesmo vale para "puxar catalogo", que le
+`raw.githubusercontent.com/.../main/src/data/products.json` e devolve 404 ate o merge.
+
+Como `204` sozinho seria um falso "deu certo", o Apps Script confirma a execucao
+consultando `/actions/runs?event=repository_dispatch` por ate 30 segundos e so entao
+avisa o cliente. Por isso o PAT precisa tambem de `Actions: Read`, alem de
+`Contents: Read and write`.
+
+## Primeiro teste
+
+A validacao V7 nao commita quando nada mudou. Se o primeiro teste for apertar o botao
+com a planilha identica ao repositorio, o resultado correto e "nada mudou" — e vai
+parecer defeito. O primeiro teste precisa ser **uma mudanca de preco real**.
+
+## Ponto em aberto
+
+`ativo` em branco hoje aborta o sync inteiro. E seguro (em branco e ambiguo: nao da para
+saber se o cliente quis ligar ou desligar), mas significa que uma celula limpa por
+acidente trava toda atualizacao de preco ate alguem perceber. Alternativa seria tratar
+em branco como `SIM`, ao custo de religar sozinho um produto que o cliente havia
+escondido. Decisao do dono do produto.
