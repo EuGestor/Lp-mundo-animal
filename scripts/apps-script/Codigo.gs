@@ -53,8 +53,7 @@ function atualizarSiteAgora() {
   var ui = SpreadsheetApp.getUi();
   if (r.ok) {
     ui.alert('Confirmado!\n\nA validação aceitou a planilha e o site atualiza em ' +
-             '1 a 3 minutos. Pode fechar, o processo continua sozinho.' +
-             (r.url ? '\n\nAcompanhe em:\n' + r.url : ''));
+             '1 a 3 minutos. Pode fechar, o processo continua sozinho.');
   } else {
     ui.alert('Não enviei nada\n\n' + r.erro);
   }
