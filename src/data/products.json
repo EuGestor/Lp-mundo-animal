@@ -3,7 +3,7 @@
     "id": 1,
     "originalPrice": 145,
     "name": "PowerDog Premium Carne",
-    "price": 130,
+    "price": 99,
     "image": "/assets/powerdog.webp",
     "category": "Cães",
     "weight": "15kg",
@@ -273,7 +273,7 @@
     "image": "/assets/purina-friskies.webp",
     "category": "Gatos",
     "weight": "85g",
-    "badge": "5 por R$10",
+    "badge": "3 por R$10",
     "description": "Alimento Úmido Premium Especial: 100% completo e balanceado. Pedaços macios e suculentos ao molho. Sabores: Carne, Frango, Atum, Salmão, Peixe Branco, Cordeiro e Peru. Promoção: 3 por R$ 10,00.",
     "benefits": [
       "+25% de proteína: musculos fortes",
