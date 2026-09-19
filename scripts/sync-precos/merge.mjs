@@ -123,11 +123,10 @@ export function merge(catalogo, payload) {
   const porId = new Map(produtos.map((p) => [p.id, p]));
 
   const linhasProduto = payload?.produtos ?? [];
-  const linhasPromo = payload?.promocoes ?? [];
 
   // V1: id duplicado e ambiguo, aborta.
   const vistos = new Set();
-  for (const linha of [...linhasProduto, ...linhasPromo]) {
+  for (const linha of linhasProduto) {
     const id = linha?.id;
     if (vazio(id)) {
       erros.push(`Linha sem "id" na planilha. O id e a unica chave: nomes se repetem.`);
@@ -145,59 +144,10 @@ export function merge(catalogo, payload) {
       avisos.push(`${ref}: nao existe mais no site, linha ignorada. Rode "Puxar catálogo".`);
       continue;
     }
-    if (alvo.promoSlot) {
-      erros.push(`${ref}: e uma vaga de promocao, precisa estar na aba PROMOCOES.`);
-      continue;
-    }
     const precos = parsePrecos(linha, ref, erros);
     const ativo = parseAtivo(linha.ativo, ref, erros);
     if (!precos || ativo === null) continue;
     aplicaComercial(alvo, precos, checaSelo(linha.selo, ref, avisos), ativo);
-  }
-
-  for (const linha of linhasPromo) {
-    if (vazio(linha?.id)) continue;
-    const ref = `promocao id ${linha.id}`;
-    const vaga = porId.get(linha.id);
-    if (!vaga || !vaga.promoSlot) {
-      avisos.push(`${ref}: vaga de promocao inexistente, linha ignorada.`);
-      continue;
-    }
-    const ativo = parseAtivo(linha.ativo, ref, erros);
-    if (ativo === null) continue;
-
-    if (!ativo) {
-      vaga.active = false;
-      continue;
-    }
-
-    // V6: vaga ligada pela metade renderiza card quebrado.
-    const titulo = String(linha.titulo ?? '').trim();
-    const precos = parsePrecos(linha, ref, erros);
-    if (!titulo) erros.push(`${ref}: ativa sem "titulo".`);
-    if (precos && precos.preco === null) {
-      erros.push(`${ref}: ativa sem "preco". Vaga de promocao nao aceita "sob consulta".`);
-    }
-
-    const refImagem = linha.imagem_de;
-    const origem = vazio(refImagem) ? null : porId.get(refImagem);
-    if (!origem) {
-      erros.push(
-        `${ref}: "imagem_de" precisa apontar para o id de um produto existente ` +
-          `(recebido: "${refImagem ?? ''}"). A vaga usa a foto desse produto.`
-      );
-    } else if (origem.promoSlot) {
-      erros.push(`${ref}: "imagem_de" aponta para outra vaga de promocao (${refImagem}).`);
-    }
-
-    if (!precos || !titulo || !origem || origem.promoSlot || precos.preco === null) continue;
-
-    vaga.name = titulo;
-    vaga.weight = String(linha.variacao ?? '').trim();
-    vaga.description = String(linha.descricao ?? '').trim();
-    vaga.image = origem.image;
-    vaga.category = 'Promoções';
-    aplicaComercial(vaga, precos, checaSelo(linha.selo, ref, avisos), true);
   }
 
   return { produtos, erros, avisos };

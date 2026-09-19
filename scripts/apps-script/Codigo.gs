@@ -32,7 +32,6 @@
 
 var REPO = 'EuGestor/Lp-mundo-animal';
 var ABA_PRODUTOS = 'PRODUTOS';
-var ABA_PROMOCOES = 'PROMOCOES';
 
 function onOpen() {
   // Menus do Sheets nao aceitam cor: o Google nao expoe estilo para eles.
@@ -68,13 +67,10 @@ function sincronizarAutomatico() {
 function sincronizar() {
   var problemas = [];
   var produtos = lerAba(ABA_PRODUTOS, ['id', 'preco', 'preco_de', 'selo', 'ativo'], problemas);
-  var promocoes = lerAba(ABA_PROMOCOES,
-    ['id', 'titulo', 'variacao', 'descricao', 'preco', 'preco_de', 'selo', 'imagem_de', 'ativo'],
-    problemas);
 
   if (problemas.length) return { ok: false, erro: problemas.join('\n') };
-  if (!produtos.length && !promocoes.length) {
-    return { ok: false, erro: 'Não achei nenhuma linha preenchida nas abas.' };
+  if (!produtos.length) {
+    return { ok: false, erro: 'Não achei nenhuma linha preenchida na aba ' + ABA_PRODUTOS + '.' };
   }
 
   var token = PropertiesService.getScriptProperties().getProperty('GITHUB_TOKEN');
@@ -88,7 +84,7 @@ function sincronizar() {
     headers: { Authorization: 'Bearer ' + token, Accept: 'application/vnd.github+json' },
     payload: JSON.stringify({
       event_type: 'sync-precos',
-      client_payload: { produtos: produtos, promocoes: promocoes }
+      client_payload: { produtos: produtos }
     }),
     muteHttpExceptions: true
   });
@@ -146,7 +142,13 @@ function confirmarExecucao(token) {
 function lerAba(nome, colunas, problemas) {
   var aba = SpreadsheetApp.getActive().getSheetByName(nome);
   if (!aba) {
-    problemas.push('Aba "' + nome + '" não existe.');
+    // Busca pelo nome e exata: "PRODUTOS" e "Produtos" sao abas diferentes
+    // para o Sheets. Listar o que existe evita adivinhacao.
+    var nomes = SpreadsheetApp.getActive().getSheets().map(function (x) {
+      return '"' + x.getName() + '"';
+    });
+    problemas.push('Não achei a aba "' + nome + '". O nome precisa ser exatamente assim, ' +
+      'em maiúsculas e sem acento.\n\nAbas que existem: ' + nomes.join(', '));
     return [];
   }
   var dados = aba.getDataRange().getValues();

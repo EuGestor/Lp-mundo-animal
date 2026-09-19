@@ -39,8 +39,8 @@ import './App.css';
 // apenas esse arquivo, nunca este componente. Ver docs/specs/2026-09-19-sync-precos-google-sheets-design.md
 const products: Product[] = (productsData as Product[]).filter((p) => p.active !== false);
 
-// Ordem de exibicao das pastilhas. Promocoes vem primeiro para dar destaque.
-const CATEGORY_ORDER = ['Promoções', 'Cães', 'Gatos', 'Equinos', 'Petiscos', 'Acessórios'];
+// Ordem de exibicao das pastilhas.
+const CATEGORY_ORDER = ['Cães', 'Gatos', 'Equinos', 'Petiscos', 'Acessórios'];
 
 // Pastilhas derivadas dos produtos ativos: categoria sem produto ativo nao aparece.
 const categories = [

@@ -9,13 +9,9 @@ const catalogo = () => [
     badge: 'Econômico', active: true },
   { id: 21, name: 'Colosso Roupinha de Lã', category: 'Acessórios',
     image: '/assets/colosso-roupinha.webp', quoteOnWhatsapp: true, active: true },
-  { id: 900, name: '', image: '', category: 'Promoções', promoSlot: true, active: false },
 ];
 
 const linha = (o) => ({ id: 1, preco: 130, preco_de: 145, selo: '', ativo: 'SIM', ...o });
-const vaga = (o) => ({ id: 900, titulo: 'Combo 3x PowerDog', variacao: '3 sacos de 15kg',
-  descricao: 'Leve tres e economize.', preco: 360, preco_de: 390, selo: 'Só esta semana',
-  imagem_de: 1, ativo: 'SIM', ...o });
 
 describe('merge por id', () => {
   it('sobrepoe apenas os campos comerciais', () => {
@@ -35,7 +31,7 @@ describe('merge por id', () => {
     const { produtos } = merge(catalogo(), {
       produtos: [linha({ id: 2, preco: 190, preco_de: 237.5 }), linha({ id: 1 })],
     });
-    expect(produtos.map((p) => p.id)).toEqual([1, 2, 21, 900]);
+    expect(produtos.map((p) => p.id)).toEqual([1, 2, 21]);
   });
 
   it('nao toca em produto ausente da planilha', () => {
@@ -135,41 +131,6 @@ describe('ativo', () => {
   it('valor invalido aborta', () => {
     const { erros } = merge(catalogo(), { produtos: [linha({ ativo: 'talvez' })] });
     expect(erros.join()).toMatch(/SIM ou NÃO/);
-  });
-});
-
-describe('vagas de promocao', () => {
-  it('vaga ativa herda a foto do produto referenciado', () => {
-    const { produtos, erros } = merge(catalogo(), { promocoes: [vaga()] });
-    expect(erros).toEqual([]);
-    const v = produtos.find((p) => p.id === 900);
-    expect(v.image).toBe('/assets/powerdog.webp');
-    expect(v.name).toBe('Combo 3x PowerDog');
-    expect(v.price).toBe(360);
-    expect(v.category).toBe('Promoções');
-    expect(v.active).toBe(true);
-  });
-
-  it('V6: vaga ativa sem titulo, preco ou imagem_de aborta', () => {
-    expect(merge(catalogo(), { promocoes: [vaga({ titulo: '' })] }).erros.join())
-      .toMatch(/sem "titulo"/);
-    expect(merge(catalogo(), { promocoes: [vaga({ preco: '', preco_de: '' })] }).erros.join())
-      .toMatch(/sem "preco"/);
-    expect(merge(catalogo(), { promocoes: [vaga({ imagem_de: 999 })] }).erros.join())
-      .toMatch(/imagem_de/);
-  });
-
-  it('vaga desligada nao exige campo nenhum', () => {
-    const { erros, produtos } = merge(catalogo(), {
-      promocoes: [{ id: 900, ativo: 'NÃO' }],
-    });
-    expect(erros).toEqual([]);
-    expect(produtos.find((p) => p.id === 900).active).toBe(false);
-  });
-
-  it('produto comum na aba de promocoes e rejeitado', () => {
-    const { erros } = merge(catalogo(), { produtos: [linha({ id: 900 })] });
-    expect(erros.join()).toMatch(/vaga de promocao/);
   });
 });
 

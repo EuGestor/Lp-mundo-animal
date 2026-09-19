@@ -413,38 +413,5 @@
       "Palatabilidade excepcional com mel"
     ],
     "active": true
-  },
-  {
-    "id": 900,
-    "name": "Combo 3x PowerDog Carne",
-    "image": "/assets/powerdog.webp",
-    "category": "Promoções",
-    "weight": "3 sacos de 15kg",
-    "description": "Leve três sacos de PowerDog Premium Carne 15kg e economize.",
-    "promoSlot": true,
-    "active": false,
-    "price": 360,
-    "originalPrice": 390,
-    "badge": "Só esta semana"
-  },
-  {
-    "id": 901,
-    "name": "",
-    "image": "",
-    "category": "Promoções",
-    "weight": "",
-    "description": "",
-    "promoSlot": true,
-    "active": false
-  },
-  {
-    "id": 902,
-    "name": "",
-    "image": "",
-    "category": "Promoções",
-    "weight": "",
-    "description": "",
-    "promoSlot": true,
-    "active": false
   }
 ]

@@ -14,8 +14,6 @@ export interface Product {
   quoteOnWhatsapp?: boolean;
   /** false esconde o produto do site. Controlado pela planilha de precos. */
   active?: boolean;
-  /** true marca uma vaga de promocao (ids 900+), preenchida pela planilha. */
-  promoSlot?: boolean;
 }
 
 export interface CartItem extends Product {

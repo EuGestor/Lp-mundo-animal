@@ -321,3 +321,29 @@ saber se o cliente quis ligar ou desligar), mas significa que uma celula limpa p
 acidente trava toda atualizacao de preco ate alguem perceber. Alternativa seria tratar
 em branco como `SIM`, ao custo de religar sozinho um produto que o cliente havia
 escondido. Decisao do dono do produto.
+
+## Aba PROMOCOES removida (2026-09-19)
+
+As vagas de promocao (D4) foram removidas a pedido do dono do produto, depois de um
+teste que falhou. A planilha volta a ter **uma aba so**, `PRODUTOS`.
+
+**Por que o teste falhou:** as quatro execucoes do workflow naquele periodo terminaram
+com sucesso, ou seja, a falha nao chegou ao GitHub — parou no Apps Script. A causa mais
+provavel e o nome da aba: `getSheetByName` compara texto exato, e `PROMOÇÕES` (com
+cedilha e til) e uma aba diferente de `PROMOCOES`. Nao chegou a ser confirmado, porque
+a decisao de remover veio antes.
+
+O aprendizado que ficou vale para a aba que sobrou: `PRODUTOS` tambem e casada por nome
+exato. Renomear a aba derruba o sync inteiro. Por isso o erro de aba nao encontrada
+agora lista os nomes que existem na planilha, em vez de so dizer que nao achou.
+
+**O que saiu:** ids 900-902 do catalogo, campo `promoSlot` do tipo `Product`, categoria
+`Promoções` da ordem das pastilhas, tratamento de `promocoes` no merge e no payload, e
+os testes correspondentes.
+
+**O que continua valendo:** promocao de produto existente sempre foi trabalho da aba
+`PRODUTOS` (D5) e nao muda nada — baixar `preco`, preencher `preco_de` e por um `selo`.
+O que deixa de existir e a oferta que nao corresponde a nenhum produto do catalogo:
+combo, kit, "leve 3 pague 2". Isso volta a ser tarefa de dev.
+
+O desenho original esta preservado no historico do git, caso a necessidade volte.
