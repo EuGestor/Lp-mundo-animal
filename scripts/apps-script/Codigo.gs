@@ -9,8 +9,12 @@
  *                      Lp-mundo-animal, com DOIS escopos:
  *                        Contents: Read and write   (para commitar os precos)
  *                        Actions:  Read             (para confirmar que rodou)>
- * 3. Rode `instalarGatilhoHorario()` uma vez (vai pedir autorizacao).
- * 4. Recarregue a planilha: o menu "Site" aparece na barra superior.
+ * 3. Recarregue a planilha: o menu "Site" aparece na barra superior.
+ * 4. Menu Site > "Ligar atualização automática" (pede autorizacao na 1a vez).
+ *
+ * Rodar funcoes pelo editor do Apps Script: use apenas as que nao abrem
+ * dialogo (instalarGatilhoHorario, verificarGatilhos). Um alert() disparado
+ * do editor trava a execucao ate o limite de 6 minutos.
  *
  * A planilha NUNCA e publicada na web. Este script le com a propria autenticacao
  * e envia as linhas no corpo do dispatch, entao abas de custo/margem que existam
@@ -27,6 +31,8 @@ function onOpen() {
     .addItem('Atualizar site agora', 'atualizarSiteAgora')
     .addSeparator()
     .addItem('Puxar catálogo do site', 'puxarCatalogo')
+    .addSeparator()
+    .addItem('Ligar atualização automática', 'instalarGatilhoHorarioPeloMenu')
     .addToUi();
 }
 
@@ -210,10 +216,45 @@ function puxarCatalogo() {
            'Os preços vieram do site. Ajuste o que precisar e use "Atualizar site agora".');
 }
 
+/**
+ * Liga a atualizacao automatica de hora em hora.
+ *
+ * NAO chame SpreadsheetApp.getUi() aqui. Esta funcao normalmente e executada
+ * pelo editor do Apps Script, e um dialogo disparado do editor fica esperando
+ * um clique na planilha que ninguem vai dar, ate estourar o limite de 6
+ * minutos do Google ("Exceeded maximum execution time").
+ *
+ * Apagar antes de criar e proposital: rodar de novo nao duplica o gatilho.
+ */
 function instalarGatilhoHorario() {
-  ScriptApp.getProjectTriggers().forEach(function (t) {
-    if (t.getHandlerFunction() === 'sincronizarAutomatico') ScriptApp.deleteTrigger(t);
-  });
+  var existentes = ScriptApp.getProjectTriggers();
+  var removidos = 0;
+  for (var i = 0; i < existentes.length; i++) {
+    if (existentes[i].getHandlerFunction() === 'sincronizarAutomatico') {
+      ScriptApp.deleteTrigger(existentes[i]);
+      removidos++;
+    }
+  }
   ScriptApp.newTrigger('sincronizarAutomatico').timeBased().everyHours(1).create();
-  SpreadsheetApp.getUi().alert('Pronto: o site passa a conferir a planilha de hora em hora.');
+  var msg = 'Atualizacao automatica ligada: o site confere a planilha de hora em hora.' +
+            (removidos ? ' (' + removidos + ' gatilho(s) antigo(s) removido(s))' : '');
+  console.log(msg);
+  return msg;
+}
+
+/** Versao do menu: roda com a planilha aberta, entao pode avisar na tela. */
+function instalarGatilhoHorarioPeloMenu() {
+  SpreadsheetApp.getUi().alert(instalarGatilhoHorario());
+}
+
+/** Diz o que esta ligado hoje. Seguro de rodar pelo editor. */
+function verificarGatilhos() {
+  var t = ScriptApp.getProjectTriggers().filter(function (x) {
+    return x.getHandlerFunction() === 'sincronizarAutomatico';
+  });
+  var msg = t.length
+    ? 'Atualizacao automatica ATIVA (' + t.length + ' gatilho).'
+    : 'Atualizacao automatica DESLIGADA. Rode instalarGatilhoHorario().';
+  console.log(msg);
+  return msg;
 }
