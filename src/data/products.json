@@ -1,9 +1,9 @@
 [
   {
     "id": 1,
-    "originalPrice": 999,
+    "originalPrice": 145,
     "name": "PowerDog Premium Carne",
-    "price": 1,
+    "price": 130,
     "image": "/assets/powerdog.webp",
     "category": "Cães",
     "weight": "15kg",
@@ -416,13 +416,16 @@
   },
   {
     "id": 900,
-    "name": "",
-    "image": "",
+    "name": "Combo 3x PowerDog Carne",
+    "image": "/assets/powerdog.webp",
     "category": "Promoções",
-    "weight": "",
-    "description": "",
+    "weight": "3 sacos de 15kg",
+    "description": "Leve três sacos de PowerDog Premium Carne 15kg e economize.",
     "promoSlot": true,
-    "active": false
+    "active": true,
+    "price": 360,
+    "originalPrice": 390,
+    "badge": "Só esta semana"
   },
   {
     "id": 901,
