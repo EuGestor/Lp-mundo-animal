@@ -1,0 +1,447 @@
+[
+  {
+    "id": 1,
+    "originalPrice": 145,
+    "name": "PowerDog Premium Carne",
+    "price": 130,
+    "image": "/assets/powerdog.webp",
+    "category": "Cães",
+    "weight": "15kg",
+    "description": "Ração Super Premium para cães adultos de todas as raças. Alimento de alta performance com sabor irresistível de carne, formulado pela ProLine com níveis nutricionais que superam padrões AAFCO, FEDIAF e ABINPet.",
+    "benefits": [
+      "Condroitina (260 mg/kg) e Glicosamina (350 mg/kg): proteção real para articulações e cartilagens",
+      "Ômega 3 e 6: pelagem brilhante e redução de queda de pelos",
+      "Extrato de Yucca Schidigera: reduz visivelmente o odor das fezes",
+      "Sem corantes artificiais: previne alergias e desconfortos intestinais",
+      "Levedura de cerveja e polpa de beterraba: apoio a saúde intestinal"
+    ],
+    "active": true
+  },
+  {
+    "id": 2,
+    "originalPrice": 237.5,
+    "name": "PowerDog Premium Carne",
+    "price": 190,
+    "image": "/assets/powerdog-25kg.webp",
+    "category": "Cães",
+    "weight": "25kg",
+    "badge": "Econômico",
+    "description": "Ração Super Premium para cães adultos de todas as raças. Alimento de alta performance com sabor irresistível de carne, formulado pela ProLine com níveis nutricionais que superam padrões AAFCO, FEDIAF e ABINPet.",
+    "benefits": [
+      "Condroitina (260 mg/kg) e Glicosamina (350 mg/kg): proteção real para articulações e cartilagens",
+      "Ômega 3 e 6: pelagem brilhante e redução de queda de pelos",
+      "Extrato de Yucca Schidigera: reduz visivelmente o odor das fezes",
+      "Sem corantes artificiais: previne alergias e desconfortos intestinais",
+      "Levedura de cerveja e polpa de beterraba: apoio a saúde intestinal"
+    ],
+    "active": true
+  },
+  {
+    "id": 3,
+    "originalPrice": 145,
+    "name": "Colosso Premium Filhotes Frango & Arroz",
+    "price": 130,
+    "image": "/assets/colosso-filhotes-frango.webp",
+    "category": "Cães",
+    "weight": "10,1kg",
+    "description": "Alimento completo premium para cães filhotes de todas as raças, com sabor frango e arroz. Sem corantes e aromatizantes artificiais. Selo Satisfação 100% Garantida.",
+    "benefits": [
+      "Alta digestibilidade, com Ômega 3 e 6 para pele e pelos saudáveis",
+      "Redução de sódio para maior longevidade; cálcio e fósforo para ossos e dentes fortes",
+      "Extrato de Yucca Schidigera: redução do odor das fezes",
+      "Maximiza absorção de nutrientes, reduzindo risco de problemas gastrointestinais"
+    ],
+    "active": true
+  },
+  {
+    "id": 4,
+    "originalPrice": 145,
+    "name": "Colosso Premium Filhotes Carne & Arroz",
+    "price": 130,
+    "image": "/assets/colosso-filhotes-carne.webp",
+    "category": "Cães",
+    "weight": "10,1kg",
+    "description": "Alimento completo premium para cães filhotes de todas as raças, com sabor carne e arroz. Sem corantes e aromatizantes artificiais.",
+    "benefits": [
+      "Alta digestibilidade: facilita a absorção de nutrientes",
+      "Ômega 3 e 6 para pele e pelos saudáveis",
+      "Cálcio e fósforo para ossos e dentes fortes",
+      "Maior longevidade e redução do odor das fezes (extrato de Yucca)"
+    ],
+    "active": true
+  },
+  {
+    "id": 23,
+    "originalPrice": 44,
+    "name": "Colosso Premium Filhotes Carne & Arroz",
+    "price": 40,
+    "image": "/assets/colosso-filhotes-carne-2kg.webp",
+    "category": "Cães",
+    "weight": "2kg",
+    "badge": "Versão pequena",
+    "description": "Versão de 2kg do alimento completo premium para cães filhotes de todas as raças, com sabor carne e arroz. Ideal pra quem quer testar o produto ou pra filhotes de raças menores.",
+    "benefits": [
+      "Alta digestibilidade",
+      "Ômega 3 e 6 para pele e pelos saudáveis",
+      "Cálcio e fósforo para ossos e dentes fortes",
+      "Maior longevidade e redução do odor das fezes"
+    ],
+    "active": true
+  },
+  {
+    "id": 5,
+    "originalPrice": 99,
+    "name": "CANISMAX Ração Premium Frango & Arroz",
+    "price": 90,
+    "image": "/assets/canismax.webp",
+    "category": "Cães",
+    "weight": "15kg",
+    "description": "Alimento completo para cães adultos de todas as raças. A escolha equilibrada para o dia a dia do seu melhor amigo. Formulada com proteínas e carboidratos de qualidade, sem corantes nem aromatizantes artificiais.",
+    "benefits": [
+      "Prebiótico MOS (mananoligossacarídeos): equilíbrio da flora intestinal",
+      "Extrato de Yucca Schidigera: controle do odor das fezes",
+      "Vitaminas A, D3, E, K3 e complexo B completo: energia e imunidade",
+      "Minerais essenciais (ferro, cobre, manganês, zinco, iodo, selênio)",
+      "Alta digestibilidade e otima aceitação"
+    ],
+    "active": true
+  },
+  {
+    "id": 6,
+    "originalPrice": 220,
+    "name": "Purina Dog Chow ExtraLife",
+    "price": 200,
+    "image": "/assets/purina-dog-chow.webp",
+    "category": "Cães",
+    "weight": "15kg",
+    "description": "Para cães adultos de raças mini e pequenas (Poodle, Shih Tzu, Yorkshire, Maltês, Pinscher, Lhasa). A linha que pode adicionar até 1,8 anos a mais de vida saudável ao seu cão. 100% completa e balanceada, sem corantes artificiais.",
+    "benefits": [
+      "Fórmula ExtraLife: mix de antioxidantes, vitaminas e minerais",
+      "Ômega 6 e 3: pelagem brilhante",
+      "Prebiótico natural (inulina): equilíbrio da flora intestinal",
+      "Taurina e metionina: coraçao saudável",
+      "Grãos no tamanho ideal: fácil mastigação e redução de tártaro"
+    ],
+    "active": true
+  },
+  {
+    "id": 7,
+    "originalPrice": 135,
+    "name": "Guabi Natural Frango & Arroz Integral",
+    "price": 120,
+    "image": "/assets/guabi-natural.webp",
+    "category": "Cães",
+    "weight": "2,5kg",
+    "description": "Super Premium Natural para cães adultos de raças mini e pequenas. Nutrição funcional com ingredientes naturais selecionados. Composição: 60% origem animal + 35% cereais integrais + 5% vegetais e frutas.",
+    "benefits": [
+      "Glucosamina sulfato e Condroitina: saúde articular comprovada",
+      "Óleo de peixe com Ômega 3 (EPA e DHA): apoio cognitivo, visão e sistema nervoso",
+      "Betaglucanos: fortalecimento imunológico",
+      "Polpa de beterraba, psyllium + MOS e inulina: função intestinal regulada",
+      "Sem transgênicos, sem sal, sem corantes ou aromas artificiais",
+      "Conservado com antioxidantes naturais (sem BHA, BHT ou Etoxiquina)"
+    ],
+    "active": true
+  },
+  {
+    "id": 8,
+    "originalPrice": 145,
+    "name": "Colosso Premium Adultos & Filhotes Frango & Arroz",
+    "price": 130,
+    "image": "/assets/colosso-gatos-frango.webp",
+    "category": "Gatos",
+    "weight": "10,1kg",
+    "description": "Alimento completo para gatos adultos e filhotes de todas as raças, incluindo gatas no terço final de gestação e lactação. Sabor frango e arroz, sem corantes e aromatizantes artificiais.",
+    "benefits": [
+      "Alta digestibilidade e pele saudável com Ômega 3 e 6",
+      "Pelos brilhantes; integridade da visão e coração",
+      "Trato urinário saudável",
+      "Redução do odor das fezes (extrato de Yucca)"
+    ],
+    "active": true
+  },
+  {
+    "id": 9,
+    "originalPrice": 145,
+    "name": "Colosso Premium Adultos & Filhotes Salmão & Arroz",
+    "price": 130,
+    "image": "/assets/colosso-gatos-salmao.webp",
+    "category": "Gatos",
+    "weight": "10,1kg",
+    "description": "Alimento completo para gatos adultos e filhotes de todas as raças, incluindo gatas no terço final de gestação e lactação, com sabor salmão e arroz.",
+    "benefits": [
+      "Alta digestibilidade",
+      "Pele saudável e pelos brilhantes com Ômega 3 do óleo de salmão",
+      "Trato urinário saudável",
+      "Integridade da visão e coração; redução do odor das fezes"
+    ],
+    "active": true
+  },
+  {
+    "id": 10,
+    "originalPrice": 145,
+    "name": "Colosso Premium Castrados Carne & Arroz",
+    "price": 130,
+    "image": "/assets/colosso-castrados-carne.webp",
+    "category": "Gatos",
+    "weight": "10,1kg",
+    "description": "Alimento completo premium para gatos adultos castrados, com sabor carne e arroz. Selo Satisfação 100% Garantida.",
+    "benefits": [
+      "Alta digestibilidade: fácil absorção de nutrientes",
+      "Controle de bola de pelos",
+      "Trato urinário saudável com macrominerais equilibrados",
+      "Integridade da visão e coração; redução do odor das fezes"
+    ],
+    "active": true
+  },
+  {
+    "id": 11,
+    "originalPrice": 145,
+    "name": "Colosso Premium Castrados Salmão & Arroz",
+    "price": 130,
+    "image": "/assets/colosso-castrados-salmao.webp",
+    "category": "Gatos",
+    "weight": "10,1kg",
+    "description": "Alimento completo premium para gatos adultos castrados. Após a castração, o metabolismo do felino muda e ele precisa de nutrição balanceada para manter o peso ideal e o trato urinário saudável.",
+    "benefits": [
+      "Alta digestibilidade, controle de bola de pelos e trato urinário saudável",
+      "Ômega 3 do óleo de salmão: pelagem brilhante",
+      "Aditivo prebiótico (Mannan-oligossacarídeos) para equilíbrio intestinal",
+      "Integridade da visão e coração; redução do odor das fezes",
+      "Sem corantes e aromatizantes artificiais"
+    ],
+    "active": true
+  },
+  {
+    "id": 12,
+    "originalPrice": 145,
+    "name": "Colosso Premium Castrados Frango & Arroz",
+    "price": 130,
+    "image": "/assets/colosso-castrados-frango.webp",
+    "category": "Gatos",
+    "weight": "10,1kg",
+    "description": "Alimento completo premium para gatos adultos castrados, com sabor frango e arroz. Formulado especialmente para as necessidades nutricionais após a castração.",
+    "benefits": [
+      "Alta digestibilidade e controle de bola de pelos",
+      "Trato urinário saudável (acidificante na fórmula)",
+      "Integridade da visão e coração com taurina",
+      "Redução do odor das fezes com extrato de Yucca"
+    ],
+    "active": true
+  },
+  {
+    "id": 13,
+    "originalPrice": 195,
+    "name": "Purina Cat Chow Adultos Defense Plus Carne",
+    "price": 180,
+    "image": "/assets/purina-cat-chow-adultos.webp",
+    "category": "Gatos",
+    "weight": "10,1kg",
+    "description": "Alimento Premium Especial para gatos adultos a partir de 1 ano. 100% completo e balanceado, sem corantes e sabores artificiais. Formulado pela Nestlé Purina com tecnologia exclusiva Defense Plus.",
+    "benefits": [
+      "Defense Plus: prebiótico natural, antioxidantes, vitaminas e minerais que fortalecem a imunidade",
+      "Taurina + biomassa de microalgas (Schizochytrium sp.): visão e coraçao saudáveis",
+      "Vitaminas A, D3, E, C, K3 e complexo B completo (B1, B2, B3, B5, B6, B7, B9, B12)",
+      "Pele e pelagem saudáveis: zinco e ácidos graxos essenciais",
+      "Trato urinário saudável",
+      "Reduz acumulo de tártaro"
+    ],
+    "active": true
+  },
+  {
+    "id": 14,
+    "originalPrice": 195,
+    "name": "Purina Cat Chow Castrados Defense Plus Frango",
+    "price": 180,
+    "image": "/assets/purina-cat-chow-castrados.webp",
+    "category": "Gatos",
+    "weight": "10,1kg",
+    "description": "Alimento Premium Especial formulado para as necessidades de gatos castrados. Linha pensada pra quem quer o melhor da Nestlé Purina pro gato apos a castraçao.",
+    "benefits": [
+      "36% de proteína: manutenção da massa magra e controle de peso",
+      "Defense Plus: prebióticos, antioxidantes, vitaminas e minerais para imunidade",
+      "Macrominerais balanceados: pH urinário adequado, especialmente importante para castrados",
+      "Pele e pelagem saudáveis: sem corantes nem sabores artificiais",
+      "Ajuda a reduzir o acumulo de tártaro"
+    ],
+    "active": true
+  },
+  {
+    "id": 15,
+    "name": "Purina Friskies Sachê",
+    "price": 5,
+    "image": "/assets/purina-friskies.webp",
+    "category": "Gatos",
+    "weight": "85g",
+    "badge": "3 por R$10",
+    "description": "Alimento Úmido Premium Especial: 100% completo e balanceado. Pedaços macios e suculentos ao molho. Sabores: Carne, Frango, Atum, Salmão, Peixe Branco, Cordeiro e Peru. Promoção: 3 por R$ 10,00.",
+    "benefits": [
+      "+25% de proteína: musculos fortes",
+      "Sem conservantes artificiais",
+      "Vitamina A + taurina: visão saudável",
+      "Zinco e ácidos graxos essenciais: pele e pelos saudáveis",
+      "Hidratação extra: ideal para gatos que bebem pouca agua",
+      "Pode ser refeição principal ou complemento"
+    ],
+    "active": true
+  },
+  {
+    "id": 16,
+    "originalPrice": 52,
+    "name": "AbsorCat Colosso Granulado Higiênico",
+    "price": 45,
+    "image": "/assets/absorcat.webp",
+    "category": "Gatos",
+    "weight": "2kg",
+    "description": "Granulado ecológico para gatos: Linha Colosso. 100% madeira de pinus de reflorestamento: biodegradável. Alta absorção, não tóxico e não inflamável.",
+    "benefits": [
+      "100% madeira de pinus de reflorestamento: biodegradável",
+      "Alta absorção: transforma a urina em pequenas bolas firmes e secas",
+      "Não tóxico e não inflamável",
+      "Não gruda nas patas: sem rastros pela casa",
+      "Retenção eficaz de odor",
+      "Descarte sustentável: lixo comum ou compostagem"
+    ],
+    "active": true
+  },
+  {
+    "id": 17,
+    "originalPrice": 22,
+    "name": "Biscoitos Crockitos Colosso Original",
+    "price": 18,
+    "image": "/assets/crockitos.webp",
+    "category": "Petiscos",
+    "weight": "400g",
+    "description": "Petisco crocante em formato de osso para cães. Embalagem com zíper para conservação. Ideal pra recompensar, treinar ou simplesmente mimar.",
+    "benefits": [
+      "Hexametafosfato de Sódio: auxilia na prevenção do tártaro",
+      "Rico em vitaminas A, C, D, E, K3, B1, B6, B12 + niacina, ácido fólico e biotina",
+      "Minerais essenciais: ferro, cobre, manganês, zinco, iodo, selênio",
+      "Textura crocante: limpeza dental e fortalecimento da mandíbula",
+      "Não substitui o alimento completo: uso como complemento"
+    ],
+    "active": true
+  },
+  {
+    "id": 18,
+    "originalPrice": 19,
+    "name": "Snacks Naturais Desidratados Colosso",
+    "price": 16,
+    "image": "/assets/colosso-snacks.webp",
+    "category": "Petiscos",
+    "weight": "Variados",
+    "badge": "100% Natural",
+    "description": "Petiscos 100% naturais: orelha, casco, chifre, traqueia, pé de galinha, rótula bovina, focinho suíno e mix. Processo de desidratação que preserva os nutrientes e concentra o sabor.",
+    "benefits": [
+      "100% natural: sem corantes, sem conservantes",
+      "Traqueia bovina: rica em colágeno (articulações e pele), cálcio e fósforo",
+      "Orelha bovina: alta proteína, textura para mastigação prolongada",
+      "Chifre e casco: mastigação longa, prevenção de tártaro e fortalecimento dental",
+      "Ação antiestresse: reduz ansiedade e comportamentos destrutivos por tédio",
+      "Satisfaz o instinto natural de mastigar"
+    ],
+    "active": true
+  },
+  {
+    "id": 19,
+    "originalPrice": 15,
+    "name": "Colosso Biscoitos Natural",
+    "price": 12,
+    "image": "/assets/colosso-biscoitos-natural.webp",
+    "category": "Petiscos",
+    "weight": "150g",
+    "badge": "100% Natural",
+    "description": "Biscoitos integrais super premium 100% naturais. Sabores: Frutas Vermelhas (integral), Mel Aveia e Banana (integral), Cenoura e Ervilha (vegano).",
+    "benefits": [
+      "100% natural: sem transgênicos, sem corantes nem antioxidantes artificiais",
+      "Frutas Vermelhas: antioxidantes e vitaminas",
+      "Mel, Aveia e Banana: fonte de energia, fibras e vitaminas do complexo B",
+      "Cenoura e Ervilha (Vegano): beta-caroteno, fibras e proteína vegetal",
+      "Petisco ou recompensa em adestramento",
+      "Não substitui a refeição principal"
+    ],
+    "active": true
+  },
+  {
+    "id": 20,
+    "originalPrice": 35,
+    "name": "PipiPet Kit Adestrador Sanitário",
+    "price": 28,
+    "image": "/assets/pipipet.webp",
+    "category": "Acessórios",
+    "weight": "Kit",
+    "description": "Kit completo para educar seu cão no local certo. A combinação que funciona: um atrai para o lugar certo, o outro repele do lugar errado.",
+    "benefits": [
+      "Xixi Pode (30 mL): atrai o cão para o local correto. Aplique 5 gotas no tapete higiênico",
+      "Xixi Não Pode (500 mL): repele de sofás, tapetes, canteiros e estofados",
+      "Não tóxico: seguro para animais e humanos",
+      "Composição \"Pode\": ureia 4g + carbonato de amônio 3,5g por 100 mL",
+      "Indicado para filhotes recém-adotados e cães adultos em readestramento"
+    ],
+    "active": true
+  },
+  {
+    "id": 21,
+    "name": "Colosso Roupinha de Lã",
+    "quoteOnWhatsapp": true,
+    "image": "/assets/colosso-roupinha.webp",
+    "category": "Acessórios",
+    "weight": "Todos os tamanhos disponíveis",
+    "description": "Conforto e proteção contra o frio para o seu pet. Roupinha em malha de lã com gola canelada e acabamento em tricô. Estampas listradas sortidas (verde, marrom/azul, lilás).",
+    "benefits": [
+      "Aquece nos dias frios: especialmente útil para cães de pelo curto",
+      "Tecido resistente e durável",
+      "Modelagem que prioriza o movimento: sem botões nem zíperes",
+      "Estampas sortidas: variedade de cores",
+      "Indicada para cães de pequeno e médio porte"
+    ],
+    "active": true
+  },
+  {
+    "id": 22,
+    "originalPrice": 115,
+    "name": "Cocheira Mel: Ração para Equinos",
+    "price": 99.9,
+    "image": "/assets/cocheira.webp",
+    "category": "Equinos",
+    "weight": "30kg",
+    "description": "Ração premium para equinos, formulada com mel e ingredientes selecionados para nutrição completa e energia duradoura.",
+    "benefits": [
+      "Nutrição completa para cavalos de todas as idades",
+      "Energia duradoura para atividades físicas intensas",
+      "Fortalecimento muscular e ósseo",
+      "Palatabilidade excepcional com mel"
+    ],
+    "active": true
+  },
+  {
+    "id": 900,
+    "name": "",
+    "image": "",
+    "category": "Promoções",
+    "weight": "",
+    "description": "",
+    "promoSlot": true,
+    "active": false
+  },
+  {
+    "id": 901,
+    "name": "",
+    "image": "",
+    "category": "Promoções",
+    "weight": "",
+    "description": "",
+    "promoSlot": true,
+    "active": false
+  },
+  {
+    "id": 902,
+    "name": "",
+    "image": "",
+    "category": "Promoções",
+    "weight": "",
+    "description": "",
+    "promoSlot": true,
+    "active": false
+  }
+]

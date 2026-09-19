@@ -37,12 +37,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onViewDetails
           loading="lazy"
         />
         {product.badge && (
-          <span className="absolute top-3 left-3 promo-badge text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+          <span className="absolute top-3 left-3 max-w-[calc(100%-24px)] truncate promo-badge text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
             {product.badge}
           </span>
         )}
-        {product.originalPrice && product.price != null && (
-          <span className="absolute top-3 right-3 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-full">
+        {/* Desconto no rodape da imagem: no topo ele colide com o selo em telas
+            de 360-414px (medido). Ver C1 em docs/specs/2026-09-19-sync-precos-google-sheets-design.md */}
+        {product.originalPrice && product.price != null && product.originalPrice > product.price && (
+          <span className="absolute bottom-3 right-3 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-full">
             -{Math.round((1 - product.price / product.originalPrice) * 100)}%
           </span>
         )}
@@ -65,14 +67,16 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onViewDetails
         )}
 
         {/* Price */}
-        <div className="mt-auto pt-3 flex items-end gap-2">
+        {/* flex-wrap + tipos menores no mobile: a 360px "R$ 190,00 R$ 237,50" estoura
+            os 122px uteis do card e o preco riscado era cortado no meio. */}
+        <div className="mt-auto pt-3 flex items-end gap-x-2 gap-y-0 flex-wrap">
           {product.price != null ? (
             <>
-              <span className="font-bold text-lg text-brand-green">
+              <span className="font-bold text-base sm:text-lg text-brand-green">
                 {formatPrice(product.price)}
               </span>
-              {product.originalPrice && (
-                <span className="text-sm text-gray-400 line-through mb-0.5">
+              {product.originalPrice && product.originalPrice > product.price && (
+                <span className="text-xs sm:text-sm text-gray-400 line-through mb-0.5">
                   {formatPrice(product.originalPrice)}
                 </span>
               )}

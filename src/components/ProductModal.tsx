@@ -79,7 +79,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, isOpen, onClose })
                 <span className="font-bold text-2xl sm:text-3xl text-brand-green">
                   {formatPrice(product.price)}
                 </span>
-                {product.originalPrice && (
+                {product.originalPrice && product.originalPrice > product.price && (
                   <span className="text-sm text-gray-400 line-through mb-1">
                     {formatPrice(product.originalPrice)}
                   </span>

@@ -1,0 +1,45 @@
+name: Sincronizar precos da planilha
+
+# Disparado pelo Apps Script da planilha (botao "Atualizar site agora" e o
+# gatilho horario). O cron do Actions NAO e usado: ele atrasa em horario de pico
+# e e desativado sozinho apos 60 dias sem atividade no repositorio.
+on:
+  repository_dispatch:
+    types: [sync-precos]
+  workflow_dispatch:
+
+concurrency:
+  group: sync-precos
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validar e aplicar precos
+        id: sync
+        env:
+          PAYLOAD: ${{ toJSON(github.event.client_payload) }}
+        run: node scripts/sync-precos/index.mjs
+
+      # O commit sai com o GITHUB_TOKEN, que nao re-dispara workflows (sem loop),
+      # mas dispara a Vercel normalmente, que observa o push.
+      - name: Commitar
+        if: steps.sync.outputs.mudou == 'true'
+        env:
+          RESUMO: ${{ steps.sync.outputs.resumo }}
+        run: |
+          git config user.name  "Planilha de precos"
+          git config user.email "actions@users.noreply.github.com"
+          git add src/data/products.json
+          printf 'chore(precos): atualiza precos a partir da planilha\n\n%s\n' "$RESUMO" > /tmp/msg
+          git commit -F /tmp/msg
+          git push
