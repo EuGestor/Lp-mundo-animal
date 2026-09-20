@@ -1,9 +1,9 @@
 [
   {
     "id": 1,
-    "originalPrice": 145,
+    "originalPrice": 165,
     "name": "PowerDog Premium Carne",
-    "price": 130,
+    "price": 150,
     "image": "/assets/powerdog.webp",
     "category": "Cães",
     "weight": "15kg",
