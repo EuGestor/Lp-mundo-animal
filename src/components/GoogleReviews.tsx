@@ -1,5 +1,6 @@
 import React from 'react';
 import { Star, Quote } from 'lucide-react';
+import { FACTS } from '@/data/facts';
 
 const reviews = [
   {
@@ -173,7 +174,7 @@ const GoogleReviews: React.FC = () => {
             />
             <div className="text-left">
               <div className="flex items-center gap-1">
-                <span className="font-bold text-2xl sm:text-3xl text-gray-900">4,5</span>
+                <span className="font-display font-semibold text-3xl sm:text-4xl text-gray-900">{String(FACTS.googleRating).replace('.', ',')}</span>
                 <div className="flex">
                   {[1, 2, 3, 4].map((i) => (
                     <Star key={i} size={18} className="fill-amber-400 text-amber-400" />
@@ -181,7 +182,7 @@ const GoogleReviews: React.FC = () => {
                   <Star size={18} className="fill-amber-400/50 text-amber-400/50" />
                 </div>
               </div>
-              <p className="text-xs text-gray-500 mt-0.5">48 avaliações no Google</p>
+              <p className="text-xs text-gray-500 mt-0.5">{FACTS.googleReviews} avaliações no Google</p>
             </div>
           </div>
         </div>

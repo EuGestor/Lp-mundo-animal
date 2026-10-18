@@ -14,8 +14,10 @@ import FAQ from '@/components/FAQ';
 import LocationMap from '@/components/LocationMap';
 import QuemCuida from '@/components/QuemCuida';
 import Logo from '@/components/Logo';
+import { FACTS, formatInt } from '@/data/facts';
 import {
   Truck,
+  Clock,
   MapPin,
   Phone,
   Instagram,
@@ -80,9 +82,9 @@ function AppContent() {
       ([entry]) => {
         if (entry.isIntersecting && !animatedRef.current) {
           animatedRef.current = true;
-          animateValue('clients', 0, 1620, 2000);
-          animateValue('products', 0, 500, 2000);
-          animateValue('rating', 0, 45, 2000);
+          animateValue('clients', 0, FACTS.instagramFollowers, 2000);
+          animateValue('products', 0, FACTS.storeItems, 2000);
+          animateValue('rating', 0, FACTS.googleRating * 10, 2000);
         }
       },
       { threshold: 0.5 }
@@ -226,8 +228,8 @@ function AppContent() {
               className="grid grid-cols-3 gap-3 sm:gap-6 mt-10 sm:mt-14 pt-6 sm:pt-8 border-t border-cream/15 max-w-lg"
             >
               <div>
-                <div className="font-display font-semibold text-2xl sm:text-4xl">{counts.clients}+</div>
-                <div className="text-cream/60 text-[10px] sm:text-sm mt-1">Famílias atendidas</div>
+                <div className="font-display font-semibold text-2xl sm:text-4xl">{formatInt(counts.clients)}+</div>
+                <div className="text-cream/60 text-[10px] sm:text-sm mt-1">Famílias no Instagram</div>
               </div>
               <div>
                 <div className="font-display font-semibold text-2xl sm:text-4xl">{counts.products}+</div>
@@ -295,7 +297,7 @@ function AppContent() {
             <span className="text-gold-ink font-semibold text-xs sm:text-[13px] uppercase tracking-[0.18em]">
               Nossos Serviços
             </span>
-            <h2 className="font-display font-semibold text-2xl sm:text-4xl text-gray-900 mt-2 sm:mt-3">
+            <h2 className="font-display font-semibold text-3xl sm:text-5xl text-gray-900 mt-3 leading-[1.1]">
               A gente cuida do seu <span className="italic font-medium text-brand-green">pet</span> como se fosse nosso
             </h2>
           </div>
@@ -306,29 +308,28 @@ function AppContent() {
                 icon: Droplets,
                 title: 'Banho & Tosa',
                 desc: 'Você fala o horário, a gente busca seu pet em casa, dá banho, faz a tosa e devolve cheiroso na sua porta.',
-                color: 'bg-brand-green/10 text-brand-green',
                 image: '/assets/servico-banho.webp',
+                position: 'object-[50%_40%]',
               },
               {
                 icon: Syringe,
                 title: 'Vacinas',
                 desc: 'Veterinária aplicando vacina aqui na nossa clínica. Pode trazer seu pet, a gente atende com calma.',
-                color: 'bg-brand-green/10 text-brand-green',
                 image: '/assets/servico-vacinas.webp',
+                position: 'object-[50%_45%]',
               },
               {
                 icon: Egg,
                 title: 'Criação de Galinhas',
                 desc: 'A gente cria Brahma com cuidado e tem ovos fresquinhos pra você. Passa na loja pra conhecer o plantel.',
-                color: 'bg-brand-green/10 text-brand-green',
                 image: '/assets/galinhas-brahma.webp',
+                position: 'object-[50%_88%]',
               },
               {
                 icon: Truck,
                 title: 'Entrega',
                 desc: 'Pediu pelo WhatsApp acima de R$ 100? A gente leva até a sua porta sem cobrar frete. Em qualquer bairro de Itabira.',
-                color: 'bg-brand-green/10 text-brand-green',
-                image: '/assets/localidade.webp',
+                panel: { big: 'R$ 100', small: 'e o frete é por nossa conta' },
               },
             ].map((service, i) => {
               const Icon = service.icon;
@@ -337,30 +338,43 @@ function AppContent() {
                   key={i}
                   className="group relative bg-paper rounded-2xl overflow-hidden border border-gray-200/80 hover:shadow-[0_24px_48px_-16px_rgba(18,61,38,0.22)] transition-all duration-300 hover:-translate-y-1"
                 >
-                  <div
-                  className="aspect-[3/2] overflow-hidden cursor-pointer relative bg-gray-100"
-                  onClick={() =>
-                    setImageModal({ open: true, src: service.image, alt: service.title })
-                  }
-                >
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  {/* Zoom overlay */}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                    <ZoomIn
-                      size={24}
-                      className="text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-lg"
-                    />
-                  </div>
-                </div>
-                  <div className="p-5">
+                  {service.image ? (
                     <div
-                      className={`w-10 h-10 ${service.color} rounded-xl flex items-center justify-center mb-3`}
+                      className="aspect-[4/3] overflow-hidden cursor-pointer relative bg-cream-deep"
+                      onClick={() =>
+                        setImageModal({ open: true, src: service.image!, alt: service.title })
+                      }
                     >
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className={`w-full h-full object-cover ${service.position} saturate-[0.9] sepia-[0.12] transition-transform duration-500 group-hover:scale-105`}
+                        loading="lazy"
+                      />
+                      {/* Mesmo véu verde em todas as fotos: unifica a luz de imagens de origens diferentes */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-brand-green-dark/35 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors flex items-center justify-center">
+                        <ZoomIn
+                          size={24}
+                          className="text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-lg"
+                        />
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-brand-green-dark via-brand-green-dark to-brand-green flex flex-col items-center justify-center text-center px-4">
+                      <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-brand-orange/15 blur-2xl" />
+                      <Truck size={22} className="text-brand-orange mb-2 relative" />
+                      <span className="relative text-cream/70 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.18em]">
+                        Frete grátis acima de
+                      </span>
+                      <span className="relative font-display font-semibold text-4xl sm:text-5xl text-brand-orange leading-none mt-1.5">
+                        {service.panel!.big}
+                      </span>
+                      <span className="relative text-cream/80 text-xs sm:text-sm mt-2">{service.panel!.small}</span>
+                    </div>
+                  )}
+                  <div className="p-5">
+                    <div className="w-10 h-10 bg-brand-green/10 text-brand-green rounded-xl flex items-center justify-center mb-3">
                       <Icon size={20} />
                     </div>
                     <h3 className="font-display font-semibold text-lg text-gray-900">{service.title}</h3>
@@ -502,8 +516,8 @@ function AppContent() {
                 desc: 'Quando você volta, o Vinícius e a equipe já sabem o nome do bicho e a ração de sempre.',
               },
               {
-                title: '1.620 famílias atendem aqui',
-                desc: '4,5 estrelas no Google e mais de 1.600 famílias acompanhando a gente no Instagram.',
+                title: `${formatInt(FACTS.instagramFollowers)} famílias nos acompanham`,
+                desc: `${String(FACTS.googleRating).replace('.', ',')} estrelas em ${FACTS.googleReviews} avaliações no Google e mais de ${formatInt(Math.floor(FACTS.instagramFollowers / 100) * 100)} famílias de olho na gente no Instagram.`,
               },
               {
                 title: 'Resposta rápida no WhatsApp',
@@ -541,45 +555,65 @@ function AppContent() {
       <FAQ />
 
       {/* ============ BANHO & TOSA CTA ============ */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="/assets/banho-tosa.webp"
-            alt="Banho e Tosa"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-brand-green-dark/90" />
-        </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 py-12 sm:py-20 text-center text-white">
-          <Scissors size={36} className="mx-auto mb-4 sm:mb-6 text-brand-orange sm:hidden" />
-          <Scissors size={48} className="mx-auto mb-6 text-brand-orange hidden sm:block" />
-          <h2 className="font-display font-semibold text-2xl sm:text-4xl">
-            Banho e tosa com busca em casa
-          </h2>
-          <p className="text-white/80 text-base sm:text-lg mt-4 max-w-xl mx-auto px-2 sm:px-0">
-            Marca um horário pelo WhatsApp. A gente busca seu pet, dá banho, faz a tosa e devolve cheiroso na sua porta.
-          </p>
-          <a
-            href="https://wa.me/553138311702?text=Ola! Gostaria de agendar Banho e Tosa para meu pet."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-brand-orange text-brand-green-dark font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full mt-6 sm:mt-8 hover:brightness-110 transition-all hover:shadow-xl hover:shadow-brand-orange/30 text-sm sm:text-base"
-          >
-            <PawPrint size={18} className="sm:hidden" /><PawPrint size={20} className="hidden sm:block" /> Agendar pelo WhatsApp
-          </a>
+      <section className="relative overflow-hidden bg-forest-night">
+        <div className="absolute -top-32 -left-24 w-[32rem] h-[32rem] rounded-full bg-brand-orange/10 blur-3xl" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 py-16 sm:py-24 grid md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] gap-10 md:gap-16 items-center">
+          <div className="text-cream text-center md:text-left">
+            <div className="flex items-center justify-center md:justify-start gap-3 mb-5">
+              <span className="h-px w-8 bg-brand-orange" />
+              <span className="text-brand-orange text-[11px] sm:text-xs font-semibold uppercase tracking-[0.2em]">
+                Banho e tosa
+              </span>
+            </div>
+            <h2 className="font-display font-semibold text-3xl sm:text-5xl leading-[1.08]">
+              A gente busca, <span className="italic font-medium text-brand-orange">cuida</span> e devolve cheiroso
+            </h2>
+            <p className="text-cream/75 text-base sm:text-lg mt-5 max-w-lg mx-auto md:mx-0 leading-relaxed">
+              Marca um horário pelo WhatsApp. A gente busca seu pet, dá banho, faz a tosa e devolve na sua porta.
+            </p>
+            <div className="flex flex-wrap justify-center md:justify-start gap-3 sm:gap-4 mt-8">
+              <a
+                href="https://wa.me/553138311702?text=Ola! Gostaria de agendar Banho e Tosa para meu pet."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-brand-orange text-brand-green-dark font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:brightness-105 transition-all hover:shadow-xl hover:shadow-brand-orange/30 text-sm sm:text-base"
+              >
+                <PawPrint size={18} /> Agendar pelo WhatsApp
+              </a>
+              <a
+                href="tel:+553138311702"
+                className="inline-flex items-center gap-2 border border-cream/40 text-cream font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-cream/10 transition-colors text-sm sm:text-base"
+              >
+                <Phone size={16} /> {FACTS.phoneDisplay}
+              </a>
+            </div>
+          </div>
+
+          <div className="relative max-w-sm md:max-w-none mx-auto w-full">
+            <div className="rounded-t-[999px] rounded-b-[2rem] border border-brand-orange/45 p-2">
+              <div className="aspect-[4/5] rounded-t-[999px] rounded-b-[1.5rem] overflow-hidden bg-brand-green-dark">
+                <img
+                  src="/assets/servico-tosa.webp"
+                  alt="Tosa em um pet no salão do Mundo Animal"
+                  className="w-full h-full object-cover object-[42%_50%] saturate-[0.9] sepia-[0.1]"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ============ FOOTER ============ */}
-      <footer id="contato" className="bg-forest-night text-white">
-        <div className="max-w-7xl mx-auto px-4 py-10 sm:py-16">
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-12">
+      <footer id="contato" className="bg-forest-night text-white border-t border-brand-orange/25">
+        <div className="max-w-7xl mx-auto px-4 py-12 sm:py-16">
+          <div className="grid grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] gap-8 sm:gap-12">
             {/* Brand */}
-            <div>
+            <div className="col-span-2 lg:col-span-1">
               <Logo variant="dark" className="mb-5" />
-              <p className="text-cream/70 text-sm leading-relaxed">
+              <p className="text-cream/70 text-sm leading-relaxed max-w-xs">
                 Onde felicidade e amor têm 4 patas. A gente atende em Itabira{' '}
-                <strong className="text-white">desde 1998</strong>, com a mesma família, os mesmos
+                <strong className="text-cream">desde {FACTS.since}</strong>, com a mesma família, os mesmos
                 produtos bons e o mesmo carinho de sempre.
               </p>
               <div className="flex gap-3 mt-6">
@@ -587,7 +621,8 @@ function AppContent() {
                   href="https://www.instagram.com/mundoanimalitabira/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-brand-green transition-colors"
+                  aria-label="Instagram do Mundo Animal"
+                  className="w-10 h-10 bg-cream/10 rounded-full flex items-center justify-center hover:bg-brand-orange hover:text-brand-green-dark transition-colors"
                 >
                   <Instagram size={18} />
                 </a>
@@ -596,7 +631,7 @@ function AppContent() {
 
             {/* Links */}
             <div>
-              <h4 className="font-display font-semibold text-lg mb-4 text-cream">Links Rapidos</h4>
+              <h4 className="font-display font-semibold text-lg mb-4 text-cream">Links rápidos</h4>
               <ul className="space-y-3">
                 {['Produtos', 'Serviços', 'Banho & Tosa', 'Contato'].map((link) => (
                   <li key={link}>
@@ -628,33 +663,43 @@ function AppContent() {
                   <Syringe size={14} className="text-brand-orange" /> Vacinas
                 </li>
                 <li className="flex items-center gap-2">
-                  <Truck size={14} className="text-brand-orange" /> Entrega Domiciliar
+                  <Truck size={14} className="text-brand-orange" /> Entrega domiciliar
                 </li>
               </ul>
             </div>
 
             {/* Contact */}
-            <div>
+            <div className="col-span-2 lg:col-span-1">
               <h4 className="font-display font-semibold text-lg mb-4 text-cream">Contato</h4>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <MapPin size={18} className="text-brand-orange mt-0.5 shrink-0" />
                   <p className="text-cream/70 text-sm">
-                    Avenida Joao Pinheiro, nº 194, Centro
+                    Avenida João Pinheiro, nº 194, Centro
                     <br />
                     Itabira - MG
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone size={18} className="text-brand-orange shrink-0" />
-                  <p className="text-cream/70 text-sm">(31) 3831-1702</p>
+                  <a href="tel:+553138311702" className="text-cream/70 hover:text-brand-orange transition-colors text-sm">
+                    {FACTS.phoneDisplay}
+                  </a>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Clock size={18} className="text-brand-orange mt-0.5 shrink-0" />
+                  <p className="text-cream/70 text-sm">
+                    Segunda a sexta, 8h às 18h
+                    <br />
+                    Sábado, 8h às 13h
+                  </p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Bottom */}
-          <div className="border-t border-white/10 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div className="border-t border-cream/10 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-cream/50 text-xs">
               &copy; {new Date().getFullYear()} Mundo Animal Pet Shop. Todos os direitos reservados.
             </p>

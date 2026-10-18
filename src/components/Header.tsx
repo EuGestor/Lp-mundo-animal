@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { ShoppingCart, Menu, X, Instagram, Phone, PawPrint } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import Logo from '@/components/Logo';
+import { FACTS } from '@/data/facts';
 
 interface HeaderProps {
   onCartClick: () => void;
@@ -29,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({ onCartClick }) => {
       <div className="bg-brand-green-dark text-cream/90 text-xs py-1.5 px-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <span className="flex items-center gap-1">
-            <Phone size={12} /> (31) 3831-1702
+            <Phone size={12} /> {FACTS.phoneDisplay}
           </span>
           <a
             href="https://www.instagram.com/mundoanimalitabira/"

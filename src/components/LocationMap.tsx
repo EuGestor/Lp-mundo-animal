@@ -1,5 +1,6 @@
 import React from 'react';
 import { MapPin, Clock, Phone, ExternalLink } from 'lucide-react';
+import { FACTS } from '@/data/facts';
 
 const LocationMap: React.FC = () => {
   return (
@@ -65,7 +66,7 @@ const LocationMap: React.FC = () => {
                     href="tel:+553138311702"
                     className="text-gray-600 text-sm mt-1 hover:text-brand-green transition-colors block"
                   >
-                    (31) 3831-1702
+                    {FACTS.phoneDisplay}
                   </a>
                 </div>
               </div>
