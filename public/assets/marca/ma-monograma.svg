@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Mundo Animal">
   <circle cx="32" cy="32" r="31" fill="#123D26"/>
-  <circle cx="32" cy="32" r="28.5" fill="none" stroke="#EDB45A" stroke-opacity=".55" stroke-width="1"/>
-  <g fill="#EDB45A">
+  <circle cx="32" cy="32" r="28.5" fill="none" stroke="#E4875E" stroke-opacity=".55" stroke-width="1"/>
+  <g fill="#E4875E">
     <ellipse cx="17.5" cy="30" rx="4.3" ry="5.6" transform="rotate(-20 17.5 30)"/>
     <ellipse cx="26" cy="21" rx="4.6" ry="6.2" transform="rotate(-6 26 21)"/>
     <ellipse cx="38" cy="21" rx="4.6" ry="6.2" transform="rotate(6 38 21)"/>
