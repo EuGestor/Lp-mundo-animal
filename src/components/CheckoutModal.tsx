@@ -57,7 +57,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose }) => {
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
         <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
-        <div className="relative bg-white rounded-3xl p-8 max-w-sm w-full text-center animate-fade-in-up">
+        <div className="relative bg-paper rounded-3xl p-8 max-w-sm w-full text-center animate-fade-in-up">
           <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <Check size={40} className="text-green-600" />
           </div>
@@ -83,7 +83,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose }) => {
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
 
       {/* Modal */}
-      <div className="relative bg-white rounded-t-2xl sm:rounded-3xl w-full max-w-lg max-h-[95vh] sm:max-h-[90vh] overflow-hidden animate-fade-in-up">
+      <div className="relative bg-paper rounded-t-2xl sm:rounded-3xl w-full max-w-lg max-h-[95vh] sm:max-h-[90vh] overflow-hidden animate-fade-in-up">
         {/* Header */}
         <div className="flex items-center justify-between p-4 sm:p-5 border-b">
           <button
@@ -114,7 +114,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose }) => {
             </div>
             <div className="space-y-2">
               {items.map((item) => (
-                <div key={item.id} className="flex items-center gap-3 bg-white rounded-xl p-3">
+                <div key={item.id} className="flex items-center gap-3 bg-paper rounded-xl p-3">
                   <img
                     src={item.image}
                     alt={item.name}
@@ -208,7 +208,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose }) => {
           </div>
 
           {/* Footer */}
-          <div className="p-5 border-t bg-white space-y-3">
+          <div className="p-5 border-t bg-paper space-y-3">
             <label className="flex items-start gap-2 text-xs text-gray-600 cursor-pointer leading-snug">
               <input
                 type="checkbox"

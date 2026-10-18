@@ -15,6 +15,35 @@
       "Sem corantes artificiais: previne alergias e desconfortos intestinais",
       "Levedura de cerveja e polpa de beterraba: apoio a saúde intestinal"
     ],
+    "bullets": [
+      {
+        "icon": "adulto",
+        "text": "Cães adultos de todas as raças, com sabor irresistível de carne"
+      },
+      {
+        "icon": "c_artic",
+        "text": "Condroitina (260 mg/kg) e glicosamina (350 mg/kg): proteção para articulações e cartilagens"
+      },
+      {
+        "icon": "omega",
+        "text": "Ômega 3 e 6: pelagem brilhante e menos queda de pelos"
+      },
+      {
+        "icon": "yucca",
+        "text": "Extrato de yucca: reduz o odor das fezes"
+      },
+      {
+        "icon": "semcor",
+        "text": "Sem corantes artificiais: previne alergias e desconfortos intestinais"
+      },
+      {
+        "icon": "intest",
+        "text": "Levedura de cerveja e polpa de beterraba: apoio à saúde intestinal"
+      },
+      {
+        "text": "Níveis nutricionais acima dos padrões AAFCO, FEDIAF e ABINPet"
+      }
+    ],
     "active": true
   },
   {
@@ -34,6 +63,35 @@
       "Sem corantes artificiais: previne alergias e desconfortos intestinais",
       "Levedura de cerveja e polpa de beterraba: apoio a saúde intestinal"
     ],
+    "bullets": [
+      {
+        "icon": "adulto",
+        "text": "Cães adultos de todas as raças, com sabor irresistível de carne"
+      },
+      {
+        "icon": "c_artic",
+        "text": "Condroitina (260 mg/kg) e glicosamina (350 mg/kg): proteção para articulações e cartilagens"
+      },
+      {
+        "icon": "omega",
+        "text": "Ômega 3 e 6: pelagem brilhante e menos queda de pelos"
+      },
+      {
+        "icon": "yucca",
+        "text": "Extrato de yucca: reduz o odor das fezes"
+      },
+      {
+        "icon": "semcor",
+        "text": "Sem corantes artificiais: previne alergias e desconfortos intestinais"
+      },
+      {
+        "icon": "intest",
+        "text": "Levedura de cerveja e polpa de beterraba: apoio à saúde intestinal"
+      },
+      {
+        "text": "Níveis nutricionais acima dos padrões AAFCO, FEDIAF e ABINPet"
+      }
+    ],
     "active": false
   },
   {
@@ -51,6 +109,36 @@
       "Extrato de Yucca Schidigera: redução do odor das fezes",
       "Maximiza absorção de nutrientes, reduzindo risco de problemas gastrointestinais"
     ],
+    "bullets": [
+      {
+        "icon": "filhote",
+        "text": "Cães filhotes de todas as raças, sabor frango e arroz"
+      },
+      {
+        "icon": "absorc",
+        "text": "Alta digestibilidade: maximiza a absorção de nutrientes e reduz risco de problemas gastrointestinais"
+      },
+      {
+        "icon": "omega",
+        "text": "Ômega 3 e 6 para pele e pelos saudáveis"
+      },
+      {
+        "icon": "oral",
+        "text": "Cálcio e fósforo para ossos e dentes fortes"
+      },
+      {
+        "icon": "c_senior",
+        "text": "Redução de sódio para maior longevidade"
+      },
+      {
+        "icon": "yucca",
+        "text": "Extrato de yucca: reduz o odor das fezes"
+      },
+      {
+        "icon": "semcor",
+        "text": "Sem corantes e aromatizantes artificiais"
+      }
+    ],
     "active": true
   },
   {
@@ -67,6 +155,36 @@
       "Ômega 3 e 6 para pele e pelos saudáveis",
       "Cálcio e fósforo para ossos e dentes fortes",
       "Maior longevidade e redução do odor das fezes (extrato de Yucca)"
+    ],
+    "bullets": [
+      {
+        "icon": "filhote",
+        "text": "Cães filhotes de todas as raças, sabor carne e arroz"
+      },
+      {
+        "icon": "absorc",
+        "text": "Alta digestibilidade: facilita a absorção de nutrientes"
+      },
+      {
+        "icon": "omega",
+        "text": "Ômega 3 e 6 para pele e pelos saudáveis"
+      },
+      {
+        "icon": "oral",
+        "text": "Cálcio e fósforo para ossos e dentes fortes"
+      },
+      {
+        "icon": "c_senior",
+        "text": "Maior longevidade"
+      },
+      {
+        "icon": "yucca",
+        "text": "Extrato de yucca: reduz o odor das fezes"
+      },
+      {
+        "icon": "semcor",
+        "text": "Sem corantes e aromatizantes artificiais"
+      }
     ],
     "active": true
   },
@@ -86,6 +204,36 @@
       "Cálcio e fósforo para ossos e dentes fortes",
       "Maior longevidade e redução do odor das fezes"
     ],
+    "bullets": [
+      {
+        "icon": "filhote",
+        "text": "Cães filhotes de todas as raças, sabor carne e arroz"
+      },
+      {
+        "icon": "peq",
+        "text": "Versão de 2 kg: ideal para testar ou para filhotes de raças menores"
+      },
+      {
+        "icon": "absorc",
+        "text": "Alta digestibilidade"
+      },
+      {
+        "icon": "omega",
+        "text": "Ômega 3 e 6 para pele e pelos saudáveis"
+      },
+      {
+        "icon": "oral",
+        "text": "Cálcio e fósforo para ossos e dentes fortes"
+      },
+      {
+        "icon": "c_senior",
+        "text": "Maior longevidade e menos odor nas fezes"
+      },
+      {
+        "icon": "semcor",
+        "text": "Sem corantes e aromatizantes artificiais"
+      }
+    ],
     "active": true
   },
   {
@@ -104,6 +252,32 @@
       "Minerais essenciais (ferro, cobre, manganês, zinco, iodo, selênio)",
       "Alta digestibilidade e otima aceitação"
     ],
+    "bullets": [
+      {
+        "icon": "adulto",
+        "text": "Cães adultos de todas as raças, sabor frango e arroz"
+      },
+      {
+        "icon": "prebio",
+        "text": "Prebiótico MOS: equilíbrio da flora intestinal"
+      },
+      {
+        "icon": "yucca",
+        "text": "Extrato de yucca: controle do odor das fezes"
+      },
+      {
+        "icon": "vitam",
+        "text": "Vitaminas A, D3, E, K3 e complexo B completo, mais minerais essenciais: energia e imunidade"
+      },
+      {
+        "icon": "absorc",
+        "text": "Alta digestibilidade e ótima aceitação"
+      },
+      {
+        "icon": "semcor",
+        "text": "Sem corantes nem aromatizantes artificiais"
+      }
+    ],
     "active": true
   },
   {
@@ -121,6 +295,39 @@
       "Prebiótico natural (inulina): equilíbrio da flora intestinal",
       "Taurina e metionina: coraçao saudável",
       "Grãos no tamanho ideal: fácil mastigação e redução de tártaro"
+    ],
+    "bullets": [
+      {
+        "icon": "peq",
+        "text": "Cães adultos de raças mini e pequenas (Poodle, Shih Tzu, Yorkshire, Maltês, Pinscher, Lhasa)"
+      },
+      {
+        "icon": "c_senior",
+        "text": "Fórmula ExtraLife: a linha que pode adicionar até 1,8 anos de vida saudável"
+      },
+      {
+        "icon": "anti",
+        "text": "Mix de antioxidantes, vitaminas e minerais"
+      },
+      {
+        "icon": "omega",
+        "text": "Ômega 6 e 3: pelagem brilhante"
+      },
+      {
+        "icon": "prebio",
+        "text": "Prebiótico natural (inulina): equilíbrio da flora intestinal"
+      },
+      {
+        "icon": "grao",
+        "text": "Grãos no tamanho ideal: fácil mastigação e menos tártaro"
+      },
+      {
+        "text": "Taurina e metionina: coração saudável"
+      },
+      {
+        "icon": "semcor",
+        "text": "Sem corantes artificiais"
+      }
     ],
     "active": true
   },
@@ -141,6 +348,39 @@
       "Sem transgênicos, sem sal, sem corantes ou aromas artificiais",
       "Conservado com antioxidantes naturais (sem BHA, BHT ou Etoxiquina)"
     ],
+    "bullets": [
+      {
+        "icon": "peq",
+        "text": "Cães adultos de raças mini e pequenas, sabor frango e arroz integral"
+      },
+      {
+        "icon": "ing",
+        "text": "60% de origem animal, 35% de cereais integrais e 5% de vegetais e frutas"
+      },
+      {
+        "icon": "c_artic",
+        "text": "Glucosamina sulfato e condroitina: saúde articular"
+      },
+      {
+        "icon": "c_cerebro",
+        "text": "Óleo de peixe com ômega 3 (EPA e DHA): apoio cognitivo, visão e sistema nervoso"
+      },
+      {
+        "icon": "intest",
+        "text": "Beterraba, psyllium, MOS e inulina: função intestinal regulada"
+      },
+      {
+        "text": "Betaglucanos: fortalecimento imunológico"
+      },
+      {
+        "icon": "transg",
+        "text": "Sem transgênicos, sem sal, sem corantes ou aromas artificiais"
+      },
+      {
+        "icon": "anti",
+        "text": "Conservado com antioxidantes naturais, sem BHA, BHT ou etoxiquina"
+      }
+    ],
     "active": true
   },
   {
@@ -157,6 +397,36 @@
       "Pelos brilhantes; integridade da visão e coração",
       "Trato urinário saudável",
       "Redução do odor das fezes (extrato de Yucca)"
+    ],
+    "bullets": [
+      {
+        "icon": "gato",
+        "text": "Gatos adultos e filhotes de todas as raças, inclusive gatas no fim da gestação e na lactação"
+      },
+      {
+        "icon": "absorc",
+        "text": "Alta digestibilidade"
+      },
+      {
+        "icon": "pelo",
+        "text": "Pele saudável e pelos brilhantes com ômega 3 e 6"
+      },
+      {
+        "icon": "taurcarn",
+        "text": "Integridade da visão e do coração"
+      },
+      {
+        "icon": "urin",
+        "text": "Trato urinário saudável"
+      },
+      {
+        "icon": "yucca",
+        "text": "Extrato de yucca: reduz o odor das fezes"
+      },
+      {
+        "icon": "semcor",
+        "text": "Sem corantes e aromatizantes artificiais"
+      }
     ],
     "active": true
   },
@@ -175,6 +445,32 @@
       "Trato urinário saudável",
       "Integridade da visão e coração; redução do odor das fezes"
     ],
+    "bullets": [
+      {
+        "icon": "gato",
+        "text": "Gatos adultos e filhotes de todas as raças, inclusive gatas no fim da gestação e na lactação"
+      },
+      {
+        "icon": "absorc",
+        "text": "Alta digestibilidade"
+      },
+      {
+        "icon": "omega",
+        "text": "Ômega 3 do óleo de salmão: pele saudável e pelos brilhantes"
+      },
+      {
+        "icon": "urin",
+        "text": "Trato urinário saudável"
+      },
+      {
+        "icon": "taurcarn",
+        "text": "Integridade da visão e do coração"
+      },
+      {
+        "icon": "yucca",
+        "text": "Redução do odor das fezes"
+      }
+    ],
     "active": true
   },
   {
@@ -191,6 +487,32 @@
       "Controle de bola de pelos",
       "Trato urinário saudável com macrominerais equilibrados",
       "Integridade da visão e coração; redução do odor das fezes"
+    ],
+    "bullets": [
+      {
+        "icon": "gato",
+        "text": "Gatos adultos castrados, sabor carne e arroz"
+      },
+      {
+        "icon": "absorc",
+        "text": "Alta digestibilidade: fácil absorção de nutrientes"
+      },
+      {
+        "icon": "bolas",
+        "text": "Controle de bolas de pelo"
+      },
+      {
+        "icon": "urin",
+        "text": "Trato urinário saudável com macrominerais equilibrados"
+      },
+      {
+        "icon": "taurcarn",
+        "text": "Integridade da visão e do coração"
+      },
+      {
+        "icon": "yucca",
+        "text": "Redução do odor das fezes"
+      }
     ],
     "active": true
   },
@@ -210,6 +532,40 @@
       "Integridade da visão e coração; redução do odor das fezes",
       "Sem corantes e aromatizantes artificiais"
     ],
+    "bullets": [
+      {
+        "icon": "gato",
+        "text": "Gatos adultos castrados, sabor salmão e arroz"
+      },
+      {
+        "icon": "peso",
+        "text": "Nutrição balanceada para manter o peso ideal depois da castração"
+      },
+      {
+        "icon": "bolas",
+        "text": "Controle de bolas de pelo"
+      },
+      {
+        "icon": "urin",
+        "text": "Trato urinário saudável"
+      },
+      {
+        "icon": "omega",
+        "text": "Ômega 3 do óleo de salmão: pelagem brilhante"
+      },
+      {
+        "icon": "prebio",
+        "text": "Prebiótico MOS: equilíbrio intestinal"
+      },
+      {
+        "icon": "taurcarn",
+        "text": "Integridade da visão e do coração"
+      },
+      {
+        "icon": "semcor",
+        "text": "Sem corantes e aromatizantes artificiais"
+      }
+    ],
     "active": true
   },
   {
@@ -226,6 +582,32 @@
       "Trato urinário saudável (acidificante na fórmula)",
       "Integridade da visão e coração com taurina",
       "Redução do odor das fezes com extrato de Yucca"
+    ],
+    "bullets": [
+      {
+        "icon": "gato",
+        "text": "Gatos adultos castrados, sabor frango e arroz"
+      },
+      {
+        "icon": "absorc",
+        "text": "Alta digestibilidade"
+      },
+      {
+        "icon": "bolas",
+        "text": "Controle de bolas de pelo"
+      },
+      {
+        "icon": "urin",
+        "text": "Trato urinário saudável, com acidificante na fórmula"
+      },
+      {
+        "icon": "taurcarn",
+        "text": "Visão e coração protegidos com taurina"
+      },
+      {
+        "icon": "yucca",
+        "text": "Extrato de yucca: reduz o odor das fezes"
+      }
     ],
     "active": true
   },
@@ -246,6 +628,40 @@
       "Trato urinário saudável",
       "Reduz acumulo de tártaro"
     ],
+    "bullets": [
+      {
+        "icon": "gato",
+        "text": "Gatos adultos a partir de 1 ano, sabor carne"
+      },
+      {
+        "icon": "anti",
+        "text": "Defense Plus: prebiótico natural, antioxidantes, vitaminas e minerais que fortalecem a imunidade"
+      },
+      {
+        "icon": "taurcarn",
+        "text": "Taurina e biomassa de microalgas: visão e coração saudáveis"
+      },
+      {
+        "icon": "vitam",
+        "text": "Vitaminas A, D3, E, C, K3 e complexo B completo"
+      },
+      {
+        "icon": "pelo",
+        "text": "Pele e pelagem saudáveis: zinco e ácidos graxos essenciais"
+      },
+      {
+        "icon": "urin",
+        "text": "Trato urinário saudável"
+      },
+      {
+        "icon": "oral",
+        "text": "Ajuda a reduzir o acúmulo de tártaro"
+      },
+      {
+        "icon": "semcor",
+        "text": "Sem corantes e sabores artificiais"
+      }
+    ],
     "active": true
   },
   {
@@ -263,6 +679,36 @@
       "Macrominerais balanceados: pH urinário adequado, especialmente importante para castrados",
       "Pele e pelagem saudáveis: sem corantes nem sabores artificiais",
       "Ajuda a reduzir o acumulo de tártaro"
+    ],
+    "bullets": [
+      {
+        "icon": "gato",
+        "text": "Gatos adultos castrados, sabor frango"
+      },
+      {
+        "icon": "peso",
+        "text": "36% de proteína: manutenção da massa magra e controle de peso"
+      },
+      {
+        "icon": "anti",
+        "text": "Defense Plus: prebióticos, antioxidantes, vitaminas e minerais para imunidade"
+      },
+      {
+        "icon": "urin",
+        "text": "Macrominerais balanceados: pH urinário adequado"
+      },
+      {
+        "icon": "pelo",
+        "text": "Pele e pelagem saudáveis"
+      },
+      {
+        "icon": "oral",
+        "text": "Ajuda a reduzir o acúmulo de tártaro"
+      },
+      {
+        "icon": "semcor",
+        "text": "Sem corantes nem sabores artificiais"
+      }
     ],
     "active": true
   },
@@ -283,6 +729,39 @@
       "Hidratação extra: ideal para gatos que bebem pouca agua",
       "Pode ser refeição principal ou complemento"
     ],
+    "bullets": [
+      {
+        "icon": "molho",
+        "text": "Pedaços macios e suculentos ao molho, 100% completo e balanceado"
+      },
+      {
+        "icon": "ing",
+        "text": "Sabores: carne, frango, atum, salmão, peixe branco, cordeiro e peru"
+      },
+      {
+        "icon": "prot",
+        "text": "25% a mais de proteína: músculos fortes"
+      },
+      {
+        "icon": "taurcarn",
+        "text": "Vitamina A e taurina: visão saudável"
+      },
+      {
+        "icon": "pelo",
+        "text": "Zinco e ácidos graxos essenciais: pele e pelos saudáveis"
+      },
+      {
+        "icon": "urin",
+        "text": "Hidratação extra: ideal para gatos que bebem pouca água"
+      },
+      {
+        "icon": "semcor",
+        "text": "Sem conservantes artificiais"
+      },
+      {
+        "text": "Pode ser refeição principal ou complemento"
+      }
+    ],
     "active": true
   },
   {
@@ -302,6 +781,29 @@
       "Retenção eficaz de odor",
       "Descarte sustentável: lixo comum ou compostagem"
     ],
+    "bullets": [
+      {
+        "icon": "recic",
+        "text": "100% madeira de pinus de reflorestamento: biodegradável"
+      },
+      {
+        "icon": "urin",
+        "text": "Alta absorção: transforma a urina em bolinhas firmes e secas"
+      },
+      {
+        "text": "Retenção eficaz de odor"
+      },
+      {
+        "text": "Não gruda nas patas: sem rastros pela casa"
+      },
+      {
+        "icon": "semcor",
+        "text": "Não tóxico e não inflamável"
+      },
+      {
+        "text": "Descarte sustentável: lixo comum ou compostagem"
+      }
+    ],
     "active": true
   },
   {
@@ -319,6 +821,30 @@
       "Minerais essenciais: ferro, cobre, manganês, zinco, iodo, selênio",
       "Textura crocante: limpeza dental e fortalecimento da mandíbula",
       "Não substitui o alimento completo: uso como complemento"
+    ],
+    "bullets": [
+      {
+        "icon": "mastig",
+        "text": "Petisco crocante em formato de osso, em embalagem com zíper"
+      },
+      {
+        "icon": "oral",
+        "text": "Hexametafosfato de sódio: ajuda a prevenir o tártaro"
+      },
+      {
+        "icon": "mastig",
+        "text": "Textura crocante: limpeza dental e mandíbula forte"
+      },
+      {
+        "icon": "vitam",
+        "text": "Vitaminas A, C, D, E, K3, B1, B6, B12, niacina, ácido fólico e biotina"
+      },
+      {
+        "text": "Minerais essenciais: ferro, cobre, manganês, zinco, iodo e selênio"
+      },
+      {
+        "text": "Complemento: não substitui o alimento completo"
+      }
     ],
     "active": true
   },
@@ -340,6 +866,34 @@
       "Ação antiestresse: reduz ansiedade e comportamentos destrutivos por tédio",
       "Satisfaz o instinto natural de mastigar"
     ],
+    "bullets": [
+      {
+        "icon": "mastig",
+        "text": "Orelha, casco, chifre, traqueia, pé de galinha, rótula bovina, focinho suíno e mix"
+      },
+      {
+        "icon": "semcor",
+        "text": "100% natural, sem corantes e sem conservantes"
+      },
+      {
+        "icon": "c_artic",
+        "text": "Traqueia bovina: colágeno para articulações e pele, cálcio e fósforo"
+      },
+      {
+        "icon": "prot",
+        "text": "Orelha bovina: alta proteína e mastigação prolongada"
+      },
+      {
+        "icon": "oral",
+        "text": "Chifre e casco: mastigação longa, menos tártaro e dentes fortes"
+      },
+      {
+        "text": "Ação antiestresse: reduz ansiedade e comportamentos destrutivos por tédio"
+      },
+      {
+        "text": "Satisfaz o instinto natural de mastigar"
+      }
+    ],
     "active": true
   },
   {
@@ -360,6 +914,34 @@
       "Petisco ou recompensa em adestramento",
       "Não substitui a refeição principal"
     ],
+    "bullets": [
+      {
+        "icon": "ing",
+        "text": "Sabores: frutas vermelhas, mel com aveia e banana, cenoura com ervilha (vegano)"
+      },
+      {
+        "icon": "transg",
+        "text": "100% natural: sem transgênicos, corantes ou antioxidantes artificiais"
+      },
+      {
+        "icon": "anti",
+        "text": "Frutas vermelhas: antioxidantes e vitaminas"
+      },
+      {
+        "icon": "c_energia",
+        "text": "Mel, aveia e banana: energia, fibras e vitaminas do complexo B"
+      },
+      {
+        "text": "Cenoura e ervilha: beta-caroteno, fibras e proteína vegetal"
+      },
+      {
+        "icon": "mastig",
+        "text": "Petisco ou recompensa no adestramento"
+      },
+      {
+        "text": "Não substitui a refeição principal"
+      }
+    ],
     "active": true
   },
   {
@@ -378,6 +960,22 @@
       "Composição \"Pode\": ureia 4g + carbonato de amônio 3,5g por 100 mL",
       "Indicado para filhotes recém-adotados e cães adultos em readestramento"
     ],
+    "bullets": [
+      {
+        "icon": "filhote",
+        "text": "Indicado para filhotes recém-adotados e cães adultos em readestramento"
+      },
+      {
+        "text": "Xixi Pode (30 mL): atrai o cão para o local certo. Aplique 5 gotas no tapete higiênico"
+      },
+      {
+        "text": "Xixi Não Pode (500 mL): repele de sofás, tapetes, canteiros e estofados"
+      },
+      {
+        "icon": "semcor",
+        "text": "Não tóxico: seguro para animais e humanos"
+      }
+    ],
     "active": true
   },
   {
@@ -395,6 +993,24 @@
       "Estampas sortidas: variedade de cores",
       "Indicada para cães de pequeno e médio porte"
     ],
+    "bullets": [
+      {
+        "icon": "peq",
+        "text": "Indicada para cães de pequeno e médio porte"
+      },
+      {
+        "text": "Aquece nos dias frios, útil para cães de pelo curto"
+      },
+      {
+        "text": "Malha de lã com gola canelada e acabamento em tricô"
+      },
+      {
+        "text": "Modelagem que prioriza o movimento: sem botões nem zíperes"
+      },
+      {
+        "text": "Estampas listradas sortidas: verde, marrom/azul e lilás"
+      }
+    ],
     "active": true
   },
   {
@@ -411,6 +1027,23 @@
       "Energia duradoura para atividades físicas intensas",
       "Fortalecimento muscular e ósseo",
       "Palatabilidade excepcional com mel"
+    ],
+    "bullets": [
+      {
+        "text": "Ração premium para equinos, com mel e ingredientes selecionados"
+      },
+      {
+        "text": "Nutrição completa para cavalos de todas as idades"
+      },
+      {
+        "text": "Energia duradoura para atividades físicas intensas"
+      },
+      {
+        "text": "Fortalecimento muscular e ósseo"
+      },
+      {
+        "text": "Palatabilidade excepcional, com mel"
+      }
     ],
     "active": true
   }

@@ -1,6 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import { ShoppingCart, Menu, X, Instagram, Phone, PawPrint } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
+import Logo from '@/components/Logo';
+import { FACTS } from '@/data/facts';
 
 interface HeaderProps {
   onCartClick: () => void;
@@ -25,10 +27,10 @@ const Header: React.FC<HeaderProps> = ({ onCartClick }) => {
   return (
     <>
       {/* Top bar */}
-      <div className="bg-brand-green text-white text-xs py-1.5 px-4">
+      <div className="bg-brand-green-dark text-cream/90 text-xs py-1.5 px-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <span className="flex items-center gap-1">
-            <Phone size={12} /> (31) 3831-1702
+            <Phone size={12} /> {FACTS.phoneDisplay}
           </span>
           <a
             href="https://www.instagram.com/mundoanimalitabira/"
@@ -42,15 +44,11 @@ const Header: React.FC<HeaderProps> = ({ onCartClick }) => {
       </div>
 
       {/* Main Header */}
-      <header className="sticky top-0 z-50 bg-white shadow-sm">
+      <header className="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-gray-200/70">
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           {/* Logo */}
           <button onClick={() => scrollTo('#hero')} className="flex items-center gap-2">
-            <img
-              src="/assets/logo-mundo-animal.webp"
-              alt="Mundo Animal Pet Shop"
-              className="h-12 w-auto"
-            />
+            <Logo />
           </button>
 
           {/* Desktop Nav */}
@@ -87,7 +85,7 @@ const Header: React.FC<HeaderProps> = ({ onCartClick }) => {
             >
               <ShoppingCart size={22} className="text-gray-700" />
               {totalItems > 0 && (
-                <span className="absolute -top-1 -right-1 bg-brand-orange text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center animate-bounce-in">
+                <span className="absolute -top-1 -right-1 bg-brand-orange text-brand-green-dark text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center animate-bounce-in">
                   {totalItems}
                 </span>
               )}
@@ -108,7 +106,7 @@ const Header: React.FC<HeaderProps> = ({ onCartClick }) => {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-40 md:hidden">
           <div className="absolute inset-0 bg-black/30" onClick={() => setMobileMenuOpen(false)} />
-          <div className="absolute top-[73px] left-0 right-0 bg-white shadow-lg animate-fade-in-up">
+          <div className="absolute top-[73px] left-0 right-0 bg-cream shadow-lg animate-fade-in-up">
             <nav className="flex flex-col p-4">
               {navLinks.map((link) => (
                 <button

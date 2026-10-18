@@ -92,41 +92,43 @@ const HeroSlideshow: React.FC<HeroSlideshowProps> = ({ heroLoaded }) => {
 
   return (
     <div className="hidden lg:flex flex-col items-center w-full">
-      {/* Foto rotativa — dobrada de tamanho, vertical pra mostrar pet inteiro */}
+      {/* Foto rotativa em moldura de arco */}
       <div
-        className="relative animate-float w-full max-w-lg"
+        className="relative w-full max-w-[25rem]"
         style={{
           opacity: heroLoaded ? 1 : 0,
-          transform: heroLoaded ? 'translateY(0) scale(1)' : 'translateY(40px) scale(0.9)',
+          transform: heroLoaded ? 'translateY(0)' : 'translateY(32px)',
           transition: 'all 1s ease-out 0.5s',
         }}
       >
-        <div className="relative w-full aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl shadow-black/20 border-4 border-white/20 bg-white/10">
-          {slides.map((s, i) => (
-            <img
-              key={s.photo}
-              src={s.photo}
-              alt={`Pet feliz no Mundo Animal, atendido pela equipe do Vinícius`}
-              className={`absolute inset-0 w-full h-full object-contain transition-all duration-500 ${
-                i === current
-                  ? fading
-                    ? 'opacity-0 scale-105'
-                    : 'opacity-100 scale-100'
-                  : 'opacity-0'
-              }`}
-              loading={i === 0 ? 'eager' : 'lazy'}
-            />
-          ))}
+        <div className="rounded-t-[999px] rounded-b-[2rem] border border-brand-orange/45 p-2">
+          <div className="relative w-full aspect-[4/5] rounded-t-[999px] rounded-b-[1.5rem] overflow-hidden bg-forest-night shadow-2xl shadow-black/30">
+            {slides.map((s, i) => (
+              <img
+                key={s.photo}
+                src={s.photo}
+                alt="Pet feliz no Mundo Animal, atendido pela equipe do Vinícius"
+                className={`absolute inset-0 w-full h-full object-cover object-[50%_30%] transition-all duration-500 ${
+                  i === current
+                    ? fading
+                      ? 'opacity-0 scale-105'
+                      : 'opacity-100 scale-100'
+                    : 'opacity-0'
+                }`}
+                loading={i === 0 ? 'eager' : 'lazy'}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Mini card "Buscamos seu amigo em casa" */}
-        <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl p-4 shadow-xl animate-pulse-glow">
+        <div className="absolute -bottom-4 -left-6 bg-paper rounded-2xl px-4 py-3 shadow-xl">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-brand-green/10 rounded-full flex items-center justify-center">
-              <Truck size={20} className="text-brand-green" />
+            <div className="w-10 h-10 bg-brand-green-dark rounded-full flex items-center justify-center">
+              <Truck size={19} className="text-brand-orange" />
             </div>
             <div>
-              <div className="font-bold text-sm text-gray-800">Buscamos seu amigo em casa</div>
+              <div className="font-display font-semibold text-sm text-gray-900">Buscamos seu amigo em casa</div>
               <div className="text-xs text-gray-500">Banho e Tosa</div>
             </div>
           </div>
@@ -135,14 +137,14 @@ const HeroSlideshow: React.FC<HeroSlideshowProps> = ({ heroLoaded }) => {
 
       {/* Review rotativo */}
       <div
-        className="mt-6 w-full max-w-sm"
+        className="mt-9 w-full max-w-sm"
         style={{
           opacity: heroLoaded ? 1 : 0,
           transition: 'opacity 0.8s ease-out 1s',
         }}
       >
         <div
-          className={`bg-white/15 backdrop-blur-sm rounded-xl px-4 py-3 border border-white/20 transition-all duration-400 ${
+          className={`bg-cream/10 backdrop-blur-sm rounded-xl px-4 py-3 border border-cream/20 transition-all duration-400 ${
             fading ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'
           }`}
         >

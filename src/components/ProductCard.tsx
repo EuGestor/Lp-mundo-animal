@@ -22,12 +22,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onViewDetails
 
   return (
     <div
-      className="product-card bg-white rounded-2xl overflow-hidden border border-gray-100 animate-fade-in-up flex flex-col"
+      className="product-card bg-paper rounded-2xl overflow-hidden border border-gray-200/80 animate-fade-in-up flex flex-col"
       style={{ animationDelay: `${index * 0.05}s` }}
     >
       {/* Image - clickable */}
       <div
-        className="relative bg-gray-50 aspect-square overflow-hidden cursor-pointer group"
+        className="relative bg-paper aspect-square border-b border-gray-100 overflow-hidden cursor-pointer group"
         onClick={() => onViewDetails(product)}
       >
         <img
@@ -37,14 +37,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onViewDetails
           loading="lazy"
         />
         {product.badge && (
-          <span className="absolute top-3 left-3 max-w-[calc(100%-24px)] truncate promo-badge text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+          <span className="absolute top-3 left-3 max-w-[calc(100%-24px)] truncate promo-badge text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
             {product.badge}
           </span>
         )}
         {/* Desconto no rodape da imagem: no topo ele colide com o selo em telas
             de 360-414px (medido). Ver C1 em docs/specs/2026-09-19-sync-precos-google-sheets-design.md */}
         {product.originalPrice && product.price != null && product.originalPrice > product.price && (
-          <span className="absolute bottom-3 right-3 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-full">
+          <span className="absolute bottom-3 right-3 bg-brand-green-dark text-brand-orange text-[10px] font-bold px-2 py-1 rounded-full">
             -{Math.round((1 - product.price / product.originalPrice) * 100)}%
           </span>
         )}
@@ -56,10 +56,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onViewDetails
 
       {/* Content */}
       <div className="p-4 flex flex-col flex-1">
-        <span className="text-[10px] font-medium uppercase tracking-wider text-gray-400">
+        <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-gold-ink">
           {product.category}
         </span>
-        <h3 className="font-inter font-semibold text-sm text-gray-800 mt-1 line-clamp-2 min-h-[40px]">
+        <h3 className="font-display font-medium text-[15px] leading-snug text-gray-900 mt-1.5 line-clamp-2 min-h-[42px]">
           {product.name}
         </h3>
         {product.weight && (
@@ -72,7 +72,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onViewDetails
         <div className="mt-auto pt-3 flex items-end gap-x-2 gap-y-0 flex-wrap">
           {product.price != null ? (
             <>
-              <span className="font-bold text-base sm:text-lg text-brand-green">
+              <span className="font-display font-semibold text-lg sm:text-xl text-brand-green">
                 {formatPrice(product.price)}
               </span>
               {product.originalPrice && product.originalPrice > product.price && (
@@ -92,7 +92,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onViewDetails
         <div className="flex gap-2 mt-3">
           <button
             onClick={() => onViewDetails(product)}
-            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-full border border-gray-200 text-gray-600 font-medium text-xs hover:bg-gray-50 transition-colors"
+            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-full border border-gray-300 text-gray-700 font-medium text-xs hover:bg-gray-50 hover:border-brand-green/40 transition-colors"
           >
             <Eye size={14} /> Ver detalhes
           </button>
@@ -112,7 +112,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onViewDetails
               className={`flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full font-medium text-xs transition-all ${
                 inCart
                   ? 'bg-brand-green text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-brand-green hover:text-white'
+                  : 'bg-cream-deep text-brand-green-dark hover:bg-brand-green hover:text-white'
               }`}
             >
               {inCart ? <Check size={14} /> : <ShoppingCart size={14} />}
