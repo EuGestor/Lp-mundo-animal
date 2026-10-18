@@ -30,24 +30,24 @@
 
 @layer base {
   :root {
-    --background: 41 62% 95%;
+    --background: 104 25% 95%;
     --foreground: 150 24% 12%;
-    --card: 43 100% 98%;
+    --card: 100 30% 98%;
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
     --primary: 148 52% 24%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 41 45% 91%;
+    --secondary: 100 20% 89%;
     --secondary-foreground: 240 5.9% 10%;
-    --muted: 41 45% 91%;
+    --muted: 100 20% 89%;
     --muted-foreground: 240 3.8% 46.1%;
-    --accent: 41 45% 91%;
+    --accent: 100 20% 89%;
     --accent-foreground: 240 5.9% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 41 35% 80%;
-    --input: 41 35% 80%;
+    --border: 105 20% 85%;
+    --input: 105 20% 85%;
     --ring: 148 52% 24%;
     --radius: 0.625rem;
     --sidebar-background: 0 0% 98%;
@@ -66,8 +66,8 @@
 
   body {
     @apply font-inter antialiased;
-    background-color: #FBF5EA;
-    color: #28322A;
+    background-color: #F2F6F0;
+    color: #232B24;
   }
 
   html {
@@ -87,7 +87,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #F2E8D3;
+  background: #E3EBDF;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -143,12 +143,12 @@
 
 .marquee-fade::before {
   left: 0;
-  background: linear-gradient(to right, #FBF5EA, transparent);
+  background: linear-gradient(to right, #F2F6F0, transparent);
 }
 
 .marquee-fade::after {
   right: 0;
-  background: linear-gradient(to left, #FBF5EA, transparent);
+  background: linear-gradient(to left, #F2F6F0, transparent);
 }
 
 /* Animations */
@@ -158,8 +158,8 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(237, 180, 90, 0.35); }
-  50% { box-shadow: 0 0 20px 4px rgba(237, 180, 90, 0.15); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(228, 135, 94, 0.35); }
+  50% { box-shadow: 0 0 20px 4px rgba(228, 135, 94, 0.15); }
 }
 
 @keyframes shimmer {
@@ -232,7 +232,7 @@
 
 /* Promo badge */
 .promo-badge {
-  background: #EDB45A;
+  background: #E4875E;
   color: #123D26;
 }
 

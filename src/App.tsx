@@ -350,7 +350,7 @@ function AppContent() {
                       <img
                         src={service.image}
                         alt={service.title}
-                        className={`w-full h-full object-cover ${service.position} saturate-[0.9] sepia-[0.12] transition-transform duration-500 group-hover:scale-105`}
+                        className={`w-full h-full object-cover ${service.position} saturate-[0.9] transition-transform duration-500 group-hover:scale-105`}
                         loading="lazy"
                       />
                       {/* Mesmo véu verde em todas as fotos: unifica a luz de imagens de origens diferentes */}
@@ -597,7 +597,7 @@ function AppContent() {
                 <img
                   src="/assets/servico-tosa.webp"
                   alt="Tosa em um pet no salão do Mundo Animal"
-                  className="w-full h-full object-cover object-[42%_50%] saturate-[0.9] sepia-[0.1]"
+                  className="w-full h-full object-cover object-[42%_50%] saturate-[0.9]"
                   loading="lazy"
                 />
               </div>
