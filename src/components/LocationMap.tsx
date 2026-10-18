@@ -3,20 +3,20 @@ import { MapPin, Clock, Phone, ExternalLink } from 'lucide-react';
 
 const LocationMap: React.FC = () => {
   return (
-    <section id="onde-estamos" className="py-12 sm:py-20 bg-gray-50">
+    <section id="onde-estamos" className="py-16 sm:py-24 bg-cream-deep">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-8 sm:mb-12">
-          <span className="text-brand-green font-semibold text-xs sm:text-sm uppercase tracking-wider">
+          <span className="text-gold-ink font-semibold text-xs sm:text-[13px] uppercase tracking-[0.18em]">
             Onde a gente está
           </span>
-          <h2 className="font-inter font-bold text-2xl sm:text-4xl text-gray-900 mt-2 sm:mt-3">
-            Passa <span className="text-brand-green">pra dar um oi</span>
+          <h2 className="font-display font-semibold text-2xl sm:text-4xl text-gray-900 mt-2 sm:mt-3">
+            Passa <span className="italic font-medium text-brand-green">pra dar um oi</span>
           </h2>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
           {/* Map */}
-          <div className="rounded-2xl overflow-hidden shadow-md bg-white aspect-[4/3] lg:aspect-auto lg:min-h-[400px]">
+          <div className="rounded-2xl overflow-hidden shadow-md bg-paper aspect-[4/3] lg:aspect-auto lg:min-h-[400px]">
             <iframe
               title="Localização Mundo Animal Pet Shop"
               src="https://www.google.com/maps?q=Av.+João+Pinheiro,+194,+Itabira,+MG&output=embed"
@@ -27,7 +27,7 @@ const LocationMap: React.FC = () => {
           </div>
 
           {/* Info */}
-          <div className="bg-white rounded-2xl shadow-md p-6 sm:p-8 flex flex-col justify-center">
+          <div className="bg-paper rounded-2xl shadow-md p-6 sm:p-8 flex flex-col justify-center">
             <div className="space-y-5">
               <div className="flex items-start gap-4">
                 <div className="w-11 h-11 bg-brand-green/10 rounded-xl flex items-center justify-center shrink-0">

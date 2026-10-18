@@ -33,13 +33,13 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, isOpen, onClose })
 
       {/* Modal */}
       <div
-        className="relative bg-white rounded-2xl sm:rounded-3xl w-full max-w-lg max-h-[90vh] overflow-y-auto animate-fade-in-up"
+        className="relative bg-paper rounded-2xl sm:rounded-3xl w-full max-w-lg max-h-[90vh] overflow-y-auto animate-fade-in-up"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 z-10 w-9 h-9 bg-white/80 backdrop-blur rounded-full flex items-center justify-center text-gray-500 hover:text-gray-800 hover:bg-white transition-colors shadow-sm"
+          className="absolute top-3 right-3 z-10 w-9 h-9 bg-white/80 backdrop-blur rounded-full flex items-center justify-center text-gray-500 hover:text-gray-800 hover:bg-paper transition-colors shadow-sm"
         >
           <X size={20} />
         </button>
@@ -64,7 +64,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, isOpen, onClose })
             {product.category}
           </span>
 
-          <h2 className="font-inter font-bold text-lg sm:text-xl text-gray-900 mt-2">
+          <h2 className="font-display font-semibold text-lg sm:text-xl text-gray-900 mt-2">
             {product.name}
           </h2>
 

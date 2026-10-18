@@ -1,37 +1,63 @@
+/* Fraunces auto-hospedada (variável): títulos editoriais */
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(/assets/fontes/fraunces-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(/assets/fontes/fraunces-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(/assets/fontes/fraunces-italic-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
+    --background: 41 62% 95%;
+    --foreground: 150 24% 12%;
+    --card: 43 100% 98%;
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 130 68% 32%;
+    --primary: 148 52% 24%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 240 4.8% 95.9%;
+    --secondary: 41 45% 91%;
     --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
+    --muted: 41 45% 91%;
     --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
+    --accent: 41 45% 91%;
     --accent-foreground: 240 5.9% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 130 68% 32%;
+    --border: 41 35% 80%;
+    --input: 41 35% 80%;
+    --ring: 148 52% 24%;
     --radius: 0.625rem;
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 130 68% 32%;
+    --sidebar-primary: 148 52% 24%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 130 68% 32%;
+    --sidebar-ring: 148 52% 24%;
   }
 
   * {
@@ -40,7 +66,8 @@
 
   body {
     @apply font-inter antialiased;
-    background-color: #F8F9FA;
+    background-color: #FBF5EA;
+    color: #28322A;
   }
 
   html {
@@ -60,16 +87,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #F2E8D3;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1B8A2D;
+  background: #1D5A39;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #146620;
+  background: #123D26;
 }
 
 /* Hide scrollbar for category pills */
@@ -116,12 +143,12 @@
 
 .marquee-fade::before {
   left: 0;
-  background: linear-gradient(to right, #F9FAFB, transparent);
+  background: linear-gradient(to right, #FBF5EA, transparent);
 }
 
 .marquee-fade::after {
   right: 0;
-  background: linear-gradient(to left, #F9FAFB, transparent);
+  background: linear-gradient(to left, #FBF5EA, transparent);
 }
 
 /* Animations */
@@ -131,8 +158,8 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(27, 138, 45, 0.3); }
-  50% { box-shadow: 0 0 20px 4px rgba(27, 138, 45, 0.15); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(237, 180, 90, 0.35); }
+  50% { box-shadow: 0 0 20px 4px rgba(237, 180, 90, 0.15); }
 }
 
 @keyframes shimmer {
@@ -189,7 +216,7 @@
 
 .product-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 24px 48px -16px rgba(18, 61, 38, 0.22);
 }
 
 /* Category pill active */
@@ -198,14 +225,20 @@
 }
 
 .category-pill.active {
-  background-color: #1B8A2D;
+  background-color: #1D5A39;
   color: white;
-  box-shadow: 0 4px 12px rgba(27, 138, 45, 0.3);
+  box-shadow: 0 6px 16px -4px rgba(18, 61, 38, 0.45);
 }
 
 /* Promo badge */
 .promo-badge {
-  background: linear-gradient(135deg, #F57C00, #FF9800);
+  background: #EDB45A;
+  color: #123D26;
+}
+
+/* Títulos editoriais */
+h1, h2 {
+  text-wrap: balance;
 }
 
 /* Reduced motion */

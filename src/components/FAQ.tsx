@@ -26,14 +26,14 @@ const faqs = [
 
 const FAQ: React.FC = () => {
   return (
-    <section id="faq" className="py-12 sm:py-20 bg-white">
+    <section id="faq" className="py-16 sm:py-24 bg-cream">
       <div className="max-w-3xl mx-auto px-4">
         <div className="text-center mb-8 sm:mb-12">
-          <span className="text-brand-green font-semibold text-xs sm:text-sm uppercase tracking-wider">
+          <span className="text-gold-ink font-semibold text-xs sm:text-[13px] uppercase tracking-[0.18em]">
             Ficou com alguma dúvida?
           </span>
-          <h2 className="font-inter font-bold text-2xl sm:text-4xl text-gray-900 mt-2 sm:mt-3">
-            A gente <span className="text-brand-green">responde</span>
+          <h2 className="font-display font-semibold text-2xl sm:text-4xl text-gray-900 mt-2 sm:mt-3">
+            A gente <span className="italic font-medium text-brand-green">responde</span>
           </h2>
         </div>
 

@@ -3,7 +3,7 @@ import { PawPrint, Scissors, Quote, ImageIcon } from 'lucide-react';
 
 const QuemCuida: React.FC = () => {
   return (
-    <section id="sobre" className="py-12 sm:py-20 bg-white">
+    <section id="sobre" className="py-16 sm:py-24 bg-cream">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Placeholder de foto — cliente vai enviar */}
@@ -19,7 +19,7 @@ const QuemCuida: React.FC = () => {
             </div>
 
             {/* Mini-badge sobreposto */}
-            <div className="absolute -bottom-4 left-4 sm:left-1/2 sm:-translate-x-1/2 bg-white rounded-2xl px-4 py-3 shadow-xl flex items-center gap-3">
+            <div className="absolute -bottom-4 left-4 sm:left-1/2 sm:-translate-x-1/2 bg-paper rounded-2xl px-4 py-3 shadow-xl flex items-center gap-3">
               <div className="w-10 h-10 bg-brand-green/10 rounded-full flex items-center justify-center">
                 <Scissors size={18} className="text-brand-green" />
               </div>
@@ -32,11 +32,11 @@ const QuemCuida: React.FC = () => {
 
           {/* Texto */}
           <div className="order-1 lg:order-2">
-            <span className="text-brand-green font-semibold text-xs sm:text-sm uppercase tracking-wider">
+            <span className="text-gold-ink font-semibold text-xs sm:text-[13px] uppercase tracking-[0.18em]">
               Família que cuida de família
             </span>
-            <h2 className="font-inter font-bold text-2xl sm:text-4xl text-gray-900 mt-2 sm:mt-3">
-              Quem cuida do <span className="text-brand-green">seu pet</span>
+            <h2 className="font-display font-semibold text-2xl sm:text-4xl text-gray-900 mt-2 sm:mt-3">
+              Quem cuida do <span className="italic font-medium text-brand-green">seu pet</span>
             </h2>
 
             <p className="text-gray-600 text-base sm:text-lg mt-5 leading-relaxed">
@@ -76,7 +76,7 @@ const QuemCuida: React.FC = () => {
                 href="https://wa.me/553138311702?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20Banho%20%26%20Tosa%20para%20meu%20pet."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white border-2 border-brand-green text-brand-green font-bold px-6 py-3 rounded-full hover:bg-brand-green hover:text-white transition-colors text-sm"
+                className="inline-flex items-center gap-2 bg-paper border-2 border-brand-green text-brand-green font-bold px-6 py-3 rounded-full hover:bg-brand-green hover:text-white transition-colors text-sm"
               >
                 <Scissors size={18} /> Agendar Banho
               </a>

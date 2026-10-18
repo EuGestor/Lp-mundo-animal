@@ -120,7 +120,7 @@ const HeroSlideshow: React.FC<HeroSlideshowProps> = ({ heroLoaded }) => {
         </div>
 
         {/* Mini card "Buscamos seu amigo em casa" */}
-        <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl p-4 shadow-xl animate-pulse-glow">
+        <div className="absolute -bottom-4 -left-4 bg-paper rounded-2xl p-4 shadow-xl animate-pulse-glow">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-brand-green/10 rounded-full flex items-center justify-center">
               <Truck size={20} className="text-brand-green" />

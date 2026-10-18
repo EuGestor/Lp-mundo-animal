@@ -113,7 +113,7 @@ const reviews = [
 ];
 
 const ReviewCard: React.FC<{ review: typeof reviews[0] }> = ({ review }) => (
-  <div className="flex-shrink-0 w-[340px] sm:w-[400px] bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-gray-100 mx-3 select-none">
+  <div className="flex-shrink-0 w-[340px] sm:w-[400px] bg-paper rounded-2xl p-5 sm:p-6 shadow-sm border border-gray-100 mx-3 select-none">
     {/* Header */}
     <div className="flex items-center gap-3 mb-3">
       <div
@@ -154,18 +154,18 @@ const GoogleReviews: React.FC = () => {
   const allReviews = [...reviews, ...reviews, ...reviews];
 
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+    <section className="py-16 sm:py-24 bg-gradient-to-b from-cream to-cream-deep overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 mb-10">
         <div className="text-center">
-          <span className="text-brand-green font-semibold text-xs sm:text-sm uppercase tracking-wider">
+          <span className="text-gold-ink font-semibold text-xs sm:text-[13px] uppercase tracking-[0.18em]">
             O que a vizinhança fala da gente
           </span>
-          <h2 className="font-inter font-bold text-2xl sm:text-4xl text-gray-900 mt-2 sm:mt-3">
-            Avaliações no <span className="text-brand-green">Google</span>
+          <h2 className="font-display font-semibold text-2xl sm:text-4xl text-gray-900 mt-2 sm:mt-3">
+            Avaliações no <span className="italic font-medium text-brand-green">Google</span>
           </h2>
 
           {/* Google Rating Badge */}
-          <div className="inline-flex items-center gap-3 bg-white rounded-2xl px-6 py-4 shadow-md border border-gray-100 mt-6">
+          <div className="inline-flex items-center gap-3 bg-paper rounded-2xl px-6 py-4 shadow-md border border-gray-100 mt-6">
             <img
               src="/assets/google-rating.png"
               alt="Google Reviews 4.5 estrelas"

@@ -13,6 +13,7 @@ import ProductCard from '@/components/ProductCard';
 import FAQ from '@/components/FAQ';
 import LocationMap from '@/components/LocationMap';
 import QuemCuida from '@/components/QuemCuida';
+import Logo from '@/components/Logo';
 import {
   Truck,
   Clock,
@@ -111,7 +112,7 @@ function AppContent() {
   };
 
   return (
-    <div className="min-h-[100dvh] bg-[#F8F9FA]">
+    <div className="min-h-[100dvh] bg-cream">
       <Header onCartClick={() => setCartOpen(true)} />
       <CartDrawer
         isOpen={cartOpen}
@@ -174,7 +175,7 @@ function AppContent() {
             </div>
 
             <h1
-              className="font-inter font-extrabold text-3xl sm:text-5xl lg:text-6xl leading-[1.1] tracking-tight"
+              className="font-display font-semibold text-3xl sm:text-5xl lg:text-6xl leading-[1.1] tracking-tight"
               style={{
                 opacity: heroLoaded ? 1 : 0,
                 transform: heroLoaded ? 'translateY(0)' : 'translateY(30px)',
@@ -183,7 +184,7 @@ function AppContent() {
             >
               Tudo para o
               <br />
-              <span className="text-brand-orange">seu melhor</span>
+              <span className="italic font-medium text-brand-orange">seu melhor</span>
               <br />
               amigo
             </h1>
@@ -197,12 +198,12 @@ function AppContent() {
                 transition: 'all 0.8s ease-out 0.3s',
               }}
             >
-              <span className="flex-shrink-0 grid place-items-center w-9 h-9 sm:w-11 sm:h-11 rounded-lg bg-brand-orange text-white shadow-sm">
+              <span className="flex-shrink-0 grid place-items-center w-9 h-9 sm:w-11 sm:h-11 rounded-lg bg-brand-orange text-brand-green-dark shadow-sm">
                 <Truck size={18} className="sm:hidden" />
                 <Truck size={22} className="hidden sm:block" />
               </span>
               <span className="text-xs sm:text-sm font-semibold leading-snug">
-                <span className="font-extrabold text-brand-orange">Frete grátis</span> em toda Itabira nas compras acima de{' '}
+                <span className="font-extrabold text-gold-ink">Frete grátis</span> em toda Itabira nas compras acima de{' '}
                 <span className="whitespace-nowrap font-extrabold">R$ 100,00</span>
               </span>
             </div>
@@ -229,7 +230,7 @@ function AppContent() {
             >
               <button
                 onClick={scrollToCatalog}
-                className="bg-brand-orange text-white font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:brightness-110 transition-all hover:shadow-xl hover:shadow-brand-orange/30 hover:-translate-y-0.5 flex items-center gap-2 text-sm sm:text-base"
+                className="bg-brand-orange text-brand-green-dark font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:brightness-110 transition-all hover:shadow-xl hover:shadow-brand-orange/30 hover:-translate-y-0.5 flex items-center gap-2 text-sm sm:text-base"
               >
                 Ver Produtos <ChevronRight size={16} className="sm:hidden" /><ChevronRight size={18} className="hidden sm:block" />
               </button>
@@ -249,15 +250,15 @@ function AppContent() {
               className="grid grid-cols-3 gap-3 sm:gap-6 mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/20"
             >
               <div>
-                <div className="font-bold text-xl sm:text-3xl">{counts.clients}+</div>
+                <div className="font-display font-semibold text-2xl sm:text-4xl">{counts.clients}+</div>
                 <div className="text-white/60 text-[10px] sm:text-sm mt-1">Famílias atendidas</div>
               </div>
               <div>
-                <div className="font-bold text-xl sm:text-3xl">{counts.products}+</div>
+                <div className="font-display font-semibold text-2xl sm:text-4xl">{counts.products}+</div>
                 <div className="text-white/60 text-[10px] sm:text-sm mt-1">Itens na loja</div>
               </div>
               <div>
-                <div className="font-bold text-xl sm:text-3xl flex items-center gap-0.5 sm:gap-1">
+                <div className="font-display font-semibold text-2xl sm:text-4xl flex items-center gap-0.5 sm:gap-1">
                   {(counts.rating / 10).toFixed(1)} <Star size={14} className="fill-brand-orange text-brand-orange sm:hidden" /><Star size={20} className="fill-brand-orange text-brand-orange hidden sm:block" />
                 </div>
                 <div className="text-white/60 text-[10px] sm:text-sm mt-1">Nota no Google</div>
@@ -290,10 +291,10 @@ function AppContent() {
       </section>
 
       {/* ============ PROMO BANNER ============ */}
-      <section className="bg-brand-orange relative overflow-hidden">
+      <section className="bg-brand-green-dark relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wOCI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
         <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
-          <span className="bg-white text-brand-orange font-bold text-xs uppercase tracking-wider px-3 py-1 rounded-full">
+          <span className="bg-brand-orange text-brand-green-dark font-bold text-xs uppercase tracking-wider px-3 py-1 rounded-full">
             Promoção
           </span>
           <p className="text-white font-medium text-xs sm:text-base text-center leading-snug">
@@ -301,7 +302,7 @@ function AppContent() {
           </p>
           <button
             onClick={scrollToCatalog}
-            className="bg-white text-brand-orange font-bold text-sm px-5 py-2 rounded-full hover:shadow-lg transition-all whitespace-nowrap"
+            className="bg-brand-orange text-brand-green-dark font-bold text-sm px-5 py-2 rounded-full hover:brightness-105 hover:shadow-lg transition-all whitespace-nowrap"
           >
             Aproveitar
           </button>
@@ -309,14 +310,14 @@ function AppContent() {
       </section>
 
       {/* ============ SERVICES ============ */}
-      <section id="servicos" className="py-12 sm:py-20 bg-white">
+      <section id="servicos" className="py-16 sm:py-24 bg-cream">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-8 sm:mb-14">
-            <span className="text-brand-green font-semibold text-xs sm:text-sm uppercase tracking-wider">
+            <span className="text-gold-ink font-semibold text-xs sm:text-[13px] uppercase tracking-[0.18em]">
               Nossos Serviços
             </span>
-            <h2 className="font-inter font-bold text-2xl sm:text-4xl text-gray-900 mt-2 sm:mt-3">
-              A gente cuida do seu <span className="text-brand-green">pet</span> como se fosse nosso
+            <h2 className="font-display font-semibold text-2xl sm:text-4xl text-gray-900 mt-2 sm:mt-3">
+              A gente cuida do seu <span className="italic font-medium text-brand-green">pet</span> como se fosse nosso
             </h2>
           </div>
 
@@ -326,28 +327,28 @@ function AppContent() {
                 icon: Droplets,
                 title: 'Banho & Tosa',
                 desc: 'Você fala o horário, a gente busca seu pet em casa, dá banho, faz a tosa e devolve cheiroso na sua porta.',
-                color: 'bg-sky-50 text-sky-600',
+                color: 'bg-brand-green/10 text-brand-green',
                 image: '/assets/servico-banho.webp',
               },
               {
                 icon: Syringe,
                 title: 'Vacinas',
                 desc: 'Veterinária aplicando vacina aqui na nossa clínica. Pode trazer seu pet, a gente atende com calma.',
-                color: 'bg-amber-50 text-amber-600',
+                color: 'bg-brand-green/10 text-brand-green',
                 image: '/assets/servico-vacinas.webp',
               },
               {
                 icon: Egg,
                 title: 'Criação de Galinhas',
                 desc: 'A gente cria Brahma com cuidado e tem ovos fresquinhos pra você. Passa na loja pra conhecer o plantel.',
-                color: 'bg-orange-50 text-orange-600',
+                color: 'bg-brand-green/10 text-brand-green',
                 image: '/assets/galinhas-brahma.webp',
               },
               {
                 icon: Truck,
                 title: 'Entrega',
                 desc: 'Pediu pelo WhatsApp acima de R$ 100? A gente leva até a sua porta sem cobrar frete. Em qualquer bairro de Itabira.',
-                color: 'bg-rose-50 text-rose-600',
+                color: 'bg-brand-green/10 text-brand-green',
                 image: '/assets/localidade.webp',
               },
             ].map((service, i) => {
@@ -355,7 +356,7 @@ function AppContent() {
               return (
                 <div
                   key={i}
-                  className="group relative bg-gray-50 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                  className="group relative bg-paper rounded-2xl overflow-hidden border border-gray-200/80 hover:shadow-[0_24px_48px_-16px_rgba(18,61,38,0.22)] transition-all duration-300 hover:-translate-y-1"
                 >
                   <div
                   className="aspect-[3/2] overflow-hidden cursor-pointer relative bg-gray-100"
@@ -383,7 +384,7 @@ function AppContent() {
                     >
                       <Icon size={20} />
                     </div>
-                    <h3 className="font-bold text-gray-800">{service.title}</h3>
+                    <h3 className="font-display font-semibold text-lg text-gray-900">{service.title}</h3>
                     <p className="text-sm text-gray-500 mt-2 leading-relaxed">{service.desc}</p>
                     <a
                       href="https://wa.me/message/DVEYNOWZKFLAK1"
@@ -402,15 +403,15 @@ function AppContent() {
       </section>
 
       {/* ============ PRODUCT CATALOG ============ */}
-      <section id="produtos" ref={catalogRef} className="py-12 sm:py-20 bg-[#F8F9FA]">
+      <section id="produtos" ref={catalogRef} className="py-16 sm:py-24 bg-cream-deep">
         <div className="max-w-7xl mx-auto px-3 sm:px-4">
           {/* Header */}
           <div className="text-center mb-6 sm:mb-10">
-            <span className="text-brand-green font-semibold text-xs sm:text-sm uppercase tracking-wider">
+            <span className="text-gold-ink font-semibold text-xs sm:text-[13px] uppercase tracking-[0.18em]">
               Aqui na loja
             </span>
-            <h2 className="font-inter font-bold text-2xl sm:text-4xl text-gray-900 mt-2 sm:mt-3">
-              Escolha o que vai <span className="text-brand-green">pra casa</span> do seu pet
+            <h2 className="font-display font-semibold text-2xl sm:text-4xl text-gray-900 mt-2 sm:mt-3">
+              Escolha o que vai <span className="italic font-medium text-brand-green">pra casa</span> do seu pet
             </h2>
           </div>
 
@@ -423,7 +424,7 @@ function AppContent() {
                 className={`category-pill px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-sm font-medium whitespace-nowrap flex-shrink-0 ${
                   activeCategory === cat
                     ? 'active'
-                    : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+                    : 'bg-paper text-gray-600 hover:bg-gray-100 border border-gray-200'
                 }`}
               >
                 {cat}
@@ -456,14 +457,14 @@ function AppContent() {
       </section>
 
       {/* ============ TRUST / WHY US ============ */}
-      <section className="py-12 sm:py-20 bg-white">
+      <section className="py-16 sm:py-24 bg-cream">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-8 sm:mb-14">
-            <span className="text-brand-green font-semibold text-xs sm:text-sm uppercase tracking-wider">
+            <span className="text-gold-ink font-semibold text-xs sm:text-[13px] uppercase tracking-[0.18em]">
               Por que tantos vizinhos voltam aqui
             </span>
-            <h2 className="font-inter font-bold text-2xl sm:text-4xl text-gray-900 mt-2 sm:mt-3">
-              A loja da <span className="text-brand-green">vizinhança</span> em Itabira
+            <h2 className="font-display font-semibold text-2xl sm:text-4xl text-gray-900 mt-2 sm:mt-3">
+              A loja da <span className="italic font-medium text-brand-green">vizinhança</span> em Itabira
             </h2>
           </div>
 
@@ -504,13 +505,13 @@ function AppContent() {
               return (
                 <div
                   key={i}
-                  className="flex gap-4 p-5 rounded-2xl hover:bg-gray-50 transition-colors group"
+                  className="flex gap-4 p-5 rounded-2xl hover:bg-paper transition-colors group"
                 >
                   <div className="w-12 h-12 bg-brand-green/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-brand-green/20 transition-colors">
                     <Icon size={22} className="text-brand-green" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-800">{item.title}</h3>
+                    <h3 className="font-display font-semibold text-lg text-gray-900">{item.title}</h3>
                     <p className="text-sm text-gray-500 mt-1 leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
@@ -540,12 +541,12 @@ function AppContent() {
             alt="Banho e Tosa"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-brand-green/90" />
+          <div className="absolute inset-0 bg-brand-green-dark/90" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 py-12 sm:py-20 text-center text-white">
           <Scissors size={36} className="mx-auto mb-4 sm:mb-6 text-brand-orange sm:hidden" />
           <Scissors size={48} className="mx-auto mb-6 text-brand-orange hidden sm:block" />
-          <h2 className="font-inter font-bold text-2xl sm:text-4xl">
+          <h2 className="font-display font-semibold text-2xl sm:text-4xl">
             Banho e tosa com busca em casa
           </h2>
           <p className="text-white/80 text-base sm:text-lg mt-4 max-w-xl mx-auto px-2 sm:px-0">
@@ -555,7 +556,7 @@ function AppContent() {
             href="https://wa.me/553138311702?text=Ola! Gostaria de agendar Banho e Tosa para meu pet."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-brand-orange text-white font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full mt-6 sm:mt-8 hover:brightness-110 transition-all hover:shadow-xl hover:shadow-brand-orange/30 text-sm sm:text-base"
+            className="inline-flex items-center gap-2 bg-brand-orange text-brand-green-dark font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full mt-6 sm:mt-8 hover:brightness-110 transition-all hover:shadow-xl hover:shadow-brand-orange/30 text-sm sm:text-base"
           >
             <PawPrint size={18} className="sm:hidden" /><PawPrint size={20} className="hidden sm:block" /> Agendar pelo WhatsApp
           </a>
@@ -563,17 +564,13 @@ function AppContent() {
       </section>
 
       {/* ============ FOOTER ============ */}
-      <footer id="contato" className="bg-gray-900 text-white">
+      <footer id="contato" className="bg-forest-night text-white">
         <div className="max-w-7xl mx-auto px-4 py-10 sm:py-16">
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-12">
             {/* Brand */}
             <div>
-              <img
-                src="/assets/logo-mundo-animal.webp"
-                alt="Mundo Animal"
-                className="h-20 w-auto mb-4 rounded-xl"
-              />
-              <p className="text-gray-400 text-sm leading-relaxed">
+              <Logo variant="dark" className="mb-5" />
+              <p className="text-cream/70 text-sm leading-relaxed">
                 Onde felicidade e amor têm 4 patas. A gente atende em Itabira{' '}
                 <strong className="text-white">desde 1998</strong>, com a mesma família, os mesmos
                 produtos bons e o mesmo carinho de sempre.
@@ -592,7 +589,7 @@ function AppContent() {
 
             {/* Links */}
             <div>
-              <h4 className="font-bold text-lg mb-4">Links Rapidos</h4>
+              <h4 className="font-display font-semibold text-lg mb-4 text-cream">Links Rapidos</h4>
               <ul className="space-y-3">
                 {['Produtos', 'Serviços', 'Banho & Tosa', 'Contato'].map((link) => (
                   <li key={link}>
@@ -601,7 +598,7 @@ function AppContent() {
                         const id = link === 'Produtos' ? '#produtos' : link === 'Serviços' ? '#servicos' : link === 'Banho & Tosa' ? '#servicos' : '#contato';
                         document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
                       }}
-                      className="text-gray-400 hover:text-brand-green transition-colors text-sm"
+                      className="text-cream/70 hover:text-brand-orange transition-colors text-sm"
                     >
                       {link}
                     </button>
@@ -612,38 +609,38 @@ function AppContent() {
 
             {/* Services */}
             <div>
-              <h4 className="font-bold text-lg mb-4">Serviços</h4>
-              <ul className="space-y-3 text-gray-400 text-sm">
+              <h4 className="font-display font-semibold text-lg mb-4 text-cream">Serviços</h4>
+              <ul className="space-y-3 text-cream/70 text-sm">
                 <li className="flex items-center gap-2">
-                  <Droplets size={14} className="text-brand-green" /> Banho
+                  <Droplets size={14} className="text-brand-orange" /> Banho
                 </li>
                 <li className="flex items-center gap-2">
-                  <Scissors size={14} className="text-brand-green" /> Tosa
+                  <Scissors size={14} className="text-brand-orange" /> Tosa
                 </li>
                 <li className="flex items-center gap-2">
-                  <Syringe size={14} className="text-brand-green" /> Vacinas
+                  <Syringe size={14} className="text-brand-orange" /> Vacinas
                 </li>
                 <li className="flex items-center gap-2">
-                  <Truck size={14} className="text-brand-green" /> Entrega Domiciliar
+                  <Truck size={14} className="text-brand-orange" /> Entrega Domiciliar
                 </li>
               </ul>
             </div>
 
             {/* Contact */}
             <div>
-              <h4 className="font-bold text-lg mb-4">Contato</h4>
+              <h4 className="font-display font-semibold text-lg mb-4 text-cream">Contato</h4>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <MapPin size={18} className="text-brand-green mt-0.5 shrink-0" />
-                  <p className="text-gray-400 text-sm">
+                  <MapPin size={18} className="text-brand-orange mt-0.5 shrink-0" />
+                  <p className="text-cream/70 text-sm">
                     Avenida Joao Pinheiro, nº 194, Centro
                     <br />
                     Itabira - MG
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Phone size={18} className="text-brand-green shrink-0" />
-                  <p className="text-gray-400 text-sm">(31) 3831-1702</p>
+                  <Phone size={18} className="text-brand-orange shrink-0" />
+                  <p className="text-cream/70 text-sm">(31) 3831-1702</p>
                 </div>
               </div>
             </div>
@@ -651,16 +648,16 @@ function AppContent() {
 
           {/* Bottom */}
           <div className="border-t border-white/10 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-gray-500 text-xs">
-              &copy; 2025 Mundo Animal Pet Shop. Todos os direitos reservados.
+            <p className="text-cream/50 text-xs">
+              &copy; {new Date().getFullYear()} Mundo Animal Pet Shop. Todos os direitos reservados.
             </p>
-            <p className="text-gray-500 text-xs flex items-center gap-1.5">
+            <p className="text-cream/50 text-xs flex items-center gap-1.5">
               Criado por{' '}
               <a
                 href="https://www.instagram.com/salesroute_ia/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 font-semibold hover:text-brand-green transition-colors inline-flex items-center gap-1"
+                className="text-cream/90 font-semibold hover:text-brand-orange transition-colors inline-flex items-center gap-1"
               >
                 <Instagram size={12} /> SalesRoute
               </a>
@@ -674,7 +671,7 @@ function AppContent() {
         href="https://wa.me/message/DVEYNOWZKFLAK1"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-40 bg-green-500 text-white w-12 h-12 sm:w-14 sm:h-14 rounded-full shadow-lg shadow-green-500/30 flex items-center justify-center hover:scale-110 transition-transform animate-pulse-glow"
+        className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-40 bg-brand-green text-brand-orange ring-2 ring-brand-orange/70 w-12 h-12 sm:w-14 sm:h-14 rounded-full shadow-lg shadow-brand-green-dark/40 flex items-center justify-center hover:scale-110 transition-transform animate-pulse-glow"
         aria-label="WhatsApp"
       >
         <PawPrint size={22} className="sm:hidden" />

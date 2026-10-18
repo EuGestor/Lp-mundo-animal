@@ -26,13 +26,13 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose, onCheckout }) 
 
       {/* Drawer */}
       <div
-        className={`fixed top-0 right-0 bottom-0 w-full max-w-md bg-white z-50 shadow-2xl transform transition-transform duration-300 ease-out ${
+        className={`fixed top-0 right-0 bottom-0 w-full max-w-md bg-paper z-50 shadow-2xl transform transition-transform duration-300 ease-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b">
-          <h2 className="font-inter font-semibold text-lg flex items-center gap-2">
+          <h2 className="font-display font-semibold text-lg flex items-center gap-2">
             <ShoppingBag size={20} className="text-brand-green" />
             Seu Carrinho
           </h2>
@@ -80,7 +80,7 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose, onCheckout }) 
                         {formatPrice(item.price ?? 0)}
                       </p>
                       <div className="flex items-center justify-between mt-2">
-                        <div className="flex items-center gap-2 bg-white rounded-full border px-2 py-0.5">
+                        <div className="flex items-center gap-2 bg-paper rounded-full border px-2 py-0.5">
                           <button
                             onClick={() => updateQuantity(item.id, item.quantity - 1)}
                             className="p-1 hover:bg-gray-100 rounded-full transition-colors"
@@ -124,7 +124,7 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose, onCheckout }) 
 
         {/* Footer */}
         {items.length > 0 && (
-          <div className="absolute bottom-0 left-0 right-0 bg-white border-t p-4 space-y-3">
+          <div className="absolute bottom-0 left-0 right-0 bg-paper border-t p-4 space-y-3">
             <div className="flex justify-between items-center">
               <span className="text-gray-600">Total</span>
               <span className="font-bold text-xl text-brand-green">
