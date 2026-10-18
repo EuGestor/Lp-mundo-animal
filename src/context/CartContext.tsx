@@ -11,6 +11,10 @@ export interface Product {
   badge?: string;
   description?: string;
   benefits?: string[];
+  /** Tópicos da ficha: `icon` é o nome do arquivo em /assets/icones (sem extensão); sem ícone vira ✓. */
+  bullets?: { icon?: string; text: string }[];
+  /** Fotos extras do produto; a primeira é a capa. Com mais de uma, a ficha mostra miniaturas. */
+  images?: string[];
   quoteOnWhatsapp?: boolean;
   /** false esconde o produto do site. Controlado pela planilha de precos. */
   active?: boolean;

@@ -37,7 +37,7 @@ import './App.css';
 // ==================== PRODUCTS DATA ====================
 // Dados vivem em src/data/products.json. A automacao Sheets -> GitHub escreve
 // apenas esse arquivo, nunca este componente. Ver docs/specs/2026-09-19-sync-precos-google-sheets-design.md
-const products: Product[] = (productsData as Product[]).filter((p) => p.active !== false);
+const products: Product[] = (productsData as unknown as Product[]).filter((p) => p.active !== false);
 
 // Ordem de exibicao das pastilhas.
 const CATEGORY_ORDER = ['Cães', 'Gatos', 'Equinos', 'Petiscos', 'Acessórios'];
@@ -125,6 +125,8 @@ function AppContent() {
       <ProductModal
         product={selectedProduct}
         isOpen={productModalOpen}
+        siblings={filteredProducts}
+        onNavigate={setSelectedProduct}
         onClose={() => {
           setProductModalOpen(false);
           setSelectedProduct(null);
