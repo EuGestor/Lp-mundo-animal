@@ -16,7 +16,6 @@ import QuemCuida from '@/components/QuemCuida';
 import Logo from '@/components/Logo';
 import {
   Truck,
-  Clock,
   MapPin,
   Phone,
   Instagram,
@@ -25,9 +24,7 @@ import {
   Droplets,
   Syringe,
   ChevronRight,
-  Shield,
   Package,
-  Sparkles,
   Heart,
   PawPrint,
   Egg,
@@ -139,7 +136,7 @@ function AppContent() {
       />
 
       {/* ============ HERO ============ */}
-      <section id="hero" className="relative min-h-[85vh] flex items-center overflow-hidden">
+      <section id="hero" className="relative min-h-[85vh] flex items-center overflow-hidden bg-forest-night">
         {/* Background */}
         <div className="absolute inset-0">
           <img
@@ -147,35 +144,33 @@ function AppContent() {
             alt="Produtos Mundo Animal Pet Shop em Itabira"
             fetchPriority="high"
             className={`w-full h-full object-cover transition-all duration-1000 ${
-              heroLoaded ? 'scale-100 opacity-100' : 'scale-110 opacity-0'
+              heroLoaded ? 'scale-100 opacity-25' : 'scale-110 opacity-0'
             }`}
             onLoad={() => setHeroLoaded(true)}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-green/95 via-brand-green/85 to-brand-green/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-br from-forest-night via-brand-green-dark/95 to-brand-green/80" />
+          <div className="absolute -top-40 right-[6%] w-[36rem] h-[36rem] rounded-full bg-brand-orange/15 blur-3xl" />
+          <div className="absolute inset-0 bg-gradient-to-t from-forest-night/60 to-transparent" />
         </div>
 
-        {/* Floating elements */}
-        <div
-          className="absolute top-20 right-10 w-20 h-20 bg-white/10 rounded-full blur-xl animate-float"
-          style={{ animationDelay: '0.5s' }}
-        />
-        <div
-          className="absolute bottom-32 right-1/4 w-32 h-32 bg-brand-orange/20 rounded-full blur-2xl animate-float"
-          style={{ animationDelay: '1s' }}
-        />
-
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 py-12 sm:py-20 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center w-full">
-          <div className="text-white">
-            <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2 mb-4 sm:mb-6">
-              <Sparkles size={14} className="text-brand-orange sm:hidden" />
-              <Sparkles size={16} className="text-brand-orange hidden sm:block" />
-              <span className="text-xs sm:text-sm font-medium">Onde felicidade e amor têm 4 patas!</span>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 py-12 sm:py-20 grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] gap-10 lg:gap-16 items-center w-full">
+          <div className="text-cream">
+            <div
+              className="flex items-center gap-3 mb-5 sm:mb-7"
+              style={{
+                opacity: heroLoaded ? 1 : 0,
+                transition: 'opacity 0.8s ease-out 0.1s',
+              }}
+            >
+              <span className="h-px w-8 sm:w-10 bg-brand-orange" />
+              <span className="text-brand-orange text-[11px] sm:text-xs font-semibold uppercase tracking-[0.2em]">
+                Pet shop e veterinária · desde 1998
+              </span>
             </div>
 
             <h1
-              className="font-display font-semibold text-3xl sm:text-5xl lg:text-6xl leading-[1.1] tracking-tight"
+              className="font-display font-semibold text-[2.6rem] sm:text-6xl lg:text-7xl leading-[1.04] tracking-tight"
               style={{
                 opacity: heroLoaded ? 1 : 0,
                 transform: heroLoaded ? 'translateY(0)' : 'translateY(30px)',
@@ -189,39 +184,20 @@ function AppContent() {
               amigo
             </h1>
 
-            {/* Faixa Frete Grátis — destaque próximo da headline */}
-            <div
-              className="flex items-center gap-3 bg-white/95 text-brand-green-dark rounded-xl sm:rounded-2xl pl-2 pr-4 py-2 mt-5 sm:mt-6 max-w-md shadow-lg shadow-black/15 ring-1 ring-brand-orange/40"
-              style={{
-                opacity: heroLoaded ? 1 : 0,
-                transform: heroLoaded ? 'translateY(0)' : 'translateY(20px)',
-                transition: 'all 0.8s ease-out 0.3s',
-              }}
-            >
-              <span className="flex-shrink-0 grid place-items-center w-9 h-9 sm:w-11 sm:h-11 rounded-lg bg-brand-orange text-brand-green-dark shadow-sm">
-                <Truck size={18} className="sm:hidden" />
-                <Truck size={22} className="hidden sm:block" />
-              </span>
-              <span className="text-xs sm:text-sm font-semibold leading-snug">
-                <span className="font-extrabold text-gold-ink">Frete grátis</span> em toda Itabira nas compras acima de{' '}
-                <span className="whitespace-nowrap font-extrabold">R$ 100,00</span>
-              </span>
-            </div>
-
             <p
-              className="text-white/80 text-base sm:text-lg mt-4 sm:mt-6 max-w-md leading-relaxed"
+              className="text-cream/80 text-base sm:text-lg mt-5 sm:mt-7 max-w-md leading-relaxed"
               style={{
                 opacity: heroLoaded ? 1 : 0,
                 transform: heroLoaded ? 'translateY(0)' : 'translateY(20px)',
                 transition: 'all 0.8s ease-out 0.4s',
               }}
             >
-              Ração que o seu pet adora, petisco pra recompensar, banho com busca em casa e vacina
-              sem complicação. A gente entrega de graça em qualquer canto de Itabira nas compras acima de R$ 100.
+              Ração que o seu pet adora, petisco pra recompensar, banho com busca em casa e vacina sem
+              complicação. Aqui, cada bicho é chamado pelo nome.
             </p>
 
             <div
-              className="flex flex-wrap gap-4 mt-8"
+              className="flex flex-wrap gap-3 sm:gap-4 mt-8"
               style={{
                 opacity: heroLoaded ? 1 : 0,
                 transform: heroLoaded ? 'translateY(0)' : 'translateY(20px)',
@@ -230,38 +206,38 @@ function AppContent() {
             >
               <button
                 onClick={scrollToCatalog}
-                className="bg-brand-orange text-brand-green-dark font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:brightness-110 transition-all hover:shadow-xl hover:shadow-brand-orange/30 hover:-translate-y-0.5 flex items-center gap-2 text-sm sm:text-base"
+                className="bg-brand-orange text-brand-green-dark font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:brightness-105 transition-all hover:shadow-xl hover:shadow-brand-orange/30 hover:-translate-y-0.5 flex items-center gap-2 text-sm sm:text-base"
               >
-                Ver Produtos <ChevronRight size={16} className="sm:hidden" /><ChevronRight size={18} className="hidden sm:block" />
+                Ver produtos <ChevronRight size={16} className="sm:hidden" /><ChevronRight size={18} className="hidden sm:block" />
               </button>
               <a
                 href="https://wa.me/message/DVEYNOWZKFLAK1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white/15 backdrop-blur-sm border border-white/30 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-white/25 transition-all flex items-center gap-2 text-sm sm:text-base"
+                className="border border-cream/40 text-cream font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-cream/10 hover:border-cream/70 transition-all flex items-center gap-2 text-sm sm:text-base"
               >
-                <PawPrint size={16} className="sm:hidden" /><PawPrint size={18} className="hidden sm:block" /> WhatsApp
+                <PawPrint size={16} className="sm:hidden" /><PawPrint size={18} className="hidden sm:block" /> Chamar no WhatsApp
               </a>
             </div>
 
             {/* Stats */}
             <div
               ref={statsRef}
-              className="grid grid-cols-3 gap-3 sm:gap-6 mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/20"
+              className="grid grid-cols-3 gap-3 sm:gap-6 mt-10 sm:mt-14 pt-6 sm:pt-8 border-t border-cream/15 max-w-lg"
             >
               <div>
                 <div className="font-display font-semibold text-2xl sm:text-4xl">{counts.clients}+</div>
-                <div className="text-white/60 text-[10px] sm:text-sm mt-1">Famílias atendidas</div>
+                <div className="text-cream/60 text-[10px] sm:text-sm mt-1">Famílias atendidas</div>
               </div>
               <div>
                 <div className="font-display font-semibold text-2xl sm:text-4xl">{counts.products}+</div>
-                <div className="text-white/60 text-[10px] sm:text-sm mt-1">Itens na loja</div>
+                <div className="text-cream/60 text-[10px] sm:text-sm mt-1">Itens na loja</div>
               </div>
               <div>
                 <div className="font-display font-semibold text-2xl sm:text-4xl flex items-center gap-0.5 sm:gap-1">
                   {(counts.rating / 10).toFixed(1)} <Star size={14} className="fill-brand-orange text-brand-orange sm:hidden" /><Star size={20} className="fill-brand-orange text-brand-orange hidden sm:block" />
                 </div>
-                <div className="text-white/60 text-[10px] sm:text-sm mt-1">Nota no Google</div>
+                <div className="text-cream/60 text-[10px] sm:text-sm mt-1">Nota no Google</div>
               </div>
             </div>
 
@@ -275,11 +251,11 @@ function AppContent() {
               }}
             >
               <div className="flex items-center gap-2 mt-8">
-                <span className="h-px flex-1 bg-white/20" />
-                <span className="text-white/70 text-[11px] font-semibold uppercase tracking-wider">
+                <span className="h-px flex-1 bg-cream/20" />
+                <span className="text-cream/70 text-[11px] font-semibold uppercase tracking-wider">
                   Quem é cliente recomenda
                 </span>
-                <span className="h-px flex-1 bg-white/20" />
+                <span className="h-px flex-1 bg-cream/20" />
               </div>
               <HeroReviews />
             </div>
@@ -290,22 +266,25 @@ function AppContent() {
         </div>
       </section>
 
-      {/* ============ PROMO BANNER ============ */}
-      <section className="bg-brand-green-dark relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wOCI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
-        <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
-          <span className="bg-brand-orange text-brand-green-dark font-bold text-xs uppercase tracking-wider px-3 py-1 rounded-full">
-            Promoção
-          </span>
-          <p className="text-white font-medium text-xs sm:text-base text-center leading-snug">
-            Frete grátis em toda Itabira nas compras acima de R$ 100. Faz o pedido pelo WhatsApp que a gente leva.
-          </p>
-          <button
-            onClick={scrollToCatalog}
-            className="bg-brand-orange text-brand-green-dark font-bold text-sm px-5 py-2 rounded-full hover:brightness-105 hover:shadow-lg transition-all whitespace-nowrap"
-          >
-            Aproveitar
-          </button>
+      {/* ============ FAIXA DE VANTAGENS ============ */}
+      <section className="bg-cream-deep border-b border-gray-200/70">
+        <div className="max-w-7xl mx-auto px-4 py-6 sm:py-8 grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-6">
+          {[
+            { icon: Truck, title: 'Frete grátis em Itabira', sub: 'Nas compras acima de R$ 100' },
+            { icon: Scissors, title: 'Banho e tosa em casa', sub: 'A gente busca e devolve' },
+            { icon: Syringe, title: 'Vacinas na loja', sub: 'Veterinária aplicando aqui' },
+            { icon: Heart, title: 'Atendimento de família', sub: 'Em Itabira desde 1998' },
+          ].map(({ icon: Icon, title, sub }) => (
+            <div key={title} className="flex items-center gap-3 sm:gap-4">
+              <span className="grid place-items-center shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-paper border border-brand-green/20 text-brand-green">
+                <Icon size={20} />
+              </span>
+              <span className="leading-tight">
+                <span className="block font-semibold text-[13px] sm:text-sm text-gray-900">{title}</span>
+                <span className="block text-[11px] sm:text-xs text-gray-500 mt-0.5">{sub}</span>
+              </span>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -415,21 +394,49 @@ function AppContent() {
             </h2>
           </div>
 
-          {/* Category Filter */}
-          <div className="flex overflow-x-auto pb-2 gap-2 mb-8 sm:mb-10 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`category-pill px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-sm font-medium whitespace-nowrap flex-shrink-0 ${
-                  activeCategory === cat
-                    ? 'active'
-                    : 'bg-paper text-gray-600 hover:bg-gray-100 border border-gray-200'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+          {/* Categorias em selos */}
+          <div
+            className="flex overflow-x-auto pb-3 pt-1 gap-4 sm:gap-8 sm:justify-center mb-8 sm:mb-12 scrollbar-hide"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {categories.map((cat) => {
+              const img = cat === 'Todos' ? null : products.find((p) => p.category === cat)?.image;
+              const active = activeCategory === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  aria-pressed={active}
+                  className="group flex flex-col items-center gap-2.5 shrink-0 w-[4.75rem] sm:w-28"
+                >
+                  <span
+                    className={`grid place-items-center w-[4.5rem] h-[4.5rem] sm:w-24 sm:h-24 rounded-full overflow-hidden bg-paper transition-all duration-300 ring-1 ${
+                      active
+                        ? 'ring-2 ring-brand-orange ring-offset-2 ring-offset-cream-deep shadow-[0_12px_28px_-10px_rgba(18,61,38,0.5)]'
+                        : 'ring-gray-300 group-hover:ring-brand-orange/80 group-hover:-translate-y-0.5'
+                    }`}
+                  >
+                    {img ? (
+                      <img
+                        src={img}
+                        alt=""
+                        loading="lazy"
+                        className={`w-full h-full ${cat === 'Equinos' ? 'object-cover' : 'object-contain p-2'}`}
+                      />
+                    ) : (
+                      <PawPrint size={30} className="text-brand-green" />
+                    )}
+                  </span>
+                  <span
+                    className={`text-xs sm:text-sm font-semibold transition-colors ${
+                      active ? 'text-brand-green-dark' : 'text-gray-600 group-hover:text-gray-900'
+                    }`}
+                  >
+                    {cat}
+                  </span>
+                </button>
+              );
+            })}
           </div>
 
           {/* Product Grid */}
@@ -458,66 +465,66 @@ function AppContent() {
 
       {/* ============ TRUST / WHY US ============ */}
       <section className="py-16 sm:py-24 bg-cream">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-8 sm:mb-14">
+        <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-10 lg:gap-20">
+          <div className="lg:sticky lg:top-28 self-start">
             <span className="text-gold-ink font-semibold text-xs sm:text-[13px] uppercase tracking-[0.18em]">
               Por que tantos vizinhos voltam aqui
             </span>
-            <h2 className="font-display font-semibold text-2xl sm:text-4xl text-gray-900 mt-2 sm:mt-3">
+            <h2 className="font-display font-semibold text-3xl sm:text-5xl text-gray-900 mt-3 leading-[1.08]">
               A loja da <span className="italic font-medium text-brand-green">vizinhança</span> em Itabira
             </h2>
+            <p className="mt-5 text-gray-600 leading-relaxed max-w-md">
+              Desde 1998 a gente cuida dos pets da cidade pelo nome, com marca boa, entrega sem
+              cobrança de frete e resposta rápida no WhatsApp.
+            </p>
+            <a
+              href="https://wa.me/message/DVEYNOWZKFLAK1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-7 bg-brand-green text-white font-semibold px-6 py-3 rounded-full hover:bg-brand-green-dark transition-colors text-sm sm:text-base"
+            >
+              <PawPrint size={18} /> Falar com a gente
+            </a>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
+          <ol className="divide-y divide-gray-200 border-y border-gray-200">
             {[
               {
-                icon: Shield,
                 title: 'Marca que a gente confia',
                 desc: 'Só colocamos na prateleira o que daríamos pro nosso próprio pet. Purina, Colosso, Guabi, PowerDog e outras.',
               },
               {
-                icon: Truck,
                 title: 'Frete grátis em qualquer bairro',
                 desc: 'Nas compras acima de R$ 100, você não paga nada pela entrega aqui em Itabira. Combina pelo WhatsApp e a gente vai.',
               },
               {
-                icon: Heart,
                 title: 'A gente conhece seu pet pelo nome',
                 desc: 'Quando você volta, o Vinícius e a equipe já sabem o nome do bicho e a ração de sempre.',
               },
               {
-                icon: Star,
                 title: '1.620 famílias atendem aqui',
                 desc: '4,5 estrelas no Google e mais de 1.600 famílias acompanhando a gente no Instagram.',
               },
               {
-                icon: Clock,
                 title: 'Resposta rápida no WhatsApp',
                 desc: 'Você manda mensagem e a gente responde na hora. Sem fila, sem espera, sem robô.',
               },
               {
-                icon: Scissors,
                 title: 'Banho e tosa que seu pet vai gostar',
                 desc: 'Banho com produto suave, tosa higiênica ou de raça. E a gente busca e devolve seu pet em casa.',
               },
-            ].map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={i}
-                  className="flex gap-4 p-5 rounded-2xl hover:bg-paper transition-colors group"
-                >
-                  <div className="w-12 h-12 bg-brand-green/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-brand-green/20 transition-colors">
-                    <Icon size={22} className="text-brand-green" />
-                  </div>
-                  <div>
-                    <h3 className="font-display font-semibold text-lg text-gray-900">{item.title}</h3>
-                    <p className="text-sm text-gray-500 mt-1 leading-relaxed">{item.desc}</p>
-                  </div>
+            ].map((item, i) => (
+              <li key={item.title} className="grid grid-cols-[3.25rem_minmax(0,1fr)] sm:grid-cols-[4.5rem_minmax(0,1fr)] gap-3 sm:gap-5 py-6 sm:py-7">
+                <span className="font-display text-3xl sm:text-4xl text-gold-ink tabular-nums leading-none pt-1">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <h3 className="font-display font-semibold text-xl text-gray-900">{item.title}</h3>
+                  <p className="text-sm sm:text-[15px] text-gray-600 mt-1.5 leading-relaxed">{item.desc}</p>
                 </div>
-              );
-            })}
-          </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
